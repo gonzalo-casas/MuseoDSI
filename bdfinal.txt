@@ -1,0 +1,106 @@
+CREATE DATABASE Museo
+
+USE Museo
+
+CREATE TABLE Usuario(idUsuario INT,nombre VARCHAR(20), contraseña VARCHAR(20), caducidad Date,
+CONSTRAINT idUsuario_Usuario_pk PRIMARY KEY (idUsuario))
+
+CREATE TABLE Cargo (idCargo INT, nombre VARCHAR(20),descripcion VARCHAR(50),
+CONSTRAINT idCargo_Cargo_pk PRIMARY KEY (idCargo))
+
+CREATE TABLE TipoDoc (idTipoDoc INT, descripcion VARCHAR(20),
+					CONSTRAINT idTipoDoc_TipoDoc_pk PRIMARY KEY (idTipoDoc))
+					
+
+
+CREATE TABLE HorarioEmpleado (idHorario INT, horaIngreso Time(7), horaSalida Time(7), fechaInicio Date, fechaFin Date,
+CONSTRAINT idHorario_HorarioEmpleado_pk PRIMARY KEY (idHorario))
+
+CREATE TABLE Empleado (dni INT, idTipoDoc INT,nombre VARCHAR(20), apellido VARCHAR(20), mail VARCHAR(20),
+ sexo VARCHAR(20),telefono INT,fechaNacimiento Date,idHorario INT,
+fechaIngreso Date, idCargo INT,
+CONSTRAINT dni_Empleado_pk PRIMARY KEY (dni),
+CONSTRAINT idCargo_Usuario_fk FOREIGN KEY (idCargo) REFERENCES Cargo(idCargo),
+CONSTRAINT idHorario_Usuario_fk FOREIGN KEY (idHorario) REFERENCES HorarioEmpleado(idHorario),
+CONSTRAINT idTipoDoc_Empleado_fk FOREIGN KEY (idTipoDoc) REFERENCES TipoDoc(idTipoDoc))
+
+
+
+
+CREATE TABLE Sesion (idSesion INT, idUsuario INT,fechaHoraDesde Date, fechaHoraHasta Date,
+CONSTRAINT Sesion_pk PRIMARY KEY(idSesion, idUsuario),
+CONSTRAINT idUsuario_Sesion_fk FOREIGN KEY (idUsuario) REFERENCES Usuario(idUsuario))
+
+
+
+CREATE TABLE Estado (idEstado INT, descripcion VARCHAR(20),
+                     CONSTRAINT idEstado_Estado_pk PRIMARY KEY (idEstado))
+
+
+
+
+CREATE TABLE Escuela (idEscuela INT, nombre VARCHAR (20), calle VARCHAR(20), nroCalle INT,
+				CONSTRAINT idEscuela_Escuela_pk PRIMARY KEY (idEscuela))
+					
+
+
+
+CREATE TABLE Sede (nroSede INT, nombreSede VARCHAR(20), calle VARCHAR(20), nroCalle INT,CantidadMaximaVisitantes INT,CantidadMaximaPorGuia INT,
+			CONSTRAINT nroSede_Sede_pk PRIMARY KEY (nroSede))
+		
+
+CREATE TABLE TipoExposicion (idTipoExposicion INT, descripcion VARCHAR (20),
+			CONSTRAINT idTipoExposicion_TipoExposicion_pk PRIMARY KEY (idTipoExposicion))
+
+CREATE TABLE Publico (idPublico INT, descripcion VARCHAR(20),
+CONSTRAINT idPublico_Publico_pk PRIMARY KEY (idPublico))
+
+CREATE TABLE Exposicion (idExposicion INT, nroSede INT CONSTRAINT idSede NOT NULL,
+			idTipoExposicion INT CONSTRAINT idTipoExposicion NOT NULL, 
+			nombreExposicion VARCHAR(20), idPublico INT,
+			horaInicio time(6), horaCierre time(6), fechaInicio Date, fechaCierre Date,
+		    CONSTRAINT idExposicion_Exposicion_pk PRIMARY KEY (idExposicion),
+			CONSTRAINT nroSede_Exposicion_fk FOREIGN KEY (nroSede) REFERENCES Sede(nroSede),
+			CONSTRAINT tipoExposicion_Exposicion_fk FOREIGN KEY (idTipoExposicion) REFERENCES TipoExposicion(idTipoExposicion),
+			CONSTRAINT idPublico_Exposicion_fk FOREIGN KEY (idPublico) REFERENCES Publico(idPublico))
+
+CREATE TABLE HistorialEstado(idHistorial INT,idEstado INT, idObra INT, idReserva INT, fechaHoraDesde Date, fechaHoraHasta Date,
+			    CONSTRAINT nosequepk PRIMARY KEY (idHistorial,idEstado),
+			    CONSTRAINT lafk FOREIGN KEY (idEstado) REFERENCES Estado(idEstado))
+
+
+CREATE TABLE DetalleExposicion (idDetalle INT, idExposicion INT, idObra INT,
+				CONSTRAINT todopk_DetalleExposicion_pk PRIMARY KEY (idDetalle,idExposicion,idObra))
+
+CREATE TABLE Obras (idObras INT, idExposicion INT, nombre VARCHAR(20), duracionExtendida INT, duracionResumida INT,
+		   peso INT, alto INT, ancho INT,valuacion INT,fechaIngreso Date, fechaCreacion Date, descripcion VARCHAR(20),
+			CONSTRAINT id_Obras_Obras_pk PRIMARY KEY (idObras),
+			CONSTRAINT idExposicion_Obras_fk FOREIGN KEY (idExposicion) REFERENCES Exposicion(idExposicion))
+
+CREATE TABLE TipoReserva (idTipoReserva INT, descripcion VARCHAR(20),
+			CONSTRAINT id_TipoReserva_Reserva_pk PRIMARY KEY(idTipoReserva))
+
+
+
+CREATE TABLE Reserva (idReserva INT
+					, nroSede INT CONSTRAINT idSede NOT NULL, 
+					  idEscuela INT CONSTRAINT idEscuela NOT NULL,
+					  horaInicio INT, fechaReserva VARCHAR(20), cantidadAlumnos INT,
+					  idTipoReserva INT CONSTRAINT idTipoReserva NOT NULL,
+					  idEstado INT CONSTRAINT idEstado NOT NULL,
+					  CONSTRAINT idReserva_Reserva_pk PRIMARY KEY (idReserva),
+					  CONSTRAINT nroSede_Reserva_fk FOREIGN KEY (nroSede) REFERENCES Sede(nroSede),
+					  CONSTRAINT idEscuela_Reserva_fk FOREIGN KEY (idEscuela) REFERENCES Escuela(idEscuela),
+					  CONSTRAINT idTipoReserva_Reserva_fk FOREIGN KEY (idTipoReserva) REFERENCES TipoReserva(idTipoReserva),
+					  CONSTRAINT idEstado_Reserva_fk FOREIGN KEY (idEstado) REFERENCES Estado(IdEstado))
+
+
+CREATE TABLE DetalleReserva (idReserva INT, nroRenglon INT,
+		     idEmpleado INT CONSTRAINT idGuia NOT NULL,
+			 idExposicion INT CONSTRAINT idExposicion NOT NULL,
+			 CONSTRAINT idReserva_DetalleReserva_pk PRIMARY KEY (idReserva,nroRenglon),
+			 CONSTRAINT idGuia_DetalleReserva_fk FOREIGN KEY (idEmpleado) REFERENCES Empleado(dni),
+			 CONSTRAINT idExposicion_DetalleReserva_fk FOREIGN KEY (idExposicion) REFERENCES Exposicion(idExposicion))
+
+CREATE TABLE AsignacionVisita (fechaHoraDesde Date,fechaHoraHasta Date,idEmpleado INT,idReserva INT,
+				CONSTRAINT pkCompuesta_AsignacionVisita_pk PRIMARY KEY (idReserva,idEmpleado))
