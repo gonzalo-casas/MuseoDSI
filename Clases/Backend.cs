@@ -12,7 +12,7 @@ namespace MuseoDSI.Clases
     {
         SqlConnection Coneccion = new SqlConnection();
         SqlCommand cmd = new SqlCommand();
-        string Cadena_Coneccion = "Data Source=LAPTOP-C87F44FH;Initial Catalog=Museo;Integrated Security=True";
+        string Cadena_Coneccion = "Data Source=SQL5063.site4now.net;Initial Catalog=db_a7b308_museodsi;User Id=db_a7b308_museodsi_admin;Password=museodsi1";
 
         private void Conectar()
         {
