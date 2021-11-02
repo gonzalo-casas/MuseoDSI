@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MuseoDSI.Clases
-{
+{   
     class AsignacionVisita
     {
         public DateTime fechahoraDesde { get; set; }

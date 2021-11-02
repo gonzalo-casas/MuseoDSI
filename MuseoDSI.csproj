@@ -47,22 +47,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clases\AsignacionVisita.cs" />
-    <Compile Include="Clases\Backend.cs" />
-    <Compile Include="Clases\DetalleExposicion.cs" />
-    <Compile Include="Clases\Empleado.cs" />
-    <Compile Include="Clases\Escuela.cs" />
-    <Compile Include="Clases\Exposicion.cs" />
-    <Compile Include="Clases\Gestor.cs" />
-    <Compile Include="Clases\HistorialEstado.cs" />
-    <Compile Include="Clases\HorarioEmpleado.cs" />
-    <Compile Include="Clases\Obras.cs" />
-    <Compile Include="Clases\Publico.cs" />
-    <Compile Include="Clases\Reserva.cs" />
-    <Compile Include="Clases\Sede.cs" />
-    <Compile Include="Clases\TipoExposicion.cs" />
-    <Compile Include="Clases\TipoReserva.cs" />
-    <Compile Include="Clases\Usuario.cs" />
+    <Compile Include="LogicaDeNegocios\AsignacionVisita.cs" />
+    <Compile Include="Datos\Backend.cs" />
+    <Compile Include="LogicaDeNegocios\DetalleExposicion.cs" />
+    <Compile Include="LogicaDeNegocios\Empleado.cs" />
+    <Compile Include="LogicaDeNegocios\Escuela.cs" />
+    <Compile Include="LogicaDeNegocios\EstrategiaCalculoDuracionCompleta.cs" />
+    <Compile Include="LogicaDeNegocios\EstrategiaCalculoDuracionPorExposicion.cs" />
+    <Compile Include="LogicaDeNegocios\Exposicion.cs" />
+    <Compile Include="LogicaDeNegocios\Gestor.cs" />
+    <Compile Include="LogicaDeNegocios\HistorialEstado.cs" />
+    <Compile Include="LogicaDeNegocios\HorarioEmpleado.cs" />
+    <Compile Include="LogicaDeNegocios\IEstrategiaCalculoDuracion.cs" />
+    <Compile Include="LogicaDeNegocios\Obras.cs" />
+    <Compile Include="LogicaDeNegocios\Publico.cs" />
+    <Compile Include="LogicaDeNegocios\Reserva.cs" />
+    <Compile Include="LogicaDeNegocios\Sede.cs" />
+    <Compile Include="LogicaDeNegocios\TipoExposicion.cs" />
+    <Compile Include="LogicaDeNegocios\TipoReserva.cs" />
+    <Compile Include="LogicaDeNegocios\Usuario.cs" />
     <Compile Include="Formularios\Frm_Escritorio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +118,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Datos\EsquemaPersistencia\Daos\" />
+    <Folder Include="Datos\EsquemaPersistencia\Interfaz\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
