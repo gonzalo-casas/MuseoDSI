@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MuseoDSI.Clases;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,14 +9,21 @@ namespace MuseoDSI.LogicaDeNegocios
 {
     class EstrategiaCalculoDuracionPorExposicion : IEstrategiaCalculoDuracion
     {
-        public int CalcularDuracionEstimadaResv()
+        Sede sede = new Sede();
+
+        public int CalcularDuracionEstimadaResv(List<Exposicion> ExposicionesSeleccionadas)
         {
-            throw new NotImplementedException();
+            int duracionEstimada = sede.CalcularDuracionEstimada(ExposicionesSeleccionadas);
+            return duracionEstimada;
         }
 
-        public int BuscarDuracionExposiciones()
+
+
+        public List<Exposicion> BuscarExposiciones(int nroSede)
         {
-            throw new NotImplementedException();
+
+            List<Exposicion> ListaExpos = sede.BuscarListaExposicion(nroSede);
+            return ListaExpos;
         }
 
     }

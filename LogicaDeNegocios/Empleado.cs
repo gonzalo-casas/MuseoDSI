@@ -47,7 +47,7 @@ namespace MuseoDSI.Clases
         public string VerificarGuia(int idCargo)
         {
             string cargo = "";
-            if (idCargo == 1)
+            if (idCargo == 2)
             {
                 cargo = "Guia";
             }

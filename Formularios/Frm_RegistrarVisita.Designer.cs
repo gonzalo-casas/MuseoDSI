@@ -33,15 +33,17 @@
             this.cmb_Sede = new System.Windows.Forms.ComboBox();
             this.cmb_TipoVisita = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.txt_visitantes = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cmb_Escuela = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.label8 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.nombreExposicion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.publicoDestino = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,24 +51,23 @@
             this.horaCierre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txt_guiasNecesarios = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.lbl_fecha = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
             this.button5 = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txt_guiasNecesarios = new System.Windows.Forms.TextBox();
             this.cmb_Guias = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btn_agregarGuia = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.nombreGuia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnConfirmar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -81,9 +82,9 @@
             this.panel1.Controls.Add(this.cmb_Sede);
             this.panel1.Controls.Add(this.cmb_TipoVisita);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.txt_visitantes);
             this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.cmb_Escuela);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(12, 117);
@@ -94,7 +95,7 @@
             // cmb_Sede
             // 
             this.cmb_Sede.FormattingEnabled = true;
-            this.cmb_Sede.Location = new System.Drawing.Point(301, 76);
+            this.cmb_Sede.Location = new System.Drawing.Point(301, 115);
             this.cmb_Sede.Name = "cmb_Sede";
             this.cmb_Sede.Size = new System.Drawing.Size(165, 21);
             this.cmb_Sede.TabIndex = 19;
@@ -104,10 +105,11 @@
             // cmb_TipoVisita
             // 
             this.cmb_TipoVisita.FormattingEnabled = true;
-            this.cmb_TipoVisita.Location = new System.Drawing.Point(299, 103);
+            this.cmb_TipoVisita.Location = new System.Drawing.Point(302, 85);
             this.cmb_TipoVisita.Name = "cmb_TipoVisita";
             this.cmb_TipoVisita.Size = new System.Drawing.Size(167, 21);
             this.cmb_TipoVisita.TabIndex = 18;
+            this.cmb_TipoVisita.SelectedIndexChanged += new System.EventHandler(this.cmb_TipoVisita_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -115,27 +117,15 @@
             this.label5.BackColor = System.Drawing.Color.Black;
             this.label5.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.Control;
-            this.label5.Location = new System.Drawing.Point(3, 106);
+            this.label5.Location = new System.Drawing.Point(5, 85);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(290, 18);
             this.label5.TabIndex = 17;
             this.label5.Text = "Tipo Visita                                                    ";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Black;
-            this.label4.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(3, 79);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(289, 18);
-            this.label4.TabIndex = 15;
-            this.label4.Text = "Sede                                                             ";
-            // 
             // txt_visitantes
             // 
-            this.txt_visitantes.Location = new System.Drawing.Point(299, 50);
+            this.txt_visitantes.Location = new System.Drawing.Point(302, 50);
             this.txt_visitantes.Name = "txt_visitantes";
             this.txt_visitantes.Size = new System.Drawing.Size(167, 20);
             this.txt_visitantes.TabIndex = 14;
@@ -171,6 +161,18 @@
             this.label2.Size = new System.Drawing.Size(288, 18);
             this.label2.TabIndex = 11;
             this.label2.Text = "Escuela                                                        ";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Black;
+            this.label4.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.Control;
+            this.label4.Location = new System.Drawing.Point(5, 118);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(289, 18);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "Sede                                                             ";
             // 
             // label1
             // 
@@ -213,6 +215,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Exposiciones Seleccionadas";
             // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(320, 91);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(150, 26);
+            this.textBox3.TabIndex = 16;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            // 
             // listView1
             // 
             this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
@@ -223,6 +233,18 @@
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.List;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Black;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(18, 95);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(291, 18);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "Duración Estimada                            ";
             // 
             // dataGridView1
             // 
@@ -235,6 +257,7 @@
             this.horaCierre});
             this.dataGridView1.Location = new System.Drawing.Point(528, 117);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(473, 120);
             this.dataGridView1.TabIndex = 12;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -242,24 +265,28 @@
             // nombreExposicion
             // 
             this.nombreExposicion.HeaderText = "Exposicion";
+            this.nombreExposicion.MinimumWidth = 6;
             this.nombreExposicion.Name = "nombreExposicion";
             this.nombreExposicion.Width = 107;
             // 
             // publicoDestino
             // 
             this.publicoDestino.HeaderText = "Público";
+            this.publicoDestino.MinimumWidth = 6;
             this.publicoDestino.Name = "publicoDestino";
             this.publicoDestino.Width = 107;
             // 
             // horaApertura
             // 
             this.horaApertura.HeaderText = "Hora Apertura";
+            this.horaApertura.MinimumWidth = 6;
             this.horaApertura.Name = "horaApertura";
             this.horaApertura.Width = 107;
             // 
             // horaCierre
             // 
             this.horaCierre.HeaderText = "Hora de Cierre";
+            this.horaCierre.MinimumWidth = 6;
             this.horaCierre.Name = "horaCierre";
             this.horaCierre.Width = 107;
             // 
@@ -288,6 +315,50 @@
             this.panel2.Size = new System.Drawing.Size(473, 126);
             this.panel2.TabIndex = 14;
             // 
+            // txt_guiasNecesarios
+            // 
+            this.txt_guiasNecesarios.Location = new System.Drawing.Point(298, 97);
+            this.txt_guiasNecesarios.Name = "txt_guiasNecesarios";
+            this.txt_guiasNecesarios.ReadOnly = true;
+            this.txt_guiasNecesarios.Size = new System.Drawing.Size(167, 20);
+            this.txt_guiasNecesarios.TabIndex = 21;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Black;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(10, 99);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(283, 18);
+            this.label9.TabIndex = 20;
+            this.label9.Text = "Guias Necesarios                            ";
+            // 
+            // maskedTextBox2
+            // 
+            this.maskedTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.maskedTextBox2.Location = new System.Drawing.Point(298, 67);
+            this.maskedTextBox2.Mask = "00:00:00";
+            this.maskedTextBox2.Name = "maskedTextBox2";
+            this.maskedTextBox2.Size = new System.Drawing.Size(169, 24);
+            this.maskedTextBox2.TabIndex = 19;
+            this.maskedTextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.maskedTextBox2.ValidatingType = typeof(System.DateTime);
+            // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.maskedTextBox1.Location = new System.Drawing.Point(298, 31);
+            this.maskedTextBox1.Mask = "00/00/0000";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(169, 24);
+            this.maskedTextBox1.TabIndex = 18;
+            this.maskedTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.maskedTextBox1.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePrompt;
+            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
+            this.maskedTextBox1.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -312,26 +383,6 @@
             this.lbl_fecha.TabIndex = 0;
             this.lbl_fecha.Text = "Fecha de reserva                             ";
             this.lbl_fecha.Click += new System.EventHandler(this.lbl_fecha_Click);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Black;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(18, 95);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(291, 18);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "Duración Estimada                            ";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(320, 91);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(150, 26);
-            this.textBox3.TabIndex = 16;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // button2
             // 
@@ -366,30 +417,6 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.maskedTextBox1.Location = new System.Drawing.Point(298, 31);
-            this.maskedTextBox1.Mask = "00/00/0000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(169, 24);
-            this.maskedTextBox1.TabIndex = 18;
-            this.maskedTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.maskedTextBox1.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePrompt;
-            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
-            this.maskedTextBox1.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
-            // 
-            // maskedTextBox2
-            // 
-            this.maskedTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.maskedTextBox2.Location = new System.Drawing.Point(298, 67);
-            this.maskedTextBox2.Mask = "00:00:00";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(169, 24);
-            this.maskedTextBox2.TabIndex = 19;
-            this.maskedTextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.maskedTextBox2.ValidatingType = typeof(System.DateTime);
-            // 
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
@@ -400,26 +427,6 @@
             this.button5.Text = "Verificar";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Black;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(10, 99);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(283, 18);
-            this.label9.TabIndex = 20;
-            this.label9.Text = "Guias Necesarios                            ";
-            // 
-            // txt_guiasNecesarios
-            // 
-            this.txt_guiasNecesarios.Location = new System.Drawing.Point(298, 97);
-            this.txt_guiasNecesarios.Name = "txt_guiasNecesarios";
-            this.txt_guiasNecesarios.ReadOnly = true;
-            this.txt_guiasNecesarios.Size = new System.Drawing.Size(167, 20);
-            this.txt_guiasNecesarios.TabIndex = 21;
             // 
             // cmb_Guias
             // 
@@ -471,14 +478,27 @@
             this.nombreGuia});
             this.dataGridView2.Location = new System.Drawing.Point(528, 420);
             this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.Size = new System.Drawing.Size(200, 117);
             this.dataGridView2.TabIndex = 25;
             // 
             // nombreGuia
             // 
             this.nombreGuia.HeaderText = "Guias Seleccionado";
+            this.nombreGuia.MinimumWidth = 6;
             this.nombreGuia.Name = "nombreGuia";
             this.nombreGuia.Width = 150;
+            // 
+            // btnConfirmar
+            // 
+            this.btnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.btnConfirmar.Location = new System.Drawing.Point(830, 244);
+            this.btnConfirmar.Name = "btnConfirmar";
+            this.btnConfirmar.Size = new System.Drawing.Size(75, 30);
+            this.btnConfirmar.TabIndex = 26;
+            this.btnConfirmar.Text = "Confirmar";
+            this.btnConfirmar.UseVisualStyleBackColor = true;
+            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
             // Frm_RegistrarVisita
             // 
@@ -486,6 +506,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1027, 544);
+            this.Controls.Add(this.btnConfirmar);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.btn_agregarGuia);
             this.Controls.Add(this.panel3);
@@ -559,5 +580,6 @@
         private System.Windows.Forms.Button btn_agregarGuia;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreGuia;
+        private System.Windows.Forms.Button btnConfirmar;
     }
 }

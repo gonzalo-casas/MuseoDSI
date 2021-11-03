@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MuseoDSI.Clases;
+using MuseoDSI.LogicaDeNegocios;
 
 namespace MuseoDSI.Formularios
 {
     public partial class Frm_RegistrarVisita : Form
     {
         Gestor gestor = new Gestor();
+        Exposicion expoSeleccionada = new Exposicion();
         public Frm_RegistrarVisita()
         {
             InitializeComponent();
@@ -80,7 +82,7 @@ namespace MuseoDSI.Formularios
             if (cmb_Sede.SelectedItem.ToString() != "")
             {
              
-             List<Exposicion> listaExpos = gestor.BuscarExposiciones(cmb_Sede.SelectedItem.ToString());
+             List<Exposicion> listaExpos = gestor.BuscarExposiciones(cmb_Sede.SelectedIndex);
              CargarGrilla(listaExpos);
              return;
 
@@ -109,12 +111,12 @@ namespace MuseoDSI.Formularios
             if(dataGridView1.Rows.Count >= 1)
             {
                 listView1.Items.Add(dataGridView1.CurrentRow.Cells[0].Value.ToString());
-                Exposicion expoSeleccionada = new Exposicion();
+               
                 expoSeleccionada.nombre = dataGridView1.CurrentRow.Cells[0].Value.ToString();
                 expoSeleccionada.idPublico = dataGridView1.CurrentRow.Cells[1].Value.ToString();
                 expoSeleccionada.horaInicio = DateTime.Parse(dataGridView1.CurrentRow.Cells[2].Value.ToString());
                 expoSeleccionada.horaFin = DateTime.Parse(dataGridView1.CurrentRow.Cells[3].Value.ToString());
-                gestor.GuardarListaExposición(expoSeleccionada);
+                //gestor.GuardarListaExposición(expoSeleccionada);
             }
             
         }
@@ -158,7 +160,14 @@ namespace MuseoDSI.Formularios
                 int Guias = gestor.CalcularGuias(cmb_Sede.Text,txt_visitantes.Text);
                 txt_guiasNecesarios.Text = Guias.ToString();
                 List<Empleado> listaGuias = gestor.ObtenerEmpleado(DateTime.Parse(maskedTextBox2.Text.ToString()));
-                for(int i = 0;i < listaGuias.Count; i++)
+
+                if (int.Parse(txt_guiasNecesarios.Text.ToString()) != listaGuias.Count())
+                {
+                    MessageBox.Show("No hay la cantidad suficiente de guias disponibles");
+
+                }
+
+                for (int i = 0;i < listaGuias.Count; i++)
                 {
                     cmb_Guias.Items.Add(listaGuias[i].nombre);
                 }
@@ -207,7 +216,7 @@ namespace MuseoDSI.Formularios
             {
                 if(sedes[i].nombreSede == cmb_Sede.Text)
                 {
-                    idSede = sedes[i].nroSede;
+                    idSede = sedes[i].nroSede + 1 ;
                 }
             }
             gestor.RegistrarReserva(numReserva, idSede, 1, DateTime.Parse(maskedTextBox2.Text.ToString()), DateTime.Now, int.Parse(txt_visitantes.Text), 1, 1);
@@ -225,5 +234,20 @@ namespace MuseoDSI.Formularios
             }
             return num;
         }
+
+       
+
+        private void btnConfirmar_Click(object sender, EventArgs e)
+        {
+            gestor.GuardarListaExposición(expoSeleccionada);
+        }
+
+        private void cmb_TipoVisita_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int estrategia = this.cmb_TipoVisita.SelectedIndex;
+            gestor.crearEstrategia(estrategia);
+        }
+
+       
     }
 }

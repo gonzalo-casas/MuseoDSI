@@ -60,7 +60,7 @@ namespace MuseoDSI.Clases
             DateTime fechaHoy = ObtenerFechaActual();
             for( int i = 0; i < lista.Count; i++)
             {
-                if (lista[i].fechaFin < fechaHoy)
+                if (lista[i].fechaFin > fechaHoy)
                 {
                     ListaExposicionesVigentes.Add(lista[i]);
                 }

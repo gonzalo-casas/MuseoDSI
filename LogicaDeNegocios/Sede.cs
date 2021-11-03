@@ -42,17 +42,17 @@ namespace MuseoDSI.Clases
 
         public List<Exposicion> ListaExposicion = new List<Exposicion>();
         Exposicion expo = new Exposicion();
-        public List<Exposicion> BuscarListaExposicion(string nombreSede)
+        public List<Exposicion> BuscarListaExposicion(int nroSedee)
         {
             ListaExposicion.Clear();
-            int nroSede = 0;
-            for(int i = 0; i < ListaSede.Count; i++)
-            {
-                if(nombreSede == ListaSede[i].nombreSede)
-                {
-                    nroSede = ListaSede[i].nroSede;
-                }
-            }
+            int nroSede = nroSedee + 1;
+            //for (int i = 0; i < ListaSede.Count; i++)
+            //{
+            //    if (nombreSede == ListaSede[i].nombreSede)
+            //    {
+            //        nroSede = ListaSede[i].nroSede;
+            //    }
+            //}
             DataTable tabla = new DataTable();
             string sql = "SELECT * FROM Exposicion WHERE nroSede = " + nroSede;
             

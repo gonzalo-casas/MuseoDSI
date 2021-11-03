@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using MuseoDSI.Clases;
+using MuseoDSI.LogicaDeNegocios;
+using System.Windows.Forms;
 
 namespace MuseoDSI.Clases
 {
@@ -16,6 +18,9 @@ namespace MuseoDSI.Clases
         Escuela escuela = new Escuela();
         Sede sede = new Sede();
         TipoReserva tipoReserva = new TipoReserva();
+        IEstrategiaCalculoDuracion estrategia;
+
+
         public List<Escuela> RecuperarListaEscuelas()
         {
             List<Escuela> ListaDeEscuelas = escuela.BuscarlistaEscuelas();
@@ -33,12 +38,16 @@ namespace MuseoDSI.Clases
             return ListaDeTipoReserva;
         }
 
-        public List<Exposicion> BuscarExposiciones(string nombreSede)
+        public List<Exposicion> BuscarExposiciones(int nombreSede)
         {
-            
-            List<Exposicion> ListaExpos = sede.BuscarListaExposicion(nombreSede);
-            return ListaExpos;
+           return estrategia.BuscarExposiciones(nombreSede);
         }
+        //public List<Exposicion> BuscarExposiciones(string nombreSede)
+        //{
+            
+        //    List<Exposicion> ListaExpos = sede.BuscarListaExposicion(nombreSede);
+        //    return ListaExpos;
+        //}
 
         //Guardamos lista de exposiciones seleccionadas desde la pantalla 
         public  List<Exposicion> ExposicionesSeleccionadas = new List<Exposicion>();
@@ -51,8 +60,9 @@ namespace MuseoDSI.Clases
         //Calcula La duracion estimada de la reserva
         public int CalcularDuracionEstimada()
         {
-            int duracionEstimada = sede.CalcularDuracionEstimada(ExposicionesSeleccionadas);
-            return duracionEstimada;
+           return  estrategia.CalcularDuracionEstimadaResv(ExposicionesSeleccionadas);
+            //int duracionEstimada = sede.CalcularDuracionEstimada(ExposicionesSeleccionadas);
+            //return duracionEstimada;
         }
 
 
@@ -117,7 +127,11 @@ namespace MuseoDSI.Clases
                 }
                 
                 
+                
             }
+
+           
+
             return listaGuiasDisponibles;
                 
         }
@@ -127,8 +141,17 @@ namespace MuseoDSI.Clases
             
             reserva.nuevaReserva(idReserva, nroSede, idEscuela, horaInicio, fechaReserva, CantidadAlumnos, idTipoReserva, idEstado);
         }
-        
-        
+       public void crearEstrategia(int estrategiaSeleccionada)
+        {
+            
+            if (estrategiaSeleccionada.Equals(1))
+            {
+              estrategia = new EstrategiaCalculoDuracionPorExposicion();
+            }else
+               estrategia = new EstrategiaCalculoDuracionCompleta();
+
+           
+        }
         
     }
 }

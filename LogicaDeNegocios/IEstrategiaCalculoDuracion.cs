@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MuseoDSI.Clases;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ namespace MuseoDSI.LogicaDeNegocios
 {
     interface IEstrategiaCalculoDuracion
     {
-       int CalcularDuracionEstimadaResv();
+       int CalcularDuracionEstimadaResv(List<Exposicion> ExposicionesSeleccionadas);
+       List<Exposicion> BuscarExposiciones(int nroSede);
     }
 }
