@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MuseoDSI.Formularios;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace MuseoDSI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Frm_Escritorio());
+            Application.Run(new frmPrincipal());
         }
     }
 }

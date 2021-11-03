@@ -32,12 +32,16 @@ namespace MuseoDSI
 
         private void Frm_Escritorio_Load(object sender, EventArgs e)
         {
-            Frm_Login login = new Frm_Login();
+            frmLogin login = new frmLogin();
             login.ShowDialog();
-            this.usuario = login.Usuario;
-            
-          
-            
+            this.usuario = login.MiUsuario.nombre;
+
+            if (string.IsNullOrEmpty(login.MiUsuario.nombre))
+                Application.ExitThread();
+            else
+            {
+                //cargar nombre en alguna parte del form
+            }
         }
     }
 }

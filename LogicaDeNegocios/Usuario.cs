@@ -5,20 +5,30 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using MuseoDSI.Clases;
+using MuseoDSI.Datos.EsquemaPersistencia.Interfaz;
+using MuseoDSI.Datos.EsquemaPersistencia.Daos;
 
 namespace MuseoDSI.Clases
 {
     class Usuario
     {
+
+        private IUsuario dao;
+
+        public Usuario()
+        {
+            dao = new UsuarioDao();
+        }
+
         Backend _BD = new Backend();
-        public int idUsuario { get; set; }
+        public string idUsuario { get; set; }
         public string nombre { get; set; }
         public string contraseña { get; set; }
         public DateTime caducidad { get; set; }
 
         public List<Usuario> listaUsuarios= new List<Usuario>();
 
-        public List<Usuario> LlenarListaUsuario()
+       /* public List<Usuario> LlenarListaUsuario()
         {
 
             DataTable tabla = new DataTable();
@@ -37,6 +47,11 @@ namespace MuseoDSI.Clases
             return listaUsuarios;
 
 
+        }*/
+
+        public Array ValidarUsuario(string Id_Usuario, string Contrasena)
+        {
+            return dao.validarUsuario(Id_Usuario, Contrasena);
         }
 
     }

@@ -47,6 +47,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Datos\EsquemaPersistencia\Daos\UsuarioDao.cs" />
+    <Compile Include="Datos\EsquemaPersistencia\Interfaz\IUsuario.cs" />
+    <Compile Include="Formularios\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmLogin.designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmPrincipal.designer.cs">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmSalir.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmSalir.designer.cs">
+      <DependentUpon>frmSalir.cs</DependentUpon>
+    </Compile>
     <Compile Include="LogicaDeNegocios\AsignacionVisita.cs" />
     <Compile Include="Datos\Backend.cs" />
     <Compile Include="LogicaDeNegocios\DetalleExposicion.cs" />
@@ -86,6 +106,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Formularios\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmPrincipal.resx">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmSalir.resx">
+      <DependentUpon>frmSalir.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Frm_Escritorio.resx">
       <DependentUpon>Frm_Escritorio.cs</DependentUpon>
     </EmbeddedResource>
@@ -103,6 +132,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -119,8 +149,37 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Datos\EsquemaPersistencia\Daos\" />
-    <Folder Include="Datos\EsquemaPersistencia\Interfaz\" />
+    <None Include="Formularios\Recursos\Iconos\cerrar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Formularios\Recursos\Iconos\ojo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Formularios\Recursos\Iconos\ojo-pintado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Formularios\Recursos\Iconos\icons8-exit-60.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Formularios\Recursos\Iconos\apagar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Formularios\Recursos\Iconos\cerrar-sesion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Formularios\Recursos\Iconos\icons8-user-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Formularios\Recursos\Iconos\icons8-school-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Formularios\Recursos\Iconos\icons8-art-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Formularios\Recursos\Iconos\icons8-painting-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Formularios\Recursos\Iconos\icons8-employee-64.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

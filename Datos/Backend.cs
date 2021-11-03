@@ -10,6 +10,7 @@ namespace MuseoDSI.Clases
 {
     class Backend
     {
+        private static Backend instancia;
         SqlConnection Coneccion = new SqlConnection();
         SqlCommand cmd = new SqlCommand();
         string Cadena_Coneccion = "Data Source=SQL5063.site4now.net;Initial Catalog=db_a7b308_museodsi;User Id=db_a7b308_museodsi_admin;Password=museodsi1";
@@ -23,6 +24,16 @@ namespace MuseoDSI.Clases
                 cmd.Connection = Coneccion;
                 cmd.CommandType = System.Data.CommandType.Text;
             }
+        }
+
+        public static Backend obtenerInstancia()
+        {
+            if (instancia == null)
+            {
+                instancia = new Backend();
+
+            }
+            return instancia;
         }
 
         private void Desconectar()
