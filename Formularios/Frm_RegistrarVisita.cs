@@ -15,7 +15,9 @@ namespace MuseoDSI.Formularios
     public partial class Frm_RegistrarVisita : Form
     {
         Gestor gestor = new Gestor();
-        Exposicion expoSeleccionada = new Exposicion();
+        Exposicion expoSeleccionada;
+        List<Exposicion> exposicionesSeleccionadas = new List<Exposicion>();
+        
         public Frm_RegistrarVisita()
         {
             InitializeComponent();
@@ -110,13 +112,15 @@ namespace MuseoDSI.Formularios
         {
             if(dataGridView1.Rows.Count >= 1)
             {
+                expoSeleccionada = new Exposicion();
+
                 listView1.Items.Add(dataGridView1.CurrentRow.Cells[0].Value.ToString());
                
                 expoSeleccionada.nombre = dataGridView1.CurrentRow.Cells[0].Value.ToString();
                 expoSeleccionada.idPublico = dataGridView1.CurrentRow.Cells[1].Value.ToString();
                 expoSeleccionada.horaInicio = DateTime.Parse(dataGridView1.CurrentRow.Cells[2].Value.ToString());
                 expoSeleccionada.horaFin = DateTime.Parse(dataGridView1.CurrentRow.Cells[3].Value.ToString());
-                //gestor.GuardarListaExposición(expoSeleccionada);
+                exposicionesSeleccionadas.Add(expoSeleccionada);
             }
             
         }
@@ -161,7 +165,7 @@ namespace MuseoDSI.Formularios
                 txt_guiasNecesarios.Text = Guias.ToString();
                 List<Empleado> listaGuias = gestor.ObtenerEmpleado(DateTime.Parse(maskedTextBox2.Text.ToString()));
 
-                if (int.Parse(txt_guiasNecesarios.Text.ToString()) != listaGuias.Count())
+                if (int.Parse(txt_guiasNecesarios.Text.ToString()) > listaGuias.Count())
                 {
                     MessageBox.Show("No hay la cantidad suficiente de guias disponibles");
 
@@ -239,7 +243,11 @@ namespace MuseoDSI.Formularios
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            gestor.GuardarListaExposición(expoSeleccionada);
+            for (int i = 0; i < exposicionesSeleccionadas.Count; i++) // para que guarde cada exposicion cargada en la listview seleccionada 
+            {
+                gestor.GuardarListaExposición(exposicionesSeleccionadas[i]);
+            }
+           
         }
 
         private void cmb_TipoVisita_SelectedIndexChanged(object sender, EventArgs e)
@@ -248,6 +256,9 @@ namespace MuseoDSI.Formularios
             gestor.crearEstrategia(estrategia);
         }
 
-       
+        private void btn_quitar_Click(object sender, EventArgs e)
+        {
+            //listView1.Items.Remove
+        }
     }
 }

@@ -68,6 +68,7 @@
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.nombreGuia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnConfirmar = new System.Windows.Forms.Button();
+            this.btn_quitar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -293,7 +294,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.button1.Location = new System.Drawing.Point(923, 243);
+            this.button1.Location = new System.Drawing.Point(848, 243);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 30);
             this.button1.TabIndex = 13;
@@ -492,7 +493,7 @@
             // btnConfirmar
             // 
             this.btnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.btnConfirmar.Location = new System.Drawing.Point(830, 244);
+            this.btnConfirmar.Location = new System.Drawing.Point(767, 243);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(75, 30);
             this.btnConfirmar.TabIndex = 26;
@@ -500,12 +501,24 @@
             this.btnConfirmar.UseVisualStyleBackColor = true;
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
+            // btn_quitar
+            // 
+            this.btn_quitar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.btn_quitar.Location = new System.Drawing.Point(929, 243);
+            this.btn_quitar.Name = "btn_quitar";
+            this.btn_quitar.Size = new System.Drawing.Size(75, 30);
+            this.btn_quitar.TabIndex = 27;
+            this.btn_quitar.Text = "Quitar";
+            this.btn_quitar.UseVisualStyleBackColor = true;
+            this.btn_quitar.Click += new System.EventHandler(this.btn_quitar_Click);
+            // 
             // Frm_RegistrarVisita
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1027, 544);
+            this.Controls.Add(this.btn_quitar);
             this.Controls.Add(this.btnConfirmar);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.btn_agregarGuia);
@@ -581,5 +594,6 @@
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreGuia;
         private System.Windows.Forms.Button btnConfirmar;
+        private System.Windows.Forms.Button btn_quitar;
     }
 }
