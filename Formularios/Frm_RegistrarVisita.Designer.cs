@@ -28,30 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cmb_Sede = new System.Windows.Forms.ComboBox();
             this.cmb_TipoVisita = new System.Windows.Forms.ComboBox();
             this.txt_visitantes = new System.Windows.Forms.TextBox();
             this.cmb_Escuela = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.lv_Exposiciones = new System.Windows.Forms.ListView();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.dgv_Exposiciones = new System.Windows.Forms.DataGridView();
             this.nombreExposicion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.publicoDestino = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.horaApertura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.horaCierre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.txt_guiasNecesarios = new System.Windows.Forms.TextBox();
+            this.dtpReserva = new System.Windows.Forms.DateTimePicker();
+            this.label8 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.lv_Guias = new System.Windows.Forms.ListView();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.btn_QuitarGuia = new MuseoDSI.Formularios.BotonRedondeado();
+            this.btn_agregarGuia = new MuseoDSI.Formularios.BotonRedondeado();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.dgv_Guias = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.nombreGuia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btnCerrar = new MuseoDSI.Formularios.BotonRedondeado();
+            this.cmb_Guias = new System.Windows.Forms.ComboBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -61,29 +73,20 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panelExposiciones = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.dtpReserva = new System.Windows.Forms.DateTimePicker();
-            this.label7 = new System.Windows.Forms.Label();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.dgv_Guias = new System.Windows.Forms.DataGridView();
-            this.cmb_Guias = new System.Windows.Forms.ComboBox();
-            this.lv_Guias = new System.Windows.Forms.ListView();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.btn_QuitarGuia = new MuseoDSI.Formularios.BotonRedondeado();
-            this.btn_agregarGuia = new MuseoDSI.Formularios.BotonRedondeado();
-            this.btn_Cancelar = new MuseoDSI.Formularios.BotonRedondeado();
-            this.btn_Registrar = new MuseoDSI.Formularios.BotonRedondeado();
             this.btn_quitar = new MuseoDSI.Formularios.BotonRedondeado();
             this.btn_agregar = new MuseoDSI.Formularios.BotonRedondeado();
-            this.btnCerrar = new MuseoDSI.Formularios.BotonRedondeado();
-            this.panel9 = new System.Windows.Forms.Panel();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.btn_Cancelar = new MuseoDSI.Formularios.BotonRedondeado();
+            this.btn_Registrar = new MuseoDSI.Formularios.BotonRedondeado();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Exposiciones)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.panel9.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Guias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -92,10 +95,6 @@
             this.panel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.panel8.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_Guias)).BeginInit();
-            this.groupBox5.SuspendLayout();
-            this.panel9.SuspendLayout();
             this.SuspendLayout();
             // 
             // cmb_Sede
@@ -154,15 +153,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Exposiciones Seleccionadas";
             // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(915, 17);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(150, 26);
-            this.textBox3.TabIndex = 16;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
-            // 
             // lv_Exposiciones
             // 
             this.lv_Exposiciones.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -175,18 +165,19 @@
             this.lv_Exposiciones.UseCompatibleStateImageBehavior = false;
             this.lv_Exposiciones.View = System.Windows.Forms.View.List;
             // 
+            // textBox3
+            // 
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(915, 17);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(150, 26);
+            this.textBox3.TabIndex = 16;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            // 
             // dgv_Exposiciones
             // 
             this.dgv_Exposiciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_Exposiciones.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_Exposiciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgv_Exposiciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Exposiciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nombreExposicion,
@@ -240,6 +231,28 @@
             this.panel2.Size = new System.Drawing.Size(1000, 88);
             this.panel2.TabIndex = 14;
             // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(763, 20);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(146, 20);
+            this.label5.TabIndex = 21;
+            this.label5.Text = "Duracion estimada:";
+            // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(579, 58);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(136, 20);
+            this.label7.TabIndex = 35;
+            this.label7.Text = "Guias necesarios:";
+            // 
             // txt_guiasNecesarios
             // 
             this.txt_guiasNecesarios.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
@@ -249,6 +262,29 @@
             this.txt_guiasNecesarios.ReadOnly = true;
             this.txt_guiasNecesarios.Size = new System.Drawing.Size(54, 26);
             this.txt_guiasNecesarios.TabIndex = 21;
+            // 
+            // dtpReserva
+            // 
+            this.dtpReserva.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpReserva.CustomFormat = "dd/MM/yyyy - HH:mm";
+            this.dtpReserva.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpReserva.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpReserva.Location = new System.Drawing.Point(515, 17);
+            this.dtpReserva.Name = "dtpReserva";
+            this.dtpReserva.ShowCheckBox = true;
+            this.dtpReserva.Size = new System.Drawing.Size(200, 26);
+            this.dtpReserva.TabIndex = 34;
+            // 
+            // label8
+            // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(306, 20);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(199, 20);
+            this.label8.TabIndex = 22;
+            this.label8.Text = "Fecha y hora de la reserva:";
             // 
             // button2
             // 
@@ -283,6 +319,101 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1000, 336);
             this.panel3.TabIndex = 23;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.lv_Guias);
+            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox5.Location = new System.Drawing.Point(820, 0);
+            this.groupBox5.MinimumSize = new System.Drawing.Size(500, 0);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(670, 336);
+            this.groupBox5.TabIndex = 39;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Guías seleccionados";
+            // 
+            // lv_Guias
+            // 
+            this.lv_Guias.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lv_Guias.HideSelection = false;
+            this.lv_Guias.Location = new System.Drawing.Point(3, 22);
+            this.lv_Guias.Name = "lv_Guias";
+            this.lv_Guias.Size = new System.Drawing.Size(664, 311);
+            this.lv_Guias.TabIndex = 38;
+            this.lv_Guias.UseCompatibleStateImageBehavior = false;
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.btn_QuitarGuia);
+            this.panel9.Controls.Add(this.btn_agregarGuia);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel9.Location = new System.Drawing.Point(670, 0);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(150, 336);
+            this.panel9.TabIndex = 42;
+            // 
+            // btn_QuitarGuia
+            // 
+            this.btn_QuitarGuia.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_QuitarGuia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.btn_QuitarGuia.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.btn_QuitarGuia.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btn_QuitarGuia.BorderRadius = 18;
+            this.btn_QuitarGuia.BorderSize = 0;
+            this.btn_QuitarGuia.FlatAppearance.BorderSize = 0;
+            this.btn_QuitarGuia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_QuitarGuia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_QuitarGuia.ForeColor = System.Drawing.Color.White;
+            this.btn_QuitarGuia.Location = new System.Drawing.Point(14, 202);
+            this.btn_QuitarGuia.Name = "btn_QuitarGuia";
+            this.btn_QuitarGuia.Size = new System.Drawing.Size(113, 36);
+            this.btn_QuitarGuia.TabIndex = 41;
+            this.btn_QuitarGuia.Text = "← Quitar";
+            this.btn_QuitarGuia.TextColor = System.Drawing.Color.White;
+            this.btn_QuitarGuia.UseVisualStyleBackColor = false;
+            // 
+            // btn_agregarGuia
+            // 
+            this.btn_agregarGuia.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_agregarGuia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.btn_agregarGuia.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.btn_agregarGuia.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btn_agregarGuia.BorderRadius = 18;
+            this.btn_agregarGuia.BorderSize = 0;
+            this.btn_agregarGuia.FlatAppearance.BorderSize = 0;
+            this.btn_agregarGuia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_agregarGuia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_agregarGuia.ForeColor = System.Drawing.Color.White;
+            this.btn_agregarGuia.Location = new System.Drawing.Point(14, 136);
+            this.btn_agregarGuia.Name = "btn_agregarGuia";
+            this.btn_agregarGuia.Size = new System.Drawing.Size(113, 36);
+            this.btn_agregarGuia.TabIndex = 40;
+            this.btn_agregarGuia.Text = "Agregar →";
+            this.btn_agregarGuia.TextColor = System.Drawing.Color.White;
+            this.btn_agregarGuia.UseVisualStyleBackColor = false;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.dgv_Guias);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Location = new System.Drawing.Point(0, 0);
+            this.groupBox4.MinimumSize = new System.Drawing.Size(500, 0);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(670, 336);
+            this.groupBox4.TabIndex = 37;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Guías disponibles";
+            // 
+            // dgv_Guias
+            // 
+            this.dgv_Guias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_Guias.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_Guias.Location = new System.Drawing.Point(3, 22);
+            this.dgv_Guias.Name = "dgv_Guias";
+            this.dgv_Guias.Size = new System.Drawing.Size(664, 311);
+            this.dgv_Guias.TabIndex = 0;
             // 
             // dataGridView2
             // 
@@ -346,6 +477,36 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1120, 60);
             this.panel5.TabIndex = 29;
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.btnCerrar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.btnCerrar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnCerrar.BorderRadius = 20;
+            this.btnCerrar.BorderSize = 0;
+            this.btnCerrar.FlatAppearance.BorderSize = 0;
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrar.ForeColor = System.Drawing.Color.White;
+            this.btnCerrar.Location = new System.Drawing.Point(916, 8);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(150, 40);
+            this.btnCerrar.TabIndex = 0;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.TextColor = System.Drawing.Color.White;
+            this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
+            // cmb_Guias
+            // 
+            this.cmb_Guias.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.cmb_Guias.FormattingEnabled = true;
+            this.cmb_Guias.Location = new System.Drawing.Point(737, 13);
+            this.cmb_Guias.Name = "cmb_Guias";
+            this.cmb_Guias.Size = new System.Drawing.Size(163, 26);
+            this.cmb_Guias.TabIndex = 21;
             // 
             // panel6
             // 
@@ -447,6 +608,48 @@
             this.panel1.Size = new System.Drawing.Size(150, 276);
             this.panel1.TabIndex = 13;
             // 
+            // btn_quitar
+            // 
+            this.btn_quitar.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btn_quitar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.btn_quitar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.btn_quitar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btn_quitar.BorderRadius = 18;
+            this.btn_quitar.BorderSize = 0;
+            this.btn_quitar.FlatAppearance.BorderSize = 0;
+            this.btn_quitar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_quitar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_quitar.ForeColor = System.Drawing.Color.White;
+            this.btn_quitar.Location = new System.Drawing.Point(21, 135);
+            this.btn_quitar.Name = "btn_quitar";
+            this.btn_quitar.Size = new System.Drawing.Size(113, 36);
+            this.btn_quitar.TabIndex = 35;
+            this.btn_quitar.Text = "← Quitar";
+            this.btn_quitar.TextColor = System.Drawing.Color.White;
+            this.btn_quitar.UseVisualStyleBackColor = false;
+            this.btn_quitar.Click += new System.EventHandler(this.btn_quitar_Click);
+            // 
+            // btn_agregar
+            // 
+            this.btn_agregar.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btn_agregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.btn_agregar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.btn_agregar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btn_agregar.BorderRadius = 18;
+            this.btn_agregar.BorderSize = 0;
+            this.btn_agregar.FlatAppearance.BorderSize = 0;
+            this.btn_agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_agregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_agregar.ForeColor = System.Drawing.Color.White;
+            this.btn_agregar.Location = new System.Drawing.Point(21, 67);
+            this.btn_agregar.Name = "btn_agregar";
+            this.btn_agregar.Size = new System.Drawing.Size(113, 36);
+            this.btn_agregar.TabIndex = 34;
+            this.btn_agregar.Text = "Agregar →";
+            this.btn_agregar.TextColor = System.Drawing.Color.White;
+            this.btn_agregar.UseVisualStyleBackColor = false;
+            this.btn_agregar.Click += new System.EventHandler(this.btn_agregar_Click);
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.dgv_Exposiciones);
@@ -460,51 +663,6 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Exposiciones disponibles";
             // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(763, 20);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(146, 20);
-            this.label5.TabIndex = 21;
-            this.label5.Text = "Duracion estimada:";
-            // 
-            // label8
-            // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(306, 20);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(199, 20);
-            this.label8.TabIndex = 22;
-            this.label8.Text = "Fecha y hora de la reserva:";
-            // 
-            // dtpReserva
-            // 
-            this.dtpReserva.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpReserva.CustomFormat = "dd/MM/yyyy - HH:mm";
-            this.dtpReserva.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpReserva.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpReserva.Location = new System.Drawing.Point(515, 17);
-            this.dtpReserva.Name = "dtpReserva";
-            this.dtpReserva.ShowCheckBox = true;
-            this.dtpReserva.Size = new System.Drawing.Size(200, 26);
-            this.dtpReserva.TabIndex = 34;
-            // 
-            // label7
-            // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(579, 58);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(136, 20);
-            this.label7.TabIndex = 35;
-            this.label7.Text = "Guias necesarios:";
-            // 
             // panel8
             // 
             this.panel8.Controls.Add(this.btn_Cancelar);
@@ -514,100 +672,6 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(1000, 75);
             this.panel8.TabIndex = 34;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.dgv_Guias);
-            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(0, 0);
-            this.groupBox4.MinimumSize = new System.Drawing.Size(500, 0);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(670, 336);
-            this.groupBox4.TabIndex = 37;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Guías disponibles";
-            // 
-            // dgv_Guias
-            // 
-            this.dgv_Guias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_Guias.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_Guias.Location = new System.Drawing.Point(3, 22);
-            this.dgv_Guias.Name = "dgv_Guias";
-            this.dgv_Guias.Size = new System.Drawing.Size(664, 311);
-            this.dgv_Guias.TabIndex = 0;
-            // 
-            // cmb_Guias
-            // 
-            this.cmb_Guias.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.cmb_Guias.FormattingEnabled = true;
-            this.cmb_Guias.Location = new System.Drawing.Point(737, 13);
-            this.cmb_Guias.Name = "cmb_Guias";
-            this.cmb_Guias.Size = new System.Drawing.Size(163, 26);
-            this.cmb_Guias.TabIndex = 21;
-            // 
-            // lv_Guias
-            // 
-            this.lv_Guias.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lv_Guias.HideSelection = false;
-            this.lv_Guias.Location = new System.Drawing.Point(3, 22);
-            this.lv_Guias.Name = "lv_Guias";
-            this.lv_Guias.Size = new System.Drawing.Size(664, 311);
-            this.lv_Guias.TabIndex = 38;
-            this.lv_Guias.UseCompatibleStateImageBehavior = false;
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.lv_Guias);
-            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(820, 0);
-            this.groupBox5.MinimumSize = new System.Drawing.Size(500, 0);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(670, 336);
-            this.groupBox5.TabIndex = 39;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Guías seleccionados";
-            // 
-            // btn_QuitarGuia
-            // 
-            this.btn_QuitarGuia.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_QuitarGuia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
-            this.btn_QuitarGuia.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
-            this.btn_QuitarGuia.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btn_QuitarGuia.BorderRadius = 18;
-            this.btn_QuitarGuia.BorderSize = 0;
-            this.btn_QuitarGuia.FlatAppearance.BorderSize = 0;
-            this.btn_QuitarGuia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_QuitarGuia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_QuitarGuia.ForeColor = System.Drawing.Color.White;
-            this.btn_QuitarGuia.Location = new System.Drawing.Point(14, 202);
-            this.btn_QuitarGuia.Name = "btn_QuitarGuia";
-            this.btn_QuitarGuia.Size = new System.Drawing.Size(113, 36);
-            this.btn_QuitarGuia.TabIndex = 41;
-            this.btn_QuitarGuia.Text = "← Quitar";
-            this.btn_QuitarGuia.TextColor = System.Drawing.Color.White;
-            this.btn_QuitarGuia.UseVisualStyleBackColor = false;
-            // 
-            // btn_agregarGuia
-            // 
-            this.btn_agregarGuia.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_agregarGuia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
-            this.btn_agregarGuia.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
-            this.btn_agregarGuia.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btn_agregarGuia.BorderRadius = 18;
-            this.btn_agregarGuia.BorderSize = 0;
-            this.btn_agregarGuia.FlatAppearance.BorderSize = 0;
-            this.btn_agregarGuia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_agregarGuia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_agregarGuia.ForeColor = System.Drawing.Color.White;
-            this.btn_agregarGuia.Location = new System.Drawing.Point(14, 136);
-            this.btn_agregarGuia.Name = "btn_agregarGuia";
-            this.btn_agregarGuia.Size = new System.Drawing.Size(113, 36);
-            this.btn_agregarGuia.TabIndex = 40;
-            this.btn_agregarGuia.Text = "Agregar →";
-            this.btn_agregarGuia.TextColor = System.Drawing.Color.White;
-            this.btn_agregarGuia.UseVisualStyleBackColor = false;
             // 
             // btn_Cancelar
             // 
@@ -649,77 +713,6 @@
             this.btn_Registrar.TextColor = System.Drawing.Color.White;
             this.btn_Registrar.UseVisualStyleBackColor = false;
             // 
-            // btn_quitar
-            // 
-            this.btn_quitar.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btn_quitar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
-            this.btn_quitar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
-            this.btn_quitar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btn_quitar.BorderRadius = 18;
-            this.btn_quitar.BorderSize = 0;
-            this.btn_quitar.FlatAppearance.BorderSize = 0;
-            this.btn_quitar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_quitar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_quitar.ForeColor = System.Drawing.Color.White;
-            this.btn_quitar.Location = new System.Drawing.Point(21, 135);
-            this.btn_quitar.Name = "btn_quitar";
-            this.btn_quitar.Size = new System.Drawing.Size(113, 36);
-            this.btn_quitar.TabIndex = 35;
-            this.btn_quitar.Text = "← Quitar";
-            this.btn_quitar.TextColor = System.Drawing.Color.White;
-            this.btn_quitar.UseVisualStyleBackColor = false;
-            // 
-            // btn_agregar
-            // 
-            this.btn_agregar.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btn_agregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
-            this.btn_agregar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
-            this.btn_agregar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btn_agregar.BorderRadius = 18;
-            this.btn_agregar.BorderSize = 0;
-            this.btn_agregar.FlatAppearance.BorderSize = 0;
-            this.btn_agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_agregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_agregar.ForeColor = System.Drawing.Color.White;
-            this.btn_agregar.Location = new System.Drawing.Point(21, 67);
-            this.btn_agregar.Name = "btn_agregar";
-            this.btn_agregar.Size = new System.Drawing.Size(113, 36);
-            this.btn_agregar.TabIndex = 34;
-            this.btn_agregar.Text = "Agregar →";
-            this.btn_agregar.TextColor = System.Drawing.Color.White;
-            this.btn_agregar.UseVisualStyleBackColor = false;
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
-            this.btnCerrar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
-            this.btnCerrar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnCerrar.BorderRadius = 20;
-            this.btnCerrar.BorderSize = 0;
-            this.btnCerrar.FlatAppearance.BorderSize = 0;
-            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrar.ForeColor = System.Drawing.Color.White;
-            this.btnCerrar.Location = new System.Drawing.Point(916, 8);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(150, 40);
-            this.btnCerrar.TabIndex = 0;
-            this.btnCerrar.Text = "Cerrar";
-            this.btnCerrar.TextColor = System.Drawing.Color.White;
-            this.btnCerrar.UseVisualStyleBackColor = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-            // 
-            // panel9
-            // 
-            this.panel9.Controls.Add(this.btn_QuitarGuia);
-            this.panel9.Controls.Add(this.btn_agregarGuia);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel9.Location = new System.Drawing.Point(670, 0);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(150, 336);
-            this.panel9.TabIndex = 42;
-            // 
             // Frm_RegistrarVisita
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -744,6 +737,10 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Guias)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
@@ -754,10 +751,6 @@
             this.panel1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_Guias)).EndInit();
-            this.groupBox5.ResumeLayout(false);
-            this.panel9.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

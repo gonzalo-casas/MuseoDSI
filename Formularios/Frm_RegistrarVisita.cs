@@ -106,7 +106,7 @@ namespace MuseoDSI.Formularios
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_agregar_Click(object sender, EventArgs e)
         {
             if(dgv_Exposiciones.Rows.Count >= 1)
             {
@@ -264,21 +264,23 @@ namespace MuseoDSI.Formularios
 
         private void btn_quitar_Click(object sender, EventArgs e) // Para borrar exposicion de la listaview
         {
-            for (int i = 0; i < listView1.SelectedItems.Count; i++)
+            for (int i = 0; i < lv_Exposiciones.SelectedItems.Count; i++)
             {
-                if (exposicionesSeleccionadas[i].nombre.Contains(listView1.SelectedItems[i].Text.ToString()))
+                if (exposicionesSeleccionadas[i].nombre.Contains(lv_Exposiciones.SelectedItems[i].Text.ToString()))
                 {
                     exposicionesSeleccionadas.Remove(exposicionesSeleccionadas[i]);
-                    listView1.Items.Remove(listView1.SelectedItems[i]);
+                    lv_Exposiciones.Items.Remove(lv_Exposiciones.SelectedItems[i]);
                 }
 
             }
-            
+
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        
     }
 }
