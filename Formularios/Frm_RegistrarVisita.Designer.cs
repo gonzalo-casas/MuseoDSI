@@ -28,18 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cmb_Sede = new System.Windows.Forms.ComboBox();
             this.cmb_TipoVisita = new System.Windows.Forms.ComboBox();
             this.txt_visitantes = new System.Windows.Forms.TextBox();
             this.cmb_Escuela = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lv_Exposiciones = new System.Windows.Forms.ListView();
-            this.dgv_Exposiciones = new System.Windows.Forms.DataGridView();
-            this.nombreExposicion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.publicoDestino = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.horaApertura = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.horaCierre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lbl_GuiasNecesarios = new System.Windows.Forms.Label();
             this.dtpHoraReserva = new System.Windows.Forms.DateTimePicker();
             this.lblDuracion = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -78,10 +80,17 @@
             this.btn_quitar = new MuseoDSI.Formularios.BotonRedondeado();
             this.btn_agregar = new MuseoDSI.Formularios.BotonRedondeado();
             this.btnCerrar = new MuseoDSI.Formularios.BotonRedondeado();
-            this.lbl_GuiasNecesarios = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.dgv_Exposiciones = new System.Windows.Forms.DataGridView();
+            this.colExposicion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPublico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colApertura = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCierre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgv_ExposicionesSeleccionadas = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_Exposiciones)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -96,6 +105,8 @@
             this.panel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Exposiciones)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_ExposicionesSeleccionadas)).BeginInit();
             this.SuspendLayout();
             // 
             // cmb_Sede
@@ -146,7 +157,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Controls.Add(this.lv_Exposiciones);
+            this.groupBox1.Controls.Add(this.dgv_ExposicionesSeleccionadas);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(820, 0);
@@ -156,61 +167,6 @@
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Exposiciones Seleccionadas";
-            // 
-            // lv_Exposiciones
-            // 
-            this.lv_Exposiciones.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lv_Exposiciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.lv_Exposiciones.HideSelection = false;
-            this.lv_Exposiciones.Location = new System.Drawing.Point(3, 22);
-            this.lv_Exposiciones.Name = "lv_Exposiciones";
-            this.lv_Exposiciones.Size = new System.Drawing.Size(664, 251);
-            this.lv_Exposiciones.TabIndex = 0;
-            this.lv_Exposiciones.UseCompatibleStateImageBehavior = false;
-            this.lv_Exposiciones.View = System.Windows.Forms.View.List;
-            // 
-            // dgv_Exposiciones
-            // 
-            this.dgv_Exposiciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgv_Exposiciones.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dgv_Exposiciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_Exposiciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nombreExposicion,
-            this.publicoDestino,
-            this.horaApertura,
-            this.horaCierre});
-            this.dgv_Exposiciones.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_Exposiciones.Location = new System.Drawing.Point(3, 22);
-            this.dgv_Exposiciones.Name = "dgv_Exposiciones";
-            this.dgv_Exposiciones.RowHeadersWidth = 51;
-            this.dgv_Exposiciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_Exposiciones.Size = new System.Drawing.Size(664, 251);
-            this.dgv_Exposiciones.TabIndex = 12;
-            this.dgv_Exposiciones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // nombreExposicion
-            // 
-            this.nombreExposicion.HeaderText = "Exposicion";
-            this.nombreExposicion.MinimumWidth = 6;
-            this.nombreExposicion.Name = "nombreExposicion";
-            // 
-            // publicoDestino
-            // 
-            this.publicoDestino.HeaderText = "Público";
-            this.publicoDestino.MinimumWidth = 6;
-            this.publicoDestino.Name = "publicoDestino";
-            // 
-            // horaApertura
-            // 
-            this.horaApertura.HeaderText = "Hora Apertura";
-            this.horaApertura.MinimumWidth = 6;
-            this.horaApertura.Name = "horaApertura";
-            // 
-            // horaCierre
-            // 
-            this.horaCierre.HeaderText = "Hora de Cierre";
-            this.horaCierre.MinimumWidth = 6;
-            this.horaCierre.Name = "horaCierre";
             // 
             // panel2
             // 
@@ -227,6 +183,28 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1449, 88);
             this.panel2.TabIndex = 14;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(636, 20);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(146, 20);
+            this.label5.TabIndex = 38;
+            this.label5.Text = "Duracion estimada:";
+            // 
+            // lbl_GuiasNecesarios
+            // 
+            this.lbl_GuiasNecesarios.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lbl_GuiasNecesarios.AutoSize = true;
+            this.lbl_GuiasNecesarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_GuiasNecesarios.Location = new System.Drawing.Point(788, 56);
+            this.lbl_GuiasNecesarios.Name = "lbl_GuiasNecesarios";
+            this.lbl_GuiasNecesarios.Size = new System.Drawing.Size(89, 20);
+            this.lbl_GuiasNecesarios.TabIndex = 37;
+            this.lbl_GuiasNecesarios.Text = "Cant Guias";
             // 
             // dtpHoraReserva
             // 
@@ -715,27 +693,125 @@
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // lbl_GuiasNecesarios
+            // dgv_Exposiciones
             // 
-            this.lbl_GuiasNecesarios.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.lbl_GuiasNecesarios.AutoSize = true;
-            this.lbl_GuiasNecesarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_GuiasNecesarios.Location = new System.Drawing.Point(788, 56);
-            this.lbl_GuiasNecesarios.Name = "lbl_GuiasNecesarios";
-            this.lbl_GuiasNecesarios.Size = new System.Drawing.Size(89, 20);
-            this.lbl_GuiasNecesarios.TabIndex = 37;
-            this.lbl_GuiasNecesarios.Text = "Cant Guias";
+            this.dgv_Exposiciones.AllowUserToAddRows = false;
+            this.dgv_Exposiciones.AllowUserToDeleteRows = false;
+            this.dgv_Exposiciones.AllowUserToResizeColumns = false;
+            this.dgv_Exposiciones.AllowUserToResizeRows = false;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.dgv_Exposiciones.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgv_Exposiciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Exposiciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgv_Exposiciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_Exposiciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colExposicion,
+            this.colPublico,
+            this.colApertura,
+            this.colCierre});
+            this.dgv_Exposiciones.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_Exposiciones.Location = new System.Drawing.Point(3, 22);
+            this.dgv_Exposiciones.Name = "dgv_Exposiciones";
+            this.dgv_Exposiciones.ReadOnly = true;
+            this.dgv_Exposiciones.RowHeadersVisible = false;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.dgv_Exposiciones.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgv_Exposiciones.RowTemplate.Height = 40;
+            this.dgv_Exposiciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_Exposiciones.Size = new System.Drawing.Size(664, 251);
+            this.dgv_Exposiciones.TabIndex = 0;
             // 
-            // label5
+            // colExposicion
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(636, 20);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(146, 20);
-            this.label5.TabIndex = 38;
-            this.label5.Text = "Duracion estimada:";
+            this.colExposicion.HeaderText = "Exposicion";
+            this.colExposicion.Name = "colExposicion";
+            this.colExposicion.ReadOnly = true;
+            // 
+            // colPublico
+            // 
+            this.colPublico.HeaderText = "Publico";
+            this.colPublico.Name = "colPublico";
+            this.colPublico.ReadOnly = true;
+            // 
+            // colApertura
+            // 
+            this.colApertura.HeaderText = "Hora apertura";
+            this.colApertura.Name = "colApertura";
+            this.colApertura.ReadOnly = true;
+            // 
+            // colCierre
+            // 
+            this.colCierre.HeaderText = "Hora cierre";
+            this.colCierre.Name = "colCierre";
+            this.colCierre.ReadOnly = true;
+            // 
+            // dgv_ExposicionesSeleccionadas
+            // 
+            this.dgv_ExposicionesSeleccionadas.AllowUserToAddRows = false;
+            this.dgv_ExposicionesSeleccionadas.AllowUserToDeleteRows = false;
+            this.dgv_ExposicionesSeleccionadas.AllowUserToResizeColumns = false;
+            this.dgv_ExposicionesSeleccionadas.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.dgv_ExposicionesSeleccionadas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgv_ExposicionesSeleccionadas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_ExposicionesSeleccionadas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgv_ExposicionesSeleccionadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_ExposicionesSeleccionadas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4});
+            this.dgv_ExposicionesSeleccionadas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_ExposicionesSeleccionadas.Location = new System.Drawing.Point(3, 22);
+            this.dgv_ExposicionesSeleccionadas.Name = "dgv_ExposicionesSeleccionadas";
+            this.dgv_ExposicionesSeleccionadas.ReadOnly = true;
+            this.dgv_ExposicionesSeleccionadas.RowHeadersVisible = false;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.dgv_ExposicionesSeleccionadas.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgv_ExposicionesSeleccionadas.RowTemplate.Height = 40;
+            this.dgv_ExposicionesSeleccionadas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_ExposicionesSeleccionadas.Size = new System.Drawing.Size(664, 251);
+            this.dgv_ExposicionesSeleccionadas.TabIndex = 1;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Exposicion";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Publico";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Hora apertura";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Hora cierre";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // Frm_RegistrarVisita
             // 
@@ -757,7 +833,6 @@
             this.Text = "Registrar Visita";
             this.Load += new System.EventHandler(this.Frm_RegistrarVisita_Load);
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_Exposiciones)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -775,6 +850,8 @@
             this.panel1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Exposiciones)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_ExposicionesSeleccionadas)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -785,12 +862,6 @@
         private System.Windows.Forms.TextBox txt_visitantes;
         private System.Windows.Forms.ComboBox cmb_Escuela;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ListView lv_Exposiciones;
-        private System.Windows.Forms.DataGridView dgv_Exposiciones;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreExposicion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn publicoDestino;
-        private System.Windows.Forms.DataGridViewTextBoxColumn horaApertura;
-        private System.Windows.Forms.DataGridViewTextBoxColumn horaCierre;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button5;
@@ -832,5 +903,15 @@
         private System.Windows.Forms.DateTimePicker dtpHoraReserva;
         private System.Windows.Forms.Label lbl_GuiasNecesarios;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridView dgv_Exposiciones;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colExposicion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPublico;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colApertura;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCierre;
+        private System.Windows.Forms.DataGridView dgv_ExposicionesSeleccionadas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
     }
 }
