@@ -95,31 +95,31 @@ namespace MuseoDSI.Formularios
         {
 
 
-            dataGridView1.Rows.Clear();
+            dgv_Exposiciones.Rows.Clear();
             for (int i = 0; i < lista.Count; i++)
             {
                 
-                dataGridView1.Rows.Add();
-                dataGridView1.Rows[i].Cells[0].Value = lista[i].nombre;
-                dataGridView1.Rows[i].Cells[1].Value = lista[i].idPublico;
-                dataGridView1.Rows[i].Cells[2].Value = lista[i].horaInicio.ToString("t");
-                dataGridView1.Rows[i].Cells[3].Value = lista[i].horaFin.ToString("t");
+                dgv_Exposiciones.Rows.Add();
+                dgv_Exposiciones.Rows[i].Cells[0].Value = lista[i].nombre;
+                dgv_Exposiciones.Rows[i].Cells[1].Value = lista[i].idPublico;
+                dgv_Exposiciones.Rows[i].Cells[2].Value = lista[i].horaInicio.ToString("t");
+                dgv_Exposiciones.Rows[i].Cells[3].Value = lista[i].horaFin.ToString("t");
 
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(dataGridView1.Rows.Count >= 1)
+            if(dgv_Exposiciones.Rows.Count >= 1)
             {
                 expoSeleccionada = new Exposicion();
 
-                listView1.Items.Add(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+                lv_Exposiciones.Items.Add(dgv_Exposiciones.CurrentRow.Cells[0].Value.ToString());
                
-                expoSeleccionada.nombre = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                expoSeleccionada.idPublico = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-                expoSeleccionada.horaInicio = DateTime.Parse(dataGridView1.CurrentRow.Cells[2].Value.ToString());
-                expoSeleccionada.horaFin = DateTime.Parse(dataGridView1.CurrentRow.Cells[3].Value.ToString());
+                expoSeleccionada.nombre = dgv_Exposiciones.CurrentRow.Cells[0].Value.ToString();
+                expoSeleccionada.idPublico = dgv_Exposiciones.CurrentRow.Cells[1].Value.ToString();
+                expoSeleccionada.horaInicio = DateTime.Parse(dgv_Exposiciones.CurrentRow.Cells[2].Value.ToString());
+                expoSeleccionada.horaFin = DateTime.Parse(dgv_Exposiciones.CurrentRow.Cells[3].Value.ToString());
                 exposicionesSeleccionadas.Add(expoSeleccionada);
             }
             
@@ -146,11 +146,6 @@ namespace MuseoDSI.Formularios
 
         }
 
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button5_Click(object sender, EventArgs e)
         {
             cmb_Guias.Items.Clear();
@@ -163,7 +158,7 @@ namespace MuseoDSI.Formularios
             {
                 int Guias = gestor.CalcularGuias(cmb_Sede.Text,txt_visitantes.Text);
                 txt_guiasNecesarios.Text = Guias.ToString();
-                List<Empleado> listaGuias = gestor.ObtenerEmpleado(DateTime.Parse(maskedTextBox2.Text.ToString()));
+                List<Empleado> listaGuias = gestor.ObtenerEmpleado(DateTime.Parse(dtpReserva.Text.ToString()));
 
                 if (int.Parse(txt_guiasNecesarios.Text.ToString()) > listaGuias.Count())
                 {
@@ -223,7 +218,7 @@ namespace MuseoDSI.Formularios
                     idSede = sedes[i].nroSede + 1 ;
                 }
             }
-            gestor.RegistrarReserva(numReserva, idSede, 1, DateTime.Parse(maskedTextBox2.Text.ToString()), DateTime.Now, int.Parse(txt_visitantes.Text), 1, 1);
+            gestor.RegistrarReserva(numReserva, idSede, 1, DateTime.Parse(dtpReserva.Text.ToString()), DateTime.Now, int.Parse(txt_visitantes.Text), 1, 1);
             MessageBox.Show("Reserva Creada Correctamente");
             this.Close();
         }
@@ -259,6 +254,11 @@ namespace MuseoDSI.Formularios
         private void btn_quitar_Click(object sender, EventArgs e)
         {
             //listView1.Items.Remove
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

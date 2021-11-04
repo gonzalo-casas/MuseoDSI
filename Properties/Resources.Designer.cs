@@ -123,9 +123,29 @@ namespace MuseoDSI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_guide_64 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-guide-64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_painting_64 {
             get {
                 object obj = ResourceManager.GetObject("icons8-painting-64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_report_64 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-report-64", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,9 +163,29 @@ namespace MuseoDSI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_tickets_64 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-tickets-64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_user_40 {
             get {
                 object obj = ResourceManager.GetObject("icons8-user-40", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap noche_estrellada_hd {
+            get {
+                object obj = ResourceManager.GetObject("noche estrellada hd", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

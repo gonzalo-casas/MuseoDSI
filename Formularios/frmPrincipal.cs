@@ -96,14 +96,14 @@ namespace MuseoDSI.Formularios
         private void CloseForms(object sender, FormClosedEventArgs e)
         {
             if (Application.OpenForms["Frm_RegistrarVisita"] == null)
-                btnEmpleados.BackColor = Color.FromArgb(135, 181, 168);
+                btnRegistrarReserva.BackColor = Color.FromArgb(169, 224, 240);
 
         }
 
         private void btnRegistrarReserva_Click(object sender, EventArgs e)
         {
             AbrirFormulario<Frm_RegistrarVisita>();
-            btnRegistrarReserva.BackColor = Color.FromArgb(205, 241, 231);
+            btnRegistrarReserva.BackColor = Color.FromArgb(202, 243, 255);
         }
 
     }
