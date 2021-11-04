@@ -113,17 +113,21 @@ namespace MuseoDSI.Formularios
             if(dgv_Exposiciones.Rows.Count >= 1)
             {
                 bool flag = true;
-                for (int i = 0; i < lv_Exposiciones.Items.Count; i++)
+                for (int i = 0; i < dgv_ExposicionesSeleccionadas.Rows.Count; i++)
                 {
-                    if (dgv_Exposiciones.CurrentRow.Cells[0].Value.ToString() == lv_Exposiciones.Items[i].Text)
+                    if (dgv_Exposiciones.CurrentRow.Cells[0].Value.ToString() == dgv_ExposicionesSeleccionadas.Rows[i].Cells[0].Value.ToString())
                     {
                         flag = false;
                     }
                 }
                 if (flag)
                 {
+                    int index = dgv_ExposicionesSeleccionadas.Rows.Add(dgv_Exposiciones.CurrentRow.Clone() as DataGridViewRow);
+                    foreach (DataGridViewCell o in dgv_Exposiciones.CurrentRow.Cells)
+                    {
+                        dgv_ExposicionesSeleccionadas.Rows[index].Cells[o.ColumnIndex].Value = o.Value;
+                    }
                     expoSeleccionada = new Exposicion();
-                    lv_Exposiciones.Items.Add(dgv_Exposiciones.CurrentRow.Cells[0].Value.ToString());
                     expoSeleccionada.nombre = dgv_Exposiciones.CurrentRow.Cells[0].Value.ToString();
                     expoSeleccionada.idPublico = dgv_Exposiciones.CurrentRow.Cells[1].Value.ToString();
                     expoSeleccionada.horaInicio = DateTime.Parse(dgv_Exposiciones.CurrentRow.Cells[2].Value.ToString());
@@ -141,6 +145,18 @@ namespace MuseoDSI.Formularios
                 MessageBox.Show("No existe ninguna exposicion disponible", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
+        }
+
+        private void btn_quitar_Click(object sender, EventArgs e) // Para borrar exposicion de la listaview
+        {
+
+            if (dgv_ExposicionesSeleccionadas.SelectedRows.Count > 0)
+            {
+                exposicionesSeleccionadas.Remove(exposicionesSeleccionadas[dgv_ExposicionesSeleccionadas.CurrentRow.Index]);
+                dgv_ExposicionesSeleccionadas.Rows.RemoveAt(dgv_ExposicionesSeleccionadas.CurrentRow.Index);
+            }
+
+
         }
         private void button2_Click(object sender, EventArgs e)
         {
@@ -261,19 +277,7 @@ namespace MuseoDSI.Formularios
             }
         }
 
-        private void btn_quitar_Click(object sender, EventArgs e) // Para borrar exposicion de la listaview
-        {
-            for (int i = 0; i < lv_Exposiciones.SelectedItems.Count; i++)
-            {
-                if (exposicionesSeleccionadas[i].nombre.Contains(lv_Exposiciones.SelectedItems[i].Text.ToString()))
-                {
-                    exposicionesSeleccionadas.Remove(exposicionesSeleccionadas[i]);
-                    lv_Exposiciones.Items.Remove(lv_Exposiciones.SelectedItems[i]);
-                }
 
-            }
-
-        }
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
