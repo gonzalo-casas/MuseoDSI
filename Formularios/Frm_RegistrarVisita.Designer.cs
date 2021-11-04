@@ -34,17 +34,16 @@
             this.cmb_Escuela = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lv_Exposiciones = new System.Windows.Forms.ListView();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.dgv_Exposiciones = new System.Windows.Forms.DataGridView();
             this.nombreExposicion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.publicoDestino = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.horaApertura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.horaCierre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
+            this.dtpHoraReserva = new System.Windows.Forms.DateTimePicker();
+            this.lblDuracion = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.txt_guiasNecesarios = new System.Windows.Forms.TextBox();
-            this.dtpReserva = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaReserva = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -52,8 +51,6 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.lv_Guias = new System.Windows.Forms.ListView();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.btn_QuitarGuia = new MuseoDSI.Formularios.BotonRedondeado();
-            this.btn_agregarGuia = new MuseoDSI.Formularios.BotonRedondeado();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dgv_Guias = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
@@ -62,7 +59,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.btnCerrar = new MuseoDSI.Formularios.BotonRedondeado();
             this.cmb_Guias = new System.Windows.Forms.ComboBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -73,12 +69,17 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panelExposiciones = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btn_quitar = new MuseoDSI.Formularios.BotonRedondeado();
-            this.btn_agregar = new MuseoDSI.Formularios.BotonRedondeado();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.btn_QuitarGuia = new MuseoDSI.Formularios.BotonRedondeado();
+            this.btn_agregarGuia = new MuseoDSI.Formularios.BotonRedondeado();
             this.btn_Cancelar = new MuseoDSI.Formularios.BotonRedondeado();
             this.btn_Registrar = new MuseoDSI.Formularios.BotonRedondeado();
+            this.btn_quitar = new MuseoDSI.Formularios.BotonRedondeado();
+            this.btn_agregar = new MuseoDSI.Formularios.BotonRedondeado();
+            this.btnCerrar = new MuseoDSI.Formularios.BotonRedondeado();
+            this.lbl_GuiasNecesarios = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Exposiciones)).BeginInit();
             this.panel2.SuspendLayout();
@@ -100,9 +101,10 @@
             // cmb_Sede
             // 
             this.cmb_Sede.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmb_Sede.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_Sede.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmb_Sede.FormattingEnabled = true;
-            this.cmb_Sede.Location = new System.Drawing.Point(496, 22);
+            this.cmb_Sede.Location = new System.Drawing.Point(720, 22);
             this.cmb_Sede.Name = "cmb_Sede";
             this.cmb_Sede.Size = new System.Drawing.Size(167, 28);
             this.cmb_Sede.TabIndex = 19;
@@ -112,9 +114,10 @@
             // cmb_TipoVisita
             // 
             this.cmb_TipoVisita.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmb_TipoVisita.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_TipoVisita.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmb_TipoVisita.FormattingEnabled = true;
-            this.cmb_TipoVisita.Location = new System.Drawing.Point(810, 22);
+            this.cmb_TipoVisita.Location = new System.Drawing.Point(1034, 22);
             this.cmb_TipoVisita.Name = "cmb_TipoVisita";
             this.cmb_TipoVisita.Size = new System.Drawing.Size(167, 28);
             this.cmb_TipoVisita.TabIndex = 18;
@@ -124,7 +127,7 @@
             // 
             this.txt_visitantes.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txt_visitantes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_visitantes.Location = new System.Drawing.Point(363, 22);
+            this.txt_visitantes.Location = new System.Drawing.Point(587, 22);
             this.txt_visitantes.Name = "txt_visitantes";
             this.txt_visitantes.Size = new System.Drawing.Size(56, 26);
             this.txt_visitantes.TabIndex = 14;
@@ -132,9 +135,10 @@
             // cmb_Escuela
             // 
             this.cmb_Escuela.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmb_Escuela.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_Escuela.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmb_Escuela.FormattingEnabled = true;
-            this.cmb_Escuela.Location = new System.Drawing.Point(85, 22);
+            this.cmb_Escuela.Location = new System.Drawing.Point(309, 22);
             this.cmb_Escuela.Name = "cmb_Escuela";
             this.cmb_Escuela.Size = new System.Drawing.Size(167, 28);
             this.cmb_Escuela.TabIndex = 12;
@@ -165,15 +169,6 @@
             this.lv_Exposiciones.UseCompatibleStateImageBehavior = false;
             this.lv_Exposiciones.View = System.Windows.Forms.View.List;
             // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(915, 17);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(150, 26);
-            this.textBox3.TabIndex = 16;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
-            // 
             // dgv_Exposiciones
             // 
             this.dgv_Exposiciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -188,6 +183,7 @@
             this.dgv_Exposiciones.Location = new System.Drawing.Point(3, 22);
             this.dgv_Exposiciones.Name = "dgv_Exposiciones";
             this.dgv_Exposiciones.RowHeadersWidth = 51;
+            this.dgv_Exposiciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_Exposiciones.Size = new System.Drawing.Size(664, 251);
             this.dgv_Exposiciones.TabIndex = 12;
             this.dgv_Exposiciones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -220,67 +216,73 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.lbl_GuiasNecesarios);
+            this.panel2.Controls.Add(this.dtpHoraReserva);
+            this.panel2.Controls.Add(this.lblDuracion);
             this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.txt_guiasNecesarios);
-            this.panel2.Controls.Add(this.textBox3);
-            this.panel2.Controls.Add(this.dtpReserva);
+            this.panel2.Controls.Add(this.dtpFechaReserva);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(60, 409);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1000, 88);
+            this.panel2.Size = new System.Drawing.Size(1449, 88);
             this.panel2.TabIndex = 14;
             // 
-            // label5
+            // dtpHoraReserva
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(763, 20);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(146, 20);
-            this.label5.TabIndex = 21;
-            this.label5.Text = "Duracion estimada:";
+            this.dtpHoraReserva.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpHoraReserva.Checked = false;
+            this.dtpHoraReserva.CustomFormat = "HH:mm";
+            this.dtpHoraReserva.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpHoraReserva.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpHoraReserva.Location = new System.Drawing.Point(506, 17);
+            this.dtpHoraReserva.Name = "dtpHoraReserva";
+            this.dtpHoraReserva.ShowUpDown = true;
+            this.dtpHoraReserva.Size = new System.Drawing.Size(79, 26);
+            this.dtpHoraReserva.TabIndex = 36;
+            // 
+            // lblDuracion
+            // 
+            this.lblDuracion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDuracion.AutoSize = true;
+            this.lblDuracion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDuracion.Location = new System.Drawing.Point(788, 20);
+            this.lblDuracion.Name = "lblDuracion";
+            this.lblDuracion.Size = new System.Drawing.Size(71, 20);
+            this.lblDuracion.TabIndex = 21;
+            this.lblDuracion.Text = "Dur. Est.";
             // 
             // label7
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(579, 58);
+            this.label7.Location = new System.Drawing.Point(646, 56);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(136, 20);
             this.label7.TabIndex = 35;
             this.label7.Text = "Guias necesarios:";
             // 
-            // txt_guiasNecesarios
+            // dtpFechaReserva
             // 
-            this.txt_guiasNecesarios.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txt_guiasNecesarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_guiasNecesarios.Location = new System.Drawing.Point(724, 55);
-            this.txt_guiasNecesarios.Name = "txt_guiasNecesarios";
-            this.txt_guiasNecesarios.ReadOnly = true;
-            this.txt_guiasNecesarios.Size = new System.Drawing.Size(54, 26);
-            this.txt_guiasNecesarios.TabIndex = 21;
-            // 
-            // dtpReserva
-            // 
-            this.dtpReserva.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpReserva.CustomFormat = "dd/MM/yyyy - HH:mm";
-            this.dtpReserva.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpReserva.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpReserva.Location = new System.Drawing.Point(515, 17);
-            this.dtpReserva.Name = "dtpReserva";
-            this.dtpReserva.ShowCheckBox = true;
-            this.dtpReserva.Size = new System.Drawing.Size(200, 26);
-            this.dtpReserva.TabIndex = 34;
+            this.dtpFechaReserva.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaReserva.Checked = false;
+            this.dtpFechaReserva.CustomFormat = "dd/MM/yyyy";
+            this.dtpFechaReserva.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaReserva.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpFechaReserva.Location = new System.Drawing.Point(336, 17);
+            this.dtpFechaReserva.Name = "dtpFechaReserva";
+            this.dtpFechaReserva.ShowCheckBox = true;
+            this.dtpFechaReserva.Size = new System.Drawing.Size(161, 26);
+            this.dtpFechaReserva.TabIndex = 34;
+            this.dtpFechaReserva.ValueChanged += new System.EventHandler(this.dtpFechaReserva_ValueChanged);
             // 
             // label8
             // 
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(306, 20);
+            this.label8.Location = new System.Drawing.Point(131, 20);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(199, 20);
             this.label8.TabIndex = 22;
@@ -289,7 +291,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.button2.Location = new System.Drawing.Point(671, 18);
+            this.button2.Location = new System.Drawing.Point(433, 18);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(270, 30);
             this.button2.TabIndex = 15;
@@ -300,7 +302,7 @@
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.button5.Location = new System.Drawing.Point(816, 13);
+            this.button5.Location = new System.Drawing.Point(1032, 8);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 30);
             this.button5.TabIndex = 20;
@@ -317,7 +319,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(60, 503);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1000, 336);
+            this.panel3.Size = new System.Drawing.Size(1449, 336);
             this.panel3.TabIndex = 23;
             // 
             // groupBox5
@@ -352,46 +354,6 @@
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(150, 336);
             this.panel9.TabIndex = 42;
-            // 
-            // btn_QuitarGuia
-            // 
-            this.btn_QuitarGuia.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_QuitarGuia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
-            this.btn_QuitarGuia.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
-            this.btn_QuitarGuia.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btn_QuitarGuia.BorderRadius = 18;
-            this.btn_QuitarGuia.BorderSize = 0;
-            this.btn_QuitarGuia.FlatAppearance.BorderSize = 0;
-            this.btn_QuitarGuia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_QuitarGuia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_QuitarGuia.ForeColor = System.Drawing.Color.White;
-            this.btn_QuitarGuia.Location = new System.Drawing.Point(14, 202);
-            this.btn_QuitarGuia.Name = "btn_QuitarGuia";
-            this.btn_QuitarGuia.Size = new System.Drawing.Size(113, 36);
-            this.btn_QuitarGuia.TabIndex = 41;
-            this.btn_QuitarGuia.Text = "← Quitar";
-            this.btn_QuitarGuia.TextColor = System.Drawing.Color.White;
-            this.btn_QuitarGuia.UseVisualStyleBackColor = false;
-            // 
-            // btn_agregarGuia
-            // 
-            this.btn_agregarGuia.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_agregarGuia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
-            this.btn_agregarGuia.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
-            this.btn_agregarGuia.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btn_agregarGuia.BorderRadius = 18;
-            this.btn_agregarGuia.BorderSize = 0;
-            this.btn_agregarGuia.FlatAppearance.BorderSize = 0;
-            this.btn_agregarGuia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_agregarGuia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_agregarGuia.ForeColor = System.Drawing.Color.White;
-            this.btn_agregarGuia.Location = new System.Drawing.Point(14, 136);
-            this.btn_agregarGuia.Name = "btn_agregarGuia";
-            this.btn_agregarGuia.Size = new System.Drawing.Size(113, 36);
-            this.btn_agregarGuia.TabIndex = 40;
-            this.btn_agregarGuia.Text = "Agregar →";
-            this.btn_agregarGuia.TextColor = System.Drawing.Color.White;
-            this.btn_agregarGuia.UseVisualStyleBackColor = false;
             // 
             // groupBox4
             // 
@@ -437,7 +399,7 @@
             // btnConfirmar
             // 
             this.btnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.btnConfirmar.Location = new System.Drawing.Point(825, 18);
+            this.btnConfirmar.Location = new System.Drawing.Point(936, 13);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(75, 30);
             this.btnConfirmar.TabIndex = 26;
@@ -451,7 +413,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1120, 61);
+            this.panel4.Size = new System.Drawing.Size(1569, 61);
             this.panel4.TabIndex = 28;
             // 
             // label1
@@ -475,35 +437,14 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel5.Location = new System.Drawing.Point(0, 914);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1120, 60);
+            this.panel5.Size = new System.Drawing.Size(1569, 60);
             this.panel5.TabIndex = 29;
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
-            this.btnCerrar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
-            this.btnCerrar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnCerrar.BorderRadius = 20;
-            this.btnCerrar.BorderSize = 0;
-            this.btnCerrar.FlatAppearance.BorderSize = 0;
-            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrar.ForeColor = System.Drawing.Color.White;
-            this.btnCerrar.Location = new System.Drawing.Point(916, 8);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(150, 40);
-            this.btnCerrar.TabIndex = 0;
-            this.btnCerrar.Text = "Cerrar";
-            this.btnCerrar.TextColor = System.Drawing.Color.White;
-            this.btnCerrar.UseVisualStyleBackColor = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // cmb_Guias
             // 
             this.cmb_Guias.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.cmb_Guias.FormattingEnabled = true;
-            this.cmb_Guias.Location = new System.Drawing.Point(737, 13);
+            this.cmb_Guias.Location = new System.Drawing.Point(728, 8);
             this.cmb_Guias.Name = "cmb_Guias";
             this.cmb_Guias.Size = new System.Drawing.Size(163, 26);
             this.cmb_Guias.TabIndex = 21;
@@ -511,7 +452,7 @@
             // panel6
             // 
             this.panel6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel6.Location = new System.Drawing.Point(1060, 61);
+            this.panel6.Location = new System.Drawing.Point(1509, 61);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(60, 853);
             this.panel6.TabIndex = 30;
@@ -529,7 +470,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(13, 25);
+            this.label2.Location = new System.Drawing.Point(237, 25);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 20);
             this.label2.TabIndex = 20;
@@ -540,7 +481,7 @@
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(278, 25);
+            this.label6.Location = new System.Drawing.Point(502, 25);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(83, 20);
             this.label6.TabIndex = 21;
@@ -551,7 +492,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(699, 25);
+            this.label3.Location = new System.Drawing.Point(923, 25);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(104, 20);
             this.label3.TabIndex = 22;
@@ -562,7 +503,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(443, 25);
+            this.label4.Location = new System.Drawing.Point(667, 25);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(51, 20);
             this.label4.TabIndex = 23;
@@ -582,7 +523,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(60, 61);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1000, 72);
+            this.groupBox2.Size = new System.Drawing.Size(1449, 72);
             this.groupBox2.TabIndex = 32;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Visita";
@@ -595,7 +536,7 @@
             this.panelExposiciones.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelExposiciones.Location = new System.Drawing.Point(60, 133);
             this.panelExposiciones.Name = "panelExposiciones";
-            this.panelExposiciones.Size = new System.Drawing.Size(1000, 276);
+            this.panelExposiciones.Size = new System.Drawing.Size(1449, 276);
             this.panelExposiciones.TabIndex = 33;
             // 
             // panel1
@@ -607,6 +548,109 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(150, 276);
             this.panel1.TabIndex = 13;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.dgv_Exposiciones);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(0, 0);
+            this.groupBox3.MinimumSize = new System.Drawing.Size(500, 0);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(670, 276);
+            this.groupBox3.TabIndex = 14;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Exposiciones disponibles";
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.btn_Cancelar);
+            this.panel8.Controls.Add(this.btn_Registrar);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel8.Location = new System.Drawing.Point(60, 839);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(1449, 75);
+            this.panel8.TabIndex = 34;
+            // 
+            // btn_QuitarGuia
+            // 
+            this.btn_QuitarGuia.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_QuitarGuia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.btn_QuitarGuia.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.btn_QuitarGuia.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btn_QuitarGuia.BorderRadius = 18;
+            this.btn_QuitarGuia.BorderSize = 0;
+            this.btn_QuitarGuia.FlatAppearance.BorderSize = 0;
+            this.btn_QuitarGuia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_QuitarGuia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_QuitarGuia.ForeColor = System.Drawing.Color.White;
+            this.btn_QuitarGuia.Location = new System.Drawing.Point(14, 202);
+            this.btn_QuitarGuia.Name = "btn_QuitarGuia";
+            this.btn_QuitarGuia.Size = new System.Drawing.Size(113, 36);
+            this.btn_QuitarGuia.TabIndex = 41;
+            this.btn_QuitarGuia.Text = "← Quitar";
+            this.btn_QuitarGuia.TextColor = System.Drawing.Color.White;
+            this.btn_QuitarGuia.UseVisualStyleBackColor = false;
+            // 
+            // btn_agregarGuia
+            // 
+            this.btn_agregarGuia.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_agregarGuia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.btn_agregarGuia.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.btn_agregarGuia.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btn_agregarGuia.BorderRadius = 18;
+            this.btn_agregarGuia.BorderSize = 0;
+            this.btn_agregarGuia.FlatAppearance.BorderSize = 0;
+            this.btn_agregarGuia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_agregarGuia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_agregarGuia.ForeColor = System.Drawing.Color.White;
+            this.btn_agregarGuia.Location = new System.Drawing.Point(14, 136);
+            this.btn_agregarGuia.Name = "btn_agregarGuia";
+            this.btn_agregarGuia.Size = new System.Drawing.Size(113, 36);
+            this.btn_agregarGuia.TabIndex = 40;
+            this.btn_agregarGuia.Text = "Agregar →";
+            this.btn_agregarGuia.TextColor = System.Drawing.Color.White;
+            this.btn_agregarGuia.UseVisualStyleBackColor = false;
+            // 
+            // btn_Cancelar
+            // 
+            this.btn_Cancelar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btn_Cancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.btn_Cancelar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.btn_Cancelar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btn_Cancelar.BorderRadius = 20;
+            this.btn_Cancelar.BorderSize = 0;
+            this.btn_Cancelar.FlatAppearance.BorderSize = 0;
+            this.btn_Cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Cancelar.ForeColor = System.Drawing.Color.White;
+            this.btn_Cancelar.Location = new System.Drawing.Point(784, 29);
+            this.btn_Cancelar.Name = "btn_Cancelar";
+            this.btn_Cancelar.Size = new System.Drawing.Size(150, 40);
+            this.btn_Cancelar.TabIndex = 2;
+            this.btn_Cancelar.Text = "Cancelar";
+            this.btn_Cancelar.TextColor = System.Drawing.Color.White;
+            this.btn_Cancelar.UseVisualStyleBackColor = false;
+            // 
+            // btn_Registrar
+            // 
+            this.btn_Registrar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btn_Registrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.btn_Registrar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.btn_Registrar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btn_Registrar.BorderRadius = 20;
+            this.btn_Registrar.BorderSize = 0;
+            this.btn_Registrar.FlatAppearance.BorderSize = 0;
+            this.btn_Registrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Registrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Registrar.ForeColor = System.Drawing.Color.White;
+            this.btn_Registrar.Location = new System.Drawing.Point(493, 29);
+            this.btn_Registrar.Name = "btn_Registrar";
+            this.btn_Registrar.Size = new System.Drawing.Size(150, 40);
+            this.btn_Registrar.TabIndex = 1;
+            this.btn_Registrar.Text = "Registrar";
+            this.btn_Registrar.TextColor = System.Drawing.Color.White;
+            this.btn_Registrar.UseVisualStyleBackColor = false;
             // 
             // btn_quitar
             // 
@@ -650,75 +694,55 @@
             this.btn_agregar.UseVisualStyleBackColor = false;
             this.btn_agregar.Click += new System.EventHandler(this.btn_agregar_Click);
             // 
-            // groupBox3
+            // btnCerrar
             // 
-            this.groupBox3.Controls.Add(this.dgv_Exposiciones);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(0, 0);
-            this.groupBox3.MinimumSize = new System.Drawing.Size(500, 0);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(670, 276);
-            this.groupBox3.TabIndex = 14;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Exposiciones disponibles";
+            this.btnCerrar.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.btnCerrar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.btnCerrar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnCerrar.BorderRadius = 20;
+            this.btnCerrar.BorderSize = 0;
+            this.btnCerrar.FlatAppearance.BorderSize = 0;
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrar.ForeColor = System.Drawing.Color.White;
+            this.btnCerrar.Location = new System.Drawing.Point(1365, 8);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(150, 40);
+            this.btnCerrar.TabIndex = 0;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.TextColor = System.Drawing.Color.White;
+            this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // panel8
+            // lbl_GuiasNecesarios
             // 
-            this.panel8.Controls.Add(this.btn_Cancelar);
-            this.panel8.Controls.Add(this.btn_Registrar);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel8.Location = new System.Drawing.Point(60, 839);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1000, 75);
-            this.panel8.TabIndex = 34;
+            this.lbl_GuiasNecesarios.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lbl_GuiasNecesarios.AutoSize = true;
+            this.lbl_GuiasNecesarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_GuiasNecesarios.Location = new System.Drawing.Point(788, 56);
+            this.lbl_GuiasNecesarios.Name = "lbl_GuiasNecesarios";
+            this.lbl_GuiasNecesarios.Size = new System.Drawing.Size(89, 20);
+            this.lbl_GuiasNecesarios.TabIndex = 37;
+            this.lbl_GuiasNecesarios.Text = "Cant Guias";
             // 
-            // btn_Cancelar
+            // label5
             // 
-            this.btn_Cancelar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btn_Cancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
-            this.btn_Cancelar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
-            this.btn_Cancelar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btn_Cancelar.BorderRadius = 20;
-            this.btn_Cancelar.BorderSize = 0;
-            this.btn_Cancelar.FlatAppearance.BorderSize = 0;
-            this.btn_Cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Cancelar.ForeColor = System.Drawing.Color.White;
-            this.btn_Cancelar.Location = new System.Drawing.Point(560, 29);
-            this.btn_Cancelar.Name = "btn_Cancelar";
-            this.btn_Cancelar.Size = new System.Drawing.Size(150, 40);
-            this.btn_Cancelar.TabIndex = 2;
-            this.btn_Cancelar.Text = "Cancelar";
-            this.btn_Cancelar.TextColor = System.Drawing.Color.White;
-            this.btn_Cancelar.UseVisualStyleBackColor = false;
-            // 
-            // btn_Registrar
-            // 
-            this.btn_Registrar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btn_Registrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
-            this.btn_Registrar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
-            this.btn_Registrar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btn_Registrar.BorderRadius = 20;
-            this.btn_Registrar.BorderSize = 0;
-            this.btn_Registrar.FlatAppearance.BorderSize = 0;
-            this.btn_Registrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Registrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Registrar.ForeColor = System.Drawing.Color.White;
-            this.btn_Registrar.Location = new System.Drawing.Point(269, 29);
-            this.btn_Registrar.Name = "btn_Registrar";
-            this.btn_Registrar.Size = new System.Drawing.Size(150, 40);
-            this.btn_Registrar.TabIndex = 1;
-            this.btn_Registrar.Text = "Registrar";
-            this.btn_Registrar.TextColor = System.Drawing.Color.White;
-            this.btn_Registrar.UseVisualStyleBackColor = false;
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(636, 20);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(146, 20);
+            this.label5.TabIndex = 38;
+            this.label5.Text = "Duracion estimada:";
             // 
             // Frm_RegistrarVisita
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(1120, 974);
+            this.ClientSize = new System.Drawing.Size(1569, 974);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel2);
@@ -768,10 +792,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn horaApertura;
         private System.Windows.Forms.DataGridViewTextBoxColumn horaCierre;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.TextBox txt_guiasNecesarios;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreGuia;
@@ -791,11 +813,11 @@
         private System.Windows.Forms.Panel panel1;
         private BotonRedondeado btn_agregar;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblDuracion;
         private BotonRedondeado btn_quitar;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DateTimePicker dtpReserva;
+        private System.Windows.Forms.DateTimePicker dtpFechaReserva;
         private BotonRedondeado btn_QuitarGuia;
         private BotonRedondeado btn_agregarGuia;
         private System.Windows.Forms.GroupBox groupBox5;
@@ -807,5 +829,8 @@
         private BotonRedondeado btn_Cancelar;
         private BotonRedondeado btn_Registrar;
         private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.DateTimePicker dtpHoraReserva;
+        private System.Windows.Forms.Label lbl_GuiasNecesarios;
+        private System.Windows.Forms.Label label5;
     }
 }

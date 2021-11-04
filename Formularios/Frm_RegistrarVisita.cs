@@ -60,6 +60,8 @@ namespace MuseoDSI.Formularios
             MostrarListaEscuelas();
             MostrarListaDeSedes();
             MostrarListaDeTipoReserva();
+            lblDuracion.Visible = false;
+            lbl_GuiasNecesarios.Visible = false;
         }
 
 
@@ -70,7 +72,7 @@ namespace MuseoDSI.Formularios
             
         }
 
-            private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
@@ -110,41 +112,43 @@ namespace MuseoDSI.Formularios
         {
             if(dgv_Exposiciones.Rows.Count >= 1)
             {
-                expoSeleccionada = new Exposicion();
+                bool flag = true;
+                for (int i = 0; i < lv_Exposiciones.Items.Count; i++)
+                {
+                    if (dgv_Exposiciones.CurrentRow.Cells[0].Value.ToString() == lv_Exposiciones.Items[i].Text)
+                    {
+                        flag = false;
+                    }
+                }
+                if (flag)
+                {
+                    expoSeleccionada = new Exposicion();
+                    lv_Exposiciones.Items.Add(dgv_Exposiciones.CurrentRow.Cells[0].Value.ToString());
+                    expoSeleccionada.nombre = dgv_Exposiciones.CurrentRow.Cells[0].Value.ToString();
+                    expoSeleccionada.idPublico = dgv_Exposiciones.CurrentRow.Cells[1].Value.ToString();
+                    expoSeleccionada.horaInicio = DateTime.Parse(dgv_Exposiciones.CurrentRow.Cells[2].Value.ToString());
+                    expoSeleccionada.horaFin = DateTime.Parse(dgv_Exposiciones.CurrentRow.Cells[3].Value.ToString());
+                    exposicionesSeleccionadas.Add(expoSeleccionada);
+                }
+                else
+                {
+                    MessageBox.Show("Ya agregaste esta exposicion", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
-                lv_Exposiciones.Items.Add(dgv_Exposiciones.CurrentRow.Cells[0].Value.ToString());
-               
-                expoSeleccionada.nombre = dgv_Exposiciones.CurrentRow.Cells[0].Value.ToString();
-                expoSeleccionada.idPublico = dgv_Exposiciones.CurrentRow.Cells[1].Value.ToString();
-                expoSeleccionada.horaInicio = DateTime.Parse(dgv_Exposiciones.CurrentRow.Cells[2].Value.ToString());
-                expoSeleccionada.horaFin = DateTime.Parse(dgv_Exposiciones.CurrentRow.Cells[3].Value.ToString());
-                exposicionesSeleccionadas.Add(expoSeleccionada);
+            }
+            else
+            {
+                MessageBox.Show("No existe ninguna exposicion disponible", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
         }
-
-        private void lbl_fecha_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             gestor.GuardarListaExposición(exposicionesSeleccionadas);
             int duracion = 0;
             int tipoExposicion = cmb_TipoVisita.SelectedIndex;
             duracion = gestor.CalcularDuracionEstimada(tipoExposicion);
-            textBox3.Text = duracion.ToString();
-        }
-
-        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
+            lblDuracion.Text += duracion.ToString();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -158,10 +162,10 @@ namespace MuseoDSI.Formularios
             else
             {
                 int Guias = gestor.CalcularGuias(cmb_Sede.Text,txt_visitantes.Text);
-                txt_guiasNecesarios.Text = Guias.ToString();
-                List<Empleado> listaGuias = gestor.ObtenerEmpleado(DateTime.Parse(dtpReserva.Text.ToString()));
+                lbl_GuiasNecesarios.Text = Guias.ToString();
+                List<Empleado> listaGuias = gestor.ObtenerEmpleado(DateTime.Parse(dtpFechaReserva.Text.ToString()));
 
-                if (int.Parse(txt_guiasNecesarios.Text.ToString()) > listaGuias.Count())
+                if (int.Parse(lbl_GuiasNecesarios.Text.ToString()) > listaGuias.Count())
                 {
                     MessageBox.Show("No hay la cantidad suficiente de guias disponibles");
 
@@ -178,11 +182,6 @@ namespace MuseoDSI.Formularios
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void btn_agregarGuia_Click(object sender, EventArgs e)
         {
             CargarGrillaGuia();
@@ -191,7 +190,7 @@ namespace MuseoDSI.Formularios
         private void CargarGrillaGuia()
         {
             
-            if (guiasElegidos != int.Parse(txt_guiasNecesarios.Text))
+            if (guiasElegidos != int.Parse(lbl_GuiasNecesarios.Text))
             {
                 
                 dataGridView2.Rows.Add();
@@ -219,7 +218,7 @@ namespace MuseoDSI.Formularios
                     idSede = sedes[i].nroSede + 1 ;
                 }
             }
-            gestor.RegistrarReserva(numReserva, idSede, 1, DateTime.Parse(dtpReserva.Text.ToString()), DateTime.Now, int.Parse(txt_visitantes.Text), 1, 1);
+            gestor.RegistrarReserva(numReserva, idSede, 1, DateTime.Parse(dtpFechaReserva.Text.ToString()), DateTime.Now, int.Parse(txt_visitantes.Text), 1, 1);
             MessageBox.Show("Reserva Creada Correctamente");
             this.Close();
         }
@@ -281,6 +280,13 @@ namespace MuseoDSI.Formularios
             this.Close();
         }
 
-        
+        private void dtpFechaReserva_ValueChanged(object sender, EventArgs e)
+        {
+            gestor.GuardarListaExposición(exposicionesSeleccionadas);
+            int duracion = 0;
+            int tipoExposicion = cmb_TipoVisita.SelectedIndex;
+            duracion = gestor.CalcularDuracionEstimada(tipoExposicion);
+            lblDuracion.Text = duracion.ToString();
+        }
     }
 }

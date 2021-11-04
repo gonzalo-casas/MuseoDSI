@@ -36,7 +36,7 @@ namespace MuseoDSI.Clases
             {
                 Obras obra = new Obras();
                 obra.idObras = int.Parse(tabla.Rows[i]["idObras"].ToString());
-                obra.idExposicion = int.Parse(tabla.Rows[i]["idExposicion"].ToString());
+                //obra.idExposicion = int.Parse(tabla.Rows[i]["idExposicion"].ToString());
                 obra.nombre = tabla.Rows[i]["nombre"].ToString();
                 obra.duracionExtendida = int.Parse(tabla.Rows[i]["duracionExtendida"].ToString());
                 obra.duracionResumida = int.Parse(tabla.Rows[i]["duracionResumida"].ToString());
