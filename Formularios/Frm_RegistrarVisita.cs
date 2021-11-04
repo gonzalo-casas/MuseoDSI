@@ -66,9 +66,7 @@ namespace MuseoDSI.Formularios
 
         private void cmb_Sede_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-            
-          
+ 
             
         }
 
@@ -81,14 +79,14 @@ namespace MuseoDSI.Formularios
         {
 
             
-            if (cmb_Sede.SelectedItem.ToString() != "")
-            {
+            //if (cmb_Sede.SelectedItem.ToString() != "")
+            //{
              
-             List<Exposicion> listaExpos = gestor.BuscarExposiciones(cmb_Sede.SelectedIndex);
-             CargarGrilla(listaExpos);
-             return;
+            // List<Exposicion> listaExpos = gestor.BuscarExposiciones(cmb_Sede.SelectedIndex);
+            // CargarGrilla(listaExpos);
+            // return;
 
-            }
+            //}
             
         }
         private void CargarGrilla(List<Exposicion> lista)
@@ -137,7 +135,10 @@ namespace MuseoDSI.Formularios
 
         private void button2_Click(object sender, EventArgs e)
         {
-            int duracion = gestor.CalcularDuracionEstimada();
+            gestor.GuardarListaExposición(exposicionesSeleccionadas);
+            int duracion = 0;
+            int tipoExposicion = cmb_TipoVisita.SelectedIndex;
+            duracion = gestor.CalcularDuracionEstimada(tipoExposicion);
             textBox3.Text = duracion.ToString();
         }
 
@@ -243,10 +244,11 @@ namespace MuseoDSI.Formularios
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < exposicionesSeleccionadas.Count; i++) // para que guarde cada exposicion cargada en la listview seleccionada 
-            {
-                gestor.GuardarListaExposición(exposicionesSeleccionadas[i]);
-            }
+            //for (int i = 0; i < exposicionesSeleccionadas.Count; i++) // para que guarde cada exposicion cargada en la listview  
+            //{
+            //    gestor.GuardarListaExposición(exposicionesSeleccionadas[i]);
+            //}
+       
            
         }
 
@@ -254,11 +256,29 @@ namespace MuseoDSI.Formularios
         {
             int estrategia = this.cmb_TipoVisita.SelectedIndex;
             gestor.crearEstrategia(estrategia);
+
+            if (cmb_Sede.SelectedItem.ToString() != "")
+            {
+
+                List<Exposicion> listaExpos = gestor.BuscarExposiciones(cmb_Sede.SelectedIndex); 
+                CargarGrilla(listaExpos);
+                return;
+
+            }
         }
 
-        private void btn_quitar_Click(object sender, EventArgs e)
+        private void btn_quitar_Click(object sender, EventArgs e) // Para borrar exposicion de la listaview
         {
-            //listView1.Items.Remove
+            for (int i = 0; i < listView1.SelectedItems.Count; i++)
+            {
+                if (exposicionesSeleccionadas[i].nombre.Contains(listView1.SelectedItems[i].Text.ToString()))
+                {
+                    exposicionesSeleccionadas.Remove(exposicionesSeleccionadas[i]);
+                    listView1.Items.Remove(listView1.SelectedItems[i]);
+                }
+
+            }
+            
         }
     }
 }

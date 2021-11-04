@@ -38,8 +38,9 @@ namespace MuseoDSI.Clases
         }
         
 
-        public int CalcularDuracionEstimada(List<Exposicion> lista)
+        public int CalcularDuracionEstimada(List<Exposicion> lista, string tipoExposicion)
         {
+            
             Obras obra1 = new Obras();
             List<Obras> ListaObras = obra1.LlenarListaObras();
 
@@ -57,7 +58,15 @@ namespace MuseoDSI.Clases
 
                             if (ListadeExpos[i].idExposicion == ListaObras[k].idExposicion)
                             {
-                                duracion += ListaObras[k].duracionExtendida;
+                                if (tipoExposicion.Equals("porExposicion"))
+                                {
+                                    duracion += ListaObras[k].duracionExtendida;
+                                }
+                                else
+                                {
+                                    duracion += ListaObras[k].duracionResumida;
+                                }
+                                
                             }
                         }
                     }

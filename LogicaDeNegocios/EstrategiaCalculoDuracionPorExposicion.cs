@@ -11,9 +11,9 @@ namespace MuseoDSI.LogicaDeNegocios
     {
         Sede sede = new Sede();
 
-        public int CalcularDuracionEstimadaResv(List<Exposicion> ExposicionesSeleccionadas)
+        public int CalcularDuracionEstimadaResv(List<Exposicion> ExposicionesSeleccionadas, string tipoExposicion)
         {
-            int duracionEstimada = sede.CalcularDuracionEstimada(ExposicionesSeleccionadas);
+            int duracionEstimada = sede.CalcularDuracionEstimada(ExposicionesSeleccionadas, tipoExposicion);
             return duracionEstimada;
         }
 
@@ -22,7 +22,7 @@ namespace MuseoDSI.LogicaDeNegocios
         public List<Exposicion> BuscarExposiciones(int nroSede)
         {
 
-            List<Exposicion> ListaExpos = sede.BuscarListaExposicion(nroSede);
+            List<Exposicion> ListaExpos = sede.BuscarListaExposicion(nroSede, "('2')");
             return ListaExpos;
         }
 

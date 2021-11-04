@@ -42,7 +42,7 @@ namespace MuseoDSI.Clases
 
         public List<Exposicion> ListaExposicion = new List<Exposicion>();
         Exposicion expo = new Exposicion();
-        public List<Exposicion> BuscarListaExposicion(int nroSedee)
+        public List<Exposicion> BuscarListaExposicion(int nroSedee, string tipoExposicion)
         {
             ListaExposicion.Clear();
             int nroSede = nroSedee + 1;
@@ -54,12 +54,13 @@ namespace MuseoDSI.Clases
             //    }
             //}
             DataTable tabla = new DataTable();
-            string sql = "SELECT * FROM Exposicion WHERE nroSede = " + nroSede;
+            string sql = "SELECT * FROM Exposicion WHERE nroSede = " + nroSede + " AND idTipoExposicion in "+ tipoExposicion;
             
             tabla = _BD.Consulta(sql);
             for (int i = 0; i < tabla.Rows.Count; i++)
             {
                 Exposicion exposicion = new Exposicion();
+               
                 exposicion.idExposicion = int.Parse(tabla.Rows[i]["idExposicion"].ToString());
                 exposicion.nroSede = int.Parse(tabla.Rows[i]["nroSede"].ToString());
                 exposicion.nombre = tabla.Rows[i]["nombreExposicion"].ToString();
@@ -111,9 +112,9 @@ namespace MuseoDSI.Clases
             return CantAlumnos;
         }
 
-        public int CalcularDuracionEstimada(List<Exposicion> lista)
+        public int CalcularDuracionEstimada(List<Exposicion> lista, string tipoExposicion)
         {
-            int duracion = expo.CalcularDuracionEstimada(lista);
+            int duracion = expo.CalcularDuracionEstimada(lista, tipoExposicion);
             return duracion;
         }
       

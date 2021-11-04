@@ -70,9 +70,9 @@ namespace MuseoDSI.Clases
         }
         DetalleExposicion de = new DetalleExposicion();
        
-        public int CalcularDuracionEstimada(List<Exposicion> lista)
+        public int CalcularDuracionEstimada(List<Exposicion> lista, string tipoExposicion)
         {
-            int duracion = de.CalcularDuracionEstimada(lista);
+            int duracion = de.CalcularDuracionEstimada(lista, tipoExposicion);
             return duracion;
         }
 

@@ -9,14 +9,19 @@ namespace MuseoDSI.LogicaDeNegocios
 {
     class EstrategiaCalculoDuracionCompleta : IEstrategiaCalculoDuracion
     {
+        Sede sede = new Sede();
+
         public List<Exposicion> BuscarExposiciones(int nroSede)
         {
-            throw new NotImplementedException();
+            List<Exposicion> ListaExpos = sede.BuscarListaExposicion(nroSede, "('1', '2')");
+            return ListaExpos;
         }
 
-        public int CalcularDuracionEstimadaResv(List<Exposicion> ExposicionesSeleccionadas)
+
+        public int CalcularDuracionEstimadaResv(List<Exposicion> ExposicionesSeleccionadas, string tipoExposicion)
         {
-            throw new NotImplementedException();
+            int duracionEstimada = sede.CalcularDuracionEstimada(ExposicionesSeleccionadas, tipoExposicion);
+            return duracionEstimada;
         }
     }
 }
