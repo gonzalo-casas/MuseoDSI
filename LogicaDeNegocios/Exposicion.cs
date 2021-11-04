@@ -28,7 +28,7 @@ namespace MuseoDSI.Clases
             string sql = "SELECT * FROM Exposicion";
 
             tabla = _BD.Consulta(sql);
-            for (int i = 0; i < tabla.Rows.Count; i++)
+            for (int i = 0; i < tabla.Rows.Count; i++)  // aca implenta el gethorarioHabilitado y getPublicoDestino
             {
                 Exposicion exposicion = new Exposicion();
                 exposicion.idExposicion = int.Parse(tabla.Rows[i]["idExposicion"].ToString());
@@ -58,6 +58,9 @@ namespace MuseoDSI.Clases
         public List<Exposicion> ComprobarVigencia (List<Exposicion> lista)
         {
             DateTime fechaHoy = ObtenerFechaActual();
+
+          
+
             for( int i = 0; i < lista.Count; i++)
             {
                 if (lista[i].fechaFin > fechaHoy)
@@ -65,8 +68,10 @@ namespace MuseoDSI.Clases
                     ListaExposicionesVigentes.Add(lista[i]);
                 }
             }
-            ListaExposicionesVigentes = tipoExposicion.BuscarExpoTipoTemp(ListaExposicionesVigentes);
+            ListaExposicionesVigentes = tipoExposicion.BuscarExpoTipoTemp(ListaExposicionesVigentes); // esTemporal()
             return ListaExposicionesVigentes;
+
+           
         }
         DetalleExposicion de = new DetalleExposicion();
        

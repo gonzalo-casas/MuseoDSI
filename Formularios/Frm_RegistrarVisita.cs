@@ -246,15 +246,15 @@ namespace MuseoDSI.Formularios
            
         }
 
-        private void cmb_TipoVisita_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmb_TipoVisita_SelectedIndexChanged(object sender, EventArgs e) 
         {
             int estrategia = this.cmb_TipoVisita.SelectedIndex;
-            gestor.crearEstrategia(estrategia);
+            gestor.crearEstrategia(estrategia); // tomarSeleccionarTipoVisita()
 
             if (cmb_Sede.SelectedItem.ToString() != "")
             {
 
-                List<Exposicion> listaExpos = gestor.BuscarExposiciones(cmb_Sede.SelectedIndex); 
+                List<Exposicion> listaExpos = gestor.BuscarExposiciones(cmb_Sede.SelectedIndex);  // aca obtiene las lista de exposiones
                 CargarGrilla(listaExpos);
                 return;
 

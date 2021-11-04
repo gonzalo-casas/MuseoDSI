@@ -40,7 +40,7 @@ namespace MuseoDSI.Clases
 
         public List<Exposicion> BuscarExposiciones(int nombreSede)
         {
-           return estrategia.BuscarExposiciones(nombreSede);
+           return estrategia.BuscarExposiciones(nombreSede);    //mostrarDatosTemp
         }
         //public List<Exposicion> BuscarExposiciones(string nombreSede)
         //{
@@ -59,7 +59,7 @@ namespace MuseoDSI.Clases
         Obras obra = new Obras();
 
         //Calcula La duracion estimada de la reserva
-        public int CalcularDuracionEstimada(int tipoExposicionn)
+        public int CalcularDuracionEstimada(int tipoExposicionn) /// 
         {
 
             if (tipoExposicionn.Equals(1))
