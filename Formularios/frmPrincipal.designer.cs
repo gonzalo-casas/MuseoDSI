@@ -37,18 +37,20 @@ namespace MuseoDSI.Formularios
             this.panelExposiciones = new System.Windows.Forms.Panel();
             this.PanelEscuelas = new System.Windows.Forms.Panel();
             this.panelRegistroVisitas = new System.Windows.Forms.Panel();
-            this.btnRegistrarReserva = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblRolUsuario = new System.Windows.Forms.Label();
             this.LblNombreUsuario = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panelForms = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnEmpleados = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnVentas = new System.Windows.Forms.Button();
             this.btnObras = new System.Windows.Forms.Button();
             this.BtnExposiciones = new System.Windows.Forms.Button();
-            this.btnEscuelas = new System.Windows.Forms.Button();
+            this.btnSede = new System.Windows.Forms.Button();
+            this.btnRegistrarReserva = new System.Windows.Forms.Button();
             this.BtnSalir = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
@@ -62,13 +64,14 @@ namespace MuseoDSI.Formularios
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panelForms.SuspendLayout();
+            this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(181)))), ((int)(((byte)(168)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(224)))), ((int)(((byte)(240)))));
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel2);
@@ -80,6 +83,7 @@ namespace MuseoDSI.Formularios
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.panel6);
             this.panel5.Controls.Add(this.panelEmpleados);
             this.panel5.Controls.Add(this.panelObras);
             this.panel5.Controls.Add(this.panelExposiciones);
@@ -93,7 +97,7 @@ namespace MuseoDSI.Formularios
             // 
             // panelEmpleados
             // 
-            this.panelEmpleados.Controls.Add(this.btnEmpleados);
+            this.panelEmpleados.Controls.Add(this.btnVentas);
             this.panelEmpleados.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelEmpleados.Location = new System.Drawing.Point(0, 280);
             this.panelEmpleados.Name = "panelEmpleados";
@@ -120,7 +124,7 @@ namespace MuseoDSI.Formularios
             // 
             // PanelEscuelas
             // 
-            this.PanelEscuelas.Controls.Add(this.btnEscuelas);
+            this.PanelEscuelas.Controls.Add(this.btnSede);
             this.PanelEscuelas.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelEscuelas.Location = new System.Drawing.Point(0, 70);
             this.PanelEscuelas.Name = "PanelEscuelas";
@@ -136,23 +140,6 @@ namespace MuseoDSI.Formularios
             this.panelRegistroVisitas.Size = new System.Drawing.Size(250, 70);
             this.panelRegistroVisitas.TabIndex = 6;
             // 
-            // btnRegistrarReserva
-            // 
-            this.btnRegistrarReserva.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnRegistrarReserva.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnRegistrarReserva.FlatAppearance.BorderSize = 0;
-            this.btnRegistrarReserva.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegistrarReserva.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrarReserva.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRegistrarReserva.Location = new System.Drawing.Point(12, 0);
-            this.btnRegistrarReserva.Name = "btnRegistrarReserva";
-            this.btnRegistrarReserva.Size = new System.Drawing.Size(238, 70);
-            this.btnRegistrarReserva.TabIndex = 3;
-            this.btnRegistrarReserva.Text = "Registrar reserva de visitas guiadas";
-            this.btnRegistrarReserva.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnRegistrarReserva.UseVisualStyleBackColor = true;
-            this.btnRegistrarReserva.Click += new System.EventHandler(this.btnRegistrarReserva_Click);
-            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.BtnSalir);
@@ -164,7 +151,7 @@ namespace MuseoDSI.Formularios
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(87)))), ((int)(((byte)(74)))));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
             this.panel2.Controls.Add(this.lblRolUsuario);
             this.panel2.Controls.Add(this.LblNombreUsuario);
             this.panel2.Controls.Add(this.panel3);
@@ -178,7 +165,7 @@ namespace MuseoDSI.Formularios
             // 
             this.lblRolUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRolUsuario.ForeColor = System.Drawing.Color.White;
-            this.lblRolUsuario.Location = new System.Drawing.Point(71, 33);
+            this.lblRolUsuario.Location = new System.Drawing.Point(100, 33);
             this.lblRolUsuario.Name = "lblRolUsuario";
             this.lblRolUsuario.Size = new System.Drawing.Size(113, 24);
             this.lblRolUsuario.TabIndex = 2;
@@ -215,31 +202,58 @@ namespace MuseoDSI.Formularios
             this.panelForms.Size = new System.Drawing.Size(934, 1061);
             this.panelForms.TabIndex = 9;
             // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.button1);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel6.Location = new System.Drawing.Point(0, 350);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(250, 70);
+            this.panel6.TabIndex = 7;
+            // 
             // pictureBox2
             // 
-            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.pictureBox2.Location = new System.Drawing.Point(213, -13);
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox2.Image = global::MuseoDSI.Properties.Resources.noche_estrellada_hd;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(737, 1086);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.Size = new System.Drawing.Size(934, 1061);
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
-            // btnEmpleados
+            // button1
             // 
-            this.btnEmpleados.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnEmpleados.FlatAppearance.BorderSize = 0;
-            this.btnEmpleados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEmpleados.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEmpleados.Image = global::MuseoDSI.Properties.Resources.icons8_employee_64;
-            this.btnEmpleados.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEmpleados.Location = new System.Drawing.Point(12, 0);
-            this.btnEmpleados.Name = "btnEmpleados";
-            this.btnEmpleados.Size = new System.Drawing.Size(238, 70);
-            this.btnEmpleados.TabIndex = 5;
-            this.btnEmpleados.Text = "Empleados";
-            this.btnEmpleados.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEmpleados.UseVisualStyleBackColor = true;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Image = global::MuseoDSI.Properties.Resources.icons8_report_64;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(12, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(238, 70);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Generar ranking de franjas horarias y días";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // btnVentas
+            // 
+            this.btnVentas.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnVentas.FlatAppearance.BorderSize = 0;
+            this.btnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVentas.Image = global::MuseoDSI.Properties.Resources.icons8_tickets_64;
+            this.btnVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVentas.Location = new System.Drawing.Point(12, 0);
+            this.btnVentas.Name = "btnVentas";
+            this.btnVentas.Size = new System.Drawing.Size(238, 70);
+            this.btnVentas.TabIndex = 5;
+            this.btnVentas.Text = "Registrar venta de entradas";
+            this.btnVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVentas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnVentas.UseVisualStyleBackColor = true;
             // 
             // btnObras
             // 
@@ -253,8 +267,9 @@ namespace MuseoDSI.Formularios
             this.btnObras.Name = "btnObras";
             this.btnObras.Size = new System.Drawing.Size(238, 70);
             this.btnObras.TabIndex = 0;
-            this.btnObras.Text = "Obras";
-            this.btnObras.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnObras.Text = "Registrar Obras";
+            this.btnObras.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnObras.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnObras.UseVisualStyleBackColor = false;
             // 
             // BtnExposiciones
@@ -269,25 +284,46 @@ namespace MuseoDSI.Formularios
             this.BtnExposiciones.Name = "BtnExposiciones";
             this.BtnExposiciones.Size = new System.Drawing.Size(238, 70);
             this.BtnExposiciones.TabIndex = 4;
-            this.BtnExposiciones.Text = "Exposiciones";
-            this.BtnExposiciones.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnExposiciones.Text = "Generar Planificación de Exposición";
+            this.BtnExposiciones.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnExposiciones.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnExposiciones.UseVisualStyleBackColor = false;
             // 
-            // btnEscuelas
+            // btnSede
             // 
-            this.btnEscuelas.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnEscuelas.FlatAppearance.BorderSize = 0;
-            this.btnEscuelas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEscuelas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEscuelas.Image = global::MuseoDSI.Properties.Resources.icons8_school_64;
-            this.btnEscuelas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEscuelas.Location = new System.Drawing.Point(12, 0);
-            this.btnEscuelas.Name = "btnEscuelas";
-            this.btnEscuelas.Size = new System.Drawing.Size(238, 70);
-            this.btnEscuelas.TabIndex = 1;
-            this.btnEscuelas.Text = "Escuelas";
-            this.btnEscuelas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEscuelas.UseVisualStyleBackColor = true;
+            this.btnSede.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnSede.FlatAppearance.BorderSize = 0;
+            this.btnSede.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSede.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSede.Image = global::MuseoDSI.Properties.Resources.icons8_school_64;
+            this.btnSede.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSede.Location = new System.Drawing.Point(12, 0);
+            this.btnSede.Name = "btnSede";
+            this.btnSede.Size = new System.Drawing.Size(238, 70);
+            this.btnSede.TabIndex = 1;
+            this.btnSede.Text = "Registrar Estructura Física de Sede";
+            this.btnSede.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSede.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSede.UseVisualStyleBackColor = true;
+            // 
+            // btnRegistrarReserva
+            // 
+            this.btnRegistrarReserva.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnRegistrarReserva.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnRegistrarReserva.FlatAppearance.BorderSize = 0;
+            this.btnRegistrarReserva.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistrarReserva.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrarReserva.Image = global::MuseoDSI.Properties.Resources.icons8_guide_64;
+            this.btnRegistrarReserva.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRegistrarReserva.Location = new System.Drawing.Point(12, 0);
+            this.btnRegistrarReserva.Name = "btnRegistrarReserva";
+            this.btnRegistrarReserva.Size = new System.Drawing.Size(238, 70);
+            this.btnRegistrarReserva.TabIndex = 3;
+            this.btnRegistrarReserva.Text = "Registrar reserva de visitas guiadas";
+            this.btnRegistrarReserva.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRegistrarReserva.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnRegistrarReserva.UseVisualStyleBackColor = true;
+            this.btnRegistrarReserva.Click += new System.EventHandler(this.btnRegistrarReserva_Click);
             // 
             // BtnSalir
             // 
@@ -298,9 +334,9 @@ namespace MuseoDSI.Formularios
             this.BtnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSalir.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.BtnSalir.Location = new System.Drawing.Point(62, 0);
+            this.BtnSalir.Location = new System.Drawing.Point(12, 0);
             this.BtnSalir.Name = "BtnSalir";
-            this.BtnSalir.Size = new System.Drawing.Size(188, 67);
+            this.BtnSalir.Size = new System.Drawing.Size(238, 67);
             this.BtnSalir.TabIndex = 0;
             this.BtnSalir.Text = "      Salir";
             this.BtnSalir.UseVisualStyleBackColor = true;
@@ -342,6 +378,7 @@ namespace MuseoDSI.Formularios
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panelForms.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -351,9 +388,9 @@ namespace MuseoDSI.Formularios
         #endregion
 
         private System.Windows.Forms.Button btnObras;
-        private System.Windows.Forms.Button btnEscuelas;
+        private System.Windows.Forms.Button btnSede;
         private System.Windows.Forms.Button BtnExposiciones;
-        private System.Windows.Forms.Button btnEmpleados;
+        private System.Windows.Forms.Button btnVentas;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
@@ -371,6 +408,8 @@ namespace MuseoDSI.Formularios
         private System.Windows.Forms.Label lblRolUsuario;
         private System.Windows.Forms.Panel panelRegistroVisitas;
         private System.Windows.Forms.Button btnRegistrarReserva;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Button button1;
     }
 }
 
