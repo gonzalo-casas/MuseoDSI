@@ -133,9 +133,7 @@ namespace MuseoDSI.Clases
                 {
                     listaGuiasDisponibles.Add(listaGuias[i]);
                 }
-                
-                
-                
+
             }
 
 
