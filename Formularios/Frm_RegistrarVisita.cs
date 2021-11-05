@@ -17,6 +17,8 @@ namespace MuseoDSI.Formularios
         Gestor gestor = new Gestor();
         Exposicion expoSeleccionada;
         List<Exposicion> exposicionesSeleccionadas = new List<Exposicion>();
+        Empleado guiaSeleccionado;
+        List<Empleado> guiasSeleccionados = new List<Empleado>();
         
         public Frm_RegistrarVisita()
         {
@@ -58,18 +60,11 @@ namespace MuseoDSI.Formularios
             
             obra.LlenarListaObras();
             MostrarListaEscuelas();
-            MostrarListaDeSedes();
-            MostrarListaDeTipoReserva();
-            lblDuracion.Visible = false;
-            lbl_GuiasNecesarios.Visible = false;
-        }
-
-
-
-        private void cmb_Sede_SelectedIndexChanged(object sender, EventArgs e)
-        {
- 
-            
+            //lblDuracion.Visible = false;
+            //lbl_GuiasNecesarios.Visible = false;
+            cmb_Sede.Enabled = false;
+            cmb_TipoVisita.Enabled = false;
+            dtpHoraReserva.LostFocus += new EventHandler(dtpHoraReserva_LostFocus);
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -131,85 +126,58 @@ namespace MuseoDSI.Formularios
                 {
                     MessageBox.Show("Ya agregaste esta exposicion", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
             }
             else
             {
                 MessageBox.Show("No existe ninguna exposicion disponible", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
         }
 
         private void btn_quitar_Click(object sender, EventArgs e) // Para borrar exposicion de la listaview
         {
-
             if (dgv_ExposicionesSeleccionadas.SelectedRows.Count > 0)
             {
                 exposicionesSeleccionadas.Remove(exposicionesSeleccionadas[dgv_ExposicionesSeleccionadas.CurrentRow.Index]);
                 dgv_ExposicionesSeleccionadas.Rows.RemoveAt(dgv_ExposicionesSeleccionadas.CurrentRow.Index);
             }
-
-
         }
         private void button2_Click(object sender, EventArgs e)
         {
           
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-            cmb_Guias.Items.Clear();
-            string respuesta = gestor.CalcularSobrepaso(txt_visitantes.Text,cmb_Sede.Text);
-            if(respuesta == "sobrepasado")
-            {
-                MessageBox.Show("Cupo máximo de visitantes superados!","URGENTE");
-            }
-            else
-            {
-                int Guias = gestor.CalcularGuias(cmb_Sede.Text,txt_visitantes.Text);
-                lbl_GuiasNecesarios.Text = Guias.ToString();
-                List<Empleado> listaGuias = gestor.ObtenerEmpleado(DateTime.Parse(dtpFechaReserva.Text.ToString()));
+        //private void button5_Click(object sender, EventArgs e)
+        //{
+        //    cmb_Guias.Items.Clear();
+        //    string respuesta = gestor.CalcularSobrepaso(txt_visitantes.Text,cmb_Sede.Text);
+        //    if(respuesta == "sobrepasado")
+        //    {
+        //        MessageBox.Show("Cupo máximo de visitantes superados!","URGENTE");
+        //    }
+        //    else
+        //    {
+        //        int Guias = gestor.CalcularGuias(cmb_Sede.Text,txt_visitantes.Text);
+        //        lbl_GuiasNecesarios.Text = Guias.ToString();
+        //        List<Empleado> listaGuias = gestor.ObtenerEmpleado(DateTime.Parse(dtpFechaReserva.Text.ToString()));
 
-                if (int.Parse(lbl_GuiasNecesarios.Text.ToString()) > listaGuias.Count())
-                {
-                    MessageBox.Show("No hay la cantidad suficiente de guias disponibles");
+        //        if (int.Parse(lbl_GuiasNecesarios.Text.ToString()) > listaGuias.Count())
+        //        {
+        //            MessageBox.Show("No hay la cantidad suficiente de guias disponibles");
 
-                }
+        //        }
 
-                for (int i = 0;i < listaGuias.Count; i++)
-                {
-                    cmb_Guias.Items.Add(listaGuias[i].nombre);
-                }
+        //        for (int i = 0;i < listaGuias.Count; i++)
+        //        {
+        //            cmb_Guias.Items.Add(listaGuias[i].nombre);
+        //        }
                 
-            }
+        //    }
 
 
-        }
+        //}
 
-        private void btn_agregarGuia_Click(object sender, EventArgs e)
-        {
-            CargarGrillaGuia();
-        }
         int guiasElegidos = 0;
-        private void CargarGrillaGuia()
-        {
-            
-            if (guiasElegidos != int.Parse(lbl_GuiasNecesarios.Text))
-            {
-                
-                dataGridView2.Rows.Add();
-                guiasElegidos += 1;
-                int row = dataGridView2.Rows.Count;
-                dataGridView2.Rows[row - 2].Cells[0].Value = cmb_Guias.Text;
-            }
-            else
-            {
-                MessageBox.Show("Ya se seleccionaron los guias necesarios", "ATENCION");
-            }
-            
         
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
             int numReserva = ObtenerCantidadReservas();
@@ -256,6 +224,8 @@ namespace MuseoDSI.Formularios
 
                 List<Exposicion> listaExpos = gestor.TomarExposionesTempVig(cmb_Sede.SelectedIndex);  // aca obtiene las lista de exposiones
                 CargarGrilla(listaExpos);
+                btn_agregar.Enabled = true;
+                btn_quitar.Enabled = true;
                 return;
 
             }
@@ -294,11 +264,126 @@ namespace MuseoDSI.Formularios
         {
             lblDuracion.Enabled = true;
             gestor.GuardarListaExposición(exposicionesSeleccionadas);
-            int duracion = 0;
             int tipoExposicion = cmb_TipoVisita.SelectedIndex;
-            duracion = gestor.CalcularDuracionEstimada(tipoExposicion);
+            int duracion = gestor.CalcularDuracionEstimada(tipoExposicion);
             lblDuracion.Text = duracion.ToString();
             lblDuracion.BringToFront();
+        }
+
+        private void dtpHoraReserva_LostFocus(object sender, EventArgs e)
+        {
+        }
+        private void CargarGrillaGuia(List<Empleado> lista)
+        {
+            dgv_Guias.Rows.Clear();
+            for (int i = 0; i < lista.Count; i++)
+            {
+                dgv_Guias.Rows.Add();
+                dgv_Guias.Rows[i].Cells[0].Value = lista[i].dni;
+                dgv_Guias.Rows[i].Cells[1].Value = lista[i].nombre;
+                dgv_Guias.Rows[i].Cells[2].Value = lista[i].apellido;
+            }
+        }
+
+        private void cmb_Sede_Click(object sender, EventArgs e)
+        {
+            if (!cmb_Sede.Enabled)
+            {
+                MessageBox.Show("Debes seleccionar antes una escuela", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void cmb_TipoVisita_Click(object sender, EventArgs e)
+        {
+            if (!cmb_TipoVisita.Enabled)
+            {
+                MessageBox.Show("Debes seleccionar antes una sede", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void cmb_Escuela_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cmb_Sede.Enabled = true;
+            MostrarListaDeSedes();
+
+        }
+
+        private void cmb_Sede_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cmb_TipoVisita.Enabled = true;
+            MostrarListaDeTipoReserva();
+        }
+
+        private void dtpHoraReserva_ValueChanged(object sender, EventArgs e)
+        {
+            timerGuia.Stop();
+            timerGuia.Start();
+        }
+
+        private void timerGuia_Tick(object sender, EventArgs e)
+        {
+            CargarGrillaGuia(gestor.ObtenerEmpleado(dtpHoraReserva.Value));
+            btn_agregarGuia.Enabled = true;
+            btn_QuitarGuia.Enabled = true;
+            timerGuia.Stop();
+        }
+
+        private void btn_agregarGuia_Click_1(object sender, EventArgs e)
+        {
+            if (dgv_Guias.Rows.Count >= 1)
+            {
+                bool flag = true;
+                for (int i = 0; i < dgv_GuiasSeleccionados.Rows.Count; i++)
+                {
+                    if (dgv_Guias.CurrentRow.Cells[0].Value.ToString() == dgv_GuiasSeleccionados.Rows[i].Cells[0].Value.ToString())
+                    {
+                        flag = false;
+                    }
+                }
+                if (flag)
+                {
+                    int index = dgv_GuiasSeleccionados.Rows.Add(dgv_Guias.CurrentRow.Clone() as DataGridViewRow);
+                    foreach (DataGridViewCell o in dgv_Guias.CurrentRow.Cells)
+                    {
+                        dgv_GuiasSeleccionados.Rows[index].Cells[o.ColumnIndex].Value = o.Value;
+                    }
+                    guiaSeleccionado = new Empleado();
+                    guiaSeleccionado.dni = Int32.Parse(dgv_Guias.CurrentRow.Cells[0].Value.ToString());
+                    guiaSeleccionado.nombre = dgv_Guias.CurrentRow.Cells[1].Value.ToString();
+                    guiaSeleccionado.apellido = dgv_Guias.CurrentRow.Cells[2].Value.ToString();
+                    guiasSeleccionados.Add(guiaSeleccionado);
+                }
+                else
+                {
+                    MessageBox.Show("Ya agregaste a este guia", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No existe ningun guia disponible", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btn_QuitarGuia_Click(object sender, EventArgs e)
+        {
+            if (dgv_GuiasSeleccionados.SelectedRows.Count > 0)
+            {
+                guiasSeleccionados.Remove(guiasSeleccionados[dgv_GuiasSeleccionados.CurrentRow.Index]);
+                dgv_GuiasSeleccionados.Rows.RemoveAt(dgv_GuiasSeleccionados.CurrentRow.Index);
+            }
+        }
+
+        private void btn_Cancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Frm_RegistrarVisita_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("¿Esta seguro de que desea cancelar la reserva?\n Se perderan todos los datos", "Saliendo", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+                e.Cancel = false;
+            else
+                e.Cancel = true;
         }
     }
 }
