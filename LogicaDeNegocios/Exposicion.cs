@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using MuseoDSI.Clases;
+using MuseoDSI.Datos.EsquemaPersistencia.Interfaz;
+using MuseoDSI.Datos.EsquemaPersistencia.Daos;
+
 namespace MuseoDSI.Clases
 {
     class Exposicion
@@ -19,33 +22,20 @@ namespace MuseoDSI.Clases
         public string nombre { get; set; }
         public string idPublico { get; set; }
 
-        public List<Exposicion> Exposiciones = new List<Exposicion>();
-        Backend _BD = new Backend();
-        public List<Exposicion> BuscarListaDeExposiciones()
+        private IExposicion dao;
+
+        public Exposicion()
         {
-
-            DataTable tabla = new DataTable();
-            string sql = "SELECT * FROM Exposicion";
-
-            tabla = _BD.Consulta(sql);
-            for (int i = 0; i < tabla.Rows.Count; i++)  // aca implenta el gethorarioHabilitado y getPublicoDestino
-            {
-                Exposicion exposicion = new Exposicion();
-                exposicion.idExposicion = int.Parse(tabla.Rows[i]["idExposicion"].ToString());
-                exposicion.nroSede = int.Parse(tabla.Rows[i]["nroSede"].ToString());
-                exposicion.nombre = tabla.Rows[i]["nombreExposicion"].ToString();
-                exposicion.idPublico = tabla.Rows[i]["idPublico"].ToString();
-                exposicion.horaInicio = DateTime.Parse(tabla.Rows[i]["horaInicio"].ToString());
-                exposicion.horaFin = DateTime.Parse(tabla.Rows[i]["horaCierre"].ToString());
-                exposicion.fechaInicio = DateTime.Parse(tabla.Rows[i]["fechaInicio"].ToString());
-                exposicion.fechaFin = DateTime.Parse(tabla.Rows[i]["fechaCierre"].ToString());
-                Exposiciones.Add(exposicion);
-            }
-
-            return Exposiciones;
+            dao = new ExposicionDao();
         }
 
-            List<Exposicion> ListaExposicionesVigentes = new List<Exposicion>();
+        public List<Exposicion> Exposiciones = new List<Exposicion>();
+        public List<Exposicion> BuscarListaDeExposiciones()
+        {
+           return dao.BuscarListaDeExposiciones();
+        }
+
+        List<Exposicion> ListaExposicionesVigentes = new List<Exposicion>();
 
         private DateTime ObtenerFechaActual()
         {

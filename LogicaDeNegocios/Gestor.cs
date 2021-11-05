@@ -116,7 +116,7 @@ namespace MuseoDSI.Clases
             
             for (int i = 0; i <ListaEmpleados.Count; i++)
             {
-                if(empleado.VerificarGuia(ListaEmpleados[i].idCargo) == "Guia")
+                if(empleado.VerificarCargo(ListaEmpleados[i].idCargo) == "Guia")
                 {
                     listaGuias.Add(ListaEmpleados[i]);
                 }

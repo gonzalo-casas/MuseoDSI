@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using MuseoDSI.Clases;
 using System.Data;
+using MuseoDSI.Datos.EsquemaPersistencia.Interfaz;
+using MuseoDSI.Datos.EsquemaPersistencia.Daos;
 
 namespace MuseoDSI.Clases
 {
@@ -15,25 +17,19 @@ namespace MuseoDSI.Clases
         public DateTime horaSalida { get; set; }
         public DateTime fechaInicio { get; set; }
         public DateTime fechaFin { get; set; }
-        Backend _BD = new Backend();
+
+        private IHorarioEmpleado dao;
 
         public List<HorarioEmpleado> ListaDeHorarioEmpleados = new List<HorarioEmpleado>();
+
+        public HorarioEmpleado()
+        {
+            dao = new HorarioEmpleadoDao();
+        }
+
         public List<HorarioEmpleado> LlenarListaHorarioEmpleados()
         {
-
-            DataTable tabla = new DataTable();
-            string sql = "SELECT * FROM HorarioEmpleado";
-            tabla = _BD.Consulta(sql);
-
-            for (int i = 0; i < tabla.Rows.Count; i++)
-            {
-                HorarioEmpleado horarioEmpleado = new HorarioEmpleado();
-                horarioEmpleado.idHorario = int.Parse(tabla.Rows[i]["idHorario"].ToString());
-                horarioEmpleado.horaIngreso = DateTime.Parse(tabla.Rows[i]["horaIngreso"].ToString());
-                horarioEmpleado.horaSalida = DateTime.Parse(tabla.Rows[i]["horaSalida"].ToString());
-                ListaDeHorarioEmpleados.Add(horarioEmpleado);
-            }
-            return ListaDeHorarioEmpleados;
+            return dao.LlenarListaHorarioEmpleados();
         }
 
         public string VerificarHorario(List<HorarioEmpleado> ListaHorario, int idHorarioGuia, DateTime horarioSeleccionado)

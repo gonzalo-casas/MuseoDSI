@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using MuseoDSI.Clases;
 using System.Data;
+using MuseoDSI.Datos.EsquemaPersistencia.Interfaz;
+using MuseoDSI.Datos.EsquemaPersistencia.Daos;
 
 namespace MuseoDSI.Clases
 {
@@ -22,35 +24,28 @@ namespace MuseoDSI.Clases
         public DateTime fechaIngreso { get; set; }
         public int idCargo { get; set; }
 
-        Backend _BD = new Backend();
-
         public List<Empleado> ListaDeEmpleados = new List<Empleado>();
+
+        private IEmpleado dao;
+        public Empleado() // cto tab tab genera constructor automaticamente
+        {
+            dao = new EmpleadoDao();
+        }
         public List<Empleado> LlenarListaEmpleados()
         {
-
-            DataTable tabla = new DataTable();
-            string sql = "SELECT * FROM Empleado";
-            tabla = _BD.Consulta(sql);
-
-            for (int i = 0; i < tabla.Rows.Count; i++)
-            {
-                Empleado empleado = new Empleado();
-                empleado.dni = int.Parse(tabla.Rows[i]["dni"].ToString());
-                empleado.nombre = tabla.Rows[i]["nombre"].ToString();
-                empleado.apellido = tabla.Rows[i]["apellido"].ToString();
-                empleado.idHorario = int.Parse(tabla.Rows[i]["idHorario"].ToString());
-                empleado.idCargo = int.Parse(tabla.Rows[i]["idCargo"].ToString());
-                ListaDeEmpleados.Add(empleado);
-            }
-            return ListaDeEmpleados;
+            return dao.LlenarListaEmpleados();
         }
 
-        public string VerificarGuia(int idCargo)
+        public string VerificarCargo(int idCargo)
         {
             string cargo = "";
             if (idCargo == 2)
             {
                 cargo = "Guia";
+            }
+            if (idCargo == 1)
+            {
+                cargo = "Responsable Visitas";
             }
             
             return cargo;

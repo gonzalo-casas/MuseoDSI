@@ -1,4 +1,5 @@
-﻿using MuseoDSI.Formularios;
+﻿using MuseoDSI.Clases;
+using MuseoDSI.Formularios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,7 @@ namespace MuseoDSI.Formularios
     public partial class frmPrincipal : Form
     {
         private string idUsuario = "0";
+        Gestor gestor = new Gestor();
         public frmPrincipal()
         {
             InitializeComponent();
@@ -33,25 +35,37 @@ namespace MuseoDSI.Formularios
             {
                 this.Text += " - Usuario: " + fl.MiUsuario.nombre;
                 this.LblNombreUsuario.Text = fl.MiUsuario.nombre;
+                string cargo = fl.MiUsuario.empleado.VerificarCargo(fl.MiUsuario.empleado.idCargo);
+                this.lblRolUsuario.Text = cargo;
                 idUsuario = fl.MiUsuario.idUsuario;
 
+                switch (cargo)
+                {
+                    case "Responsable Visitas":
+                        btnRegistrarReserva.Enabled = true;
+                        break;
+                    case "Responsable Ventas":
+                        btnVentas.Enabled = true;
+                        btnRanking.Enabled = true;
+                        break;
+                    case "Administrador Exposiciones":
+                        BtnExposiciones.Enabled = true;
+                        break;
+                    case "Responsable Infraestructura":
+                        btnSede.Enabled = true;
+                        break;
+                    case "Responsable Obras":
+                        btnObras.Enabled = true;
+                        break;
+                    default:
+                        // code block
+                        break;
+                }
             }
                 
 
             fl.Dispose();
         }
-
-        //private void habilitarOpciones(bool x)
-        //{
-        //    btnClientes.Enabled = x;
-        //    BtnProveedor.Enabled = x;
-        //    btnEmpleados.Enabled = x;
-        //    btnProductos.Enabled = x;
-        //    btnPlantas.Enabled = x;
-        //    btnCatalogos.Enabled = x;
-        //}
-
-
 
         private void FrmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
