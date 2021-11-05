@@ -81,15 +81,6 @@ namespace MuseoDSI.Formularios
         {
 
             
-            //if (cmb_Sede.SelectedItem.ToString() != "")
-            //{
-             
-            // List<Exposicion> listaExpos = gestor.BuscarExposiciones(cmb_Sede.SelectedIndex);
-            // CargarGrilla(listaExpos);
-            // return;
-
-            //}
-            
         }
         private void CargarGrilla(List<Exposicion> lista)
         {
@@ -122,17 +113,19 @@ namespace MuseoDSI.Formularios
                 }
                 if (flag)
                 {
-                    int index = dgv_ExposicionesSeleccionadas.Rows.Add(dgv_Exposiciones.CurrentRow.Clone() as DataGridViewRow);
-                    foreach (DataGridViewCell o in dgv_Exposiciones.CurrentRow.Cells)
-                    {
-                        dgv_ExposicionesSeleccionadas.Rows[index].Cells[o.ColumnIndex].Value = o.Value;
-                    }
                     expoSeleccionada = new Exposicion();
                     expoSeleccionada.nombre = dgv_Exposiciones.CurrentRow.Cells[0].Value.ToString();
                     expoSeleccionada.idPublico = dgv_Exposiciones.CurrentRow.Cells[1].Value.ToString();
                     expoSeleccionada.horaInicio = DateTime.Parse(dgv_Exposiciones.CurrentRow.Cells[2].Value.ToString());
                     expoSeleccionada.horaFin = DateTime.Parse(dgv_Exposiciones.CurrentRow.Cells[3].Value.ToString());
                     exposicionesSeleccionadas.Add(expoSeleccionada);
+
+                    int index = dgv_ExposicionesSeleccionadas.Rows.Add(dgv_Exposiciones.CurrentRow.Clone() as DataGridViewRow);
+                    foreach (DataGridViewCell o in dgv_Exposiciones.CurrentRow.Cells)
+                    {
+                        dgv_ExposicionesSeleccionadas.Rows[index].Cells[o.ColumnIndex].Value = o.Value;
+                    }
+
                 }
                 else
                 {
@@ -160,11 +153,7 @@ namespace MuseoDSI.Formularios
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            gestor.GuardarListaExposición(exposicionesSeleccionadas);
-            int duracion = 0;
-            int tipoExposicion = cmb_TipoVisita.SelectedIndex;
-            duracion = gestor.CalcularDuracionEstimada(tipoExposicion);
-            lblDuracion.Text += duracion.ToString();
+          
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -194,7 +183,6 @@ namespace MuseoDSI.Formularios
                 
             }
 
-            
 
         }
 
@@ -254,23 +242,19 @@ namespace MuseoDSI.Formularios
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            //for (int i = 0; i < exposicionesSeleccionadas.Count; i++) // para que guarde cada exposicion cargada en la listview  
-            //{
-            //    gestor.GuardarListaExposición(exposicionesSeleccionadas[i]);
-            //}
-       
+           
            
         }
 
-        private void cmb_TipoVisita_SelectedIndexChanged(object sender, EventArgs e) 
+        private void tomarSeleccionTipoVisita(object sender, EventArgs e) 
         {
-            int estrategia = this.cmb_TipoVisita.SelectedIndex;
-            gestor.crearEstrategia(estrategia); // tomarSeleccionarTipoVisita()
+            int estrategia = this.cmb_TipoVisita.SelectedIndex; // cambiar por string
+            gestor.crearEstrategia(estrategia); 
 
             if (cmb_Sede.SelectedItem.ToString() != "")
             {
 
-                List<Exposicion> listaExpos = gestor.BuscarExposiciones(cmb_Sede.SelectedIndex);  // aca obtiene las lista de exposiones
+                List<Exposicion> listaExpos = gestor.TomarExposionesTempVig(cmb_Sede.SelectedIndex);  // aca obtiene las lista de exposiones
                 CargarGrilla(listaExpos);
                 return;
 
@@ -286,11 +270,35 @@ namespace MuseoDSI.Formularios
 
         private void dtpFechaReserva_ValueChanged(object sender, EventArgs e)
         {
+            //gestor.GuardarListaExposición(exposicionesSeleccionadas);
+            //int duracion = 0;
+            //int tipoExposicion = cmb_TipoVisita.SelectedIndex;
+            //duracion = gestor.CalcularDuracionEstimada(tipoExposicion);
+            //lblDuracion.Text = duracion.ToString();
+        }
+
+       
+
+        public void calcular()
+        {
+            lblDuracion.Enabled = true;
             gestor.GuardarListaExposición(exposicionesSeleccionadas);
             int duracion = 0;
             int tipoExposicion = cmb_TipoVisita.SelectedIndex;
             duracion = gestor.CalcularDuracionEstimada(tipoExposicion);
             lblDuracion.Text = duracion.ToString();
+            
+        }
+
+        private void dgv_ExposicionesSeleccionadas_RowsAdded_1(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            lblDuracion.Enabled = true;
+            gestor.GuardarListaExposición(exposicionesSeleccionadas);
+            int duracion = 0;
+            int tipoExposicion = cmb_TipoVisita.SelectedIndex;
+            duracion = gestor.CalcularDuracionEstimada(tipoExposicion);
+            lblDuracion.Text = duracion.ToString();
+            lblDuracion.BringToFront();
         }
     }
 }

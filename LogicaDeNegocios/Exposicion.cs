@@ -55,7 +55,7 @@ namespace MuseoDSI.Clases
 
         TipoExposicion tipoExposicion = new TipoExposicion();
 
-        public List<Exposicion> ComprobarVigencia (List<Exposicion> lista)
+        public List<Exposicion> getExpoVigentes(List<Exposicion> lista)
         {
             DateTime fechaHoy = ObtenerFechaActual();
 
@@ -68,16 +68,16 @@ namespace MuseoDSI.Clases
                     ListaExposicionesVigentes.Add(lista[i]);
                 }
             }
-            ListaExposicionesVigentes = tipoExposicion.BuscarExpoTipoTemp(ListaExposicionesVigentes); // esTemporal()
+            ListaExposicionesVigentes = tipoExposicion.esTemporal(ListaExposicionesVigentes); // esTemporal()
             return ListaExposicionesVigentes;
 
            
         }
         DetalleExposicion de = new DetalleExposicion();
        
-        public int CalcularDuracionEstimada(List<Exposicion> lista, string tipoExposicion)
+        public int BuscarDuracionExtendidaObras(List<Exposicion> lista, string tipoVisita)
         {
-            int duracion = de.CalcularDuracionEstimada(lista, tipoExposicion);
+            int duracion = de.BuscarDuracionExtendidaObras(lista, tipoVisita);
             return duracion;
         }
 

@@ -38,16 +38,11 @@ namespace MuseoDSI.Clases
             return ListaDeTipoReserva;
         }
 
-        public List<Exposicion> BuscarExposiciones(int nombreSede)
+        public List<Exposicion> TomarExposionesTempVig(int nombreSede)
         {
            return estrategia.BuscarExposiciones(nombreSede);    //mostrarDatosTemp
         }
-        //public List<Exposicion> BuscarExposiciones(string nombreSede)
-        //{
-            
-        //    List<Exposicion> ListaExpos = sede.BuscarListaExposicion(nombreSede);
-        //    return ListaExpos;
-        //}
+       
 
         //Guardamos lista de exposiciones seleccionadas desde la pantalla 
         public  List<Exposicion> ExposicionesSeleccionadas = new List<Exposicion>();

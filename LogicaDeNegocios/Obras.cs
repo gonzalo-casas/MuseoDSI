@@ -29,17 +29,21 @@ namespace MuseoDSI.Clases
         {
 
             DataTable tabla = new DataTable();
-            string sql = "SELECT * FROM Obras ORDER BY duracionExtendida";
+            string sql = @"SELECT *  FROM Obras ob
+                        JOIN DetalleExposicion de ON(ob.idObras = de.idObra)
+                         ";
+
             tabla = _BD.Consulta(sql);
             
             for (int i = 0; i < tabla.Rows.Count; i++)
             {
                 Obras obra = new Obras();
                 obra.idObras = int.Parse(tabla.Rows[i]["idObras"].ToString());
-                //obra.idExposicion = int.Parse(tabla.Rows[i]["idExposicion"].ToString());
+                obra.idExposicion = int.Parse(tabla.Rows[i]["idExposicion"].ToString());
                 obra.nombre = tabla.Rows[i]["nombre"].ToString();
                 obra.duracionExtendida = int.Parse(tabla.Rows[i]["duracionExtendida"].ToString());
                 obra.duracionResumida = int.Parse(tabla.Rows[i]["duracionResumida"].ToString());
+               
                 ListaObras.Add(obra);
             }
             return ListaObras;

@@ -13,14 +13,14 @@ namespace MuseoDSI.LogicaDeNegocios
 
         public List<Exposicion> BuscarExposiciones(int nroSede)
         {
-            List<Exposicion> ListaExpos = sede.BuscarListaExposicion(nroSede, "('1', '2')");
+            List<Exposicion> ListaExpos = sede.BuscarExposiciones(nroSede, "('1', '2')");
             return ListaExpos;
         }
 
 
         public int CalcularDuracionEstimadaResv(List<Exposicion> ExposicionesSeleccionadas, string tipoExposicion)
         {
-            int duracionEstimada = sede.CalcularDuracionEstimada(ExposicionesSeleccionadas, tipoExposicion);
+            int duracionEstimada = sede.BuscarDuracionExposiciones(ExposicionesSeleccionadas, tipoExposicion);
             return duracionEstimada;
         }
     }

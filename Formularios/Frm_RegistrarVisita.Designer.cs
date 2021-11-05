@@ -28,17 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cmb_Sede = new System.Windows.Forms.ComboBox();
             this.cmb_TipoVisita = new System.Windows.Forms.ComboBox();
             this.txt_visitantes = new System.Windows.Forms.TextBox();
             this.cmb_Escuela = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dgv_ExposicionesSeleccionadas = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.lbl_GuiasNecesarios = new System.Windows.Forms.Label();
@@ -53,6 +56,8 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.lv_Guias = new System.Windows.Forms.ListView();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.btn_QuitarGuia = new MuseoDSI.Formularios.BotonRedondeado();
+            this.btn_agregarGuia = new MuseoDSI.Formularios.BotonRedondeado();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dgv_Guias = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
@@ -61,6 +66,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btnCerrar = new MuseoDSI.Formularios.BotonRedondeado();
             this.cmb_Guias = new System.Windows.Forms.ComboBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -71,26 +77,19 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panelExposiciones = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.btn_QuitarGuia = new MuseoDSI.Formularios.BotonRedondeado();
-            this.btn_agregarGuia = new MuseoDSI.Formularios.BotonRedondeado();
-            this.btn_Cancelar = new MuseoDSI.Formularios.BotonRedondeado();
-            this.btn_Registrar = new MuseoDSI.Formularios.BotonRedondeado();
             this.btn_quitar = new MuseoDSI.Formularios.BotonRedondeado();
             this.btn_agregar = new MuseoDSI.Formularios.BotonRedondeado();
-            this.btnCerrar = new MuseoDSI.Formularios.BotonRedondeado();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgv_Exposiciones = new System.Windows.Forms.DataGridView();
             this.colExposicion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPublico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colApertura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCierre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgv_ExposicionesSeleccionadas = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.btn_Cancelar = new MuseoDSI.Formularios.BotonRedondeado();
+            this.btn_Registrar = new MuseoDSI.Formularios.BotonRedondeado();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_ExposicionesSeleccionadas)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -104,9 +103,8 @@
             this.panelExposiciones.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Exposiciones)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_ExposicionesSeleccionadas)).BeginInit();
+            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // cmb_Sede
@@ -132,7 +130,7 @@
             this.cmb_TipoVisita.Name = "cmb_TipoVisita";
             this.cmb_TipoVisita.Size = new System.Drawing.Size(167, 28);
             this.cmb_TipoVisita.TabIndex = 18;
-            this.cmb_TipoVisita.SelectedIndexChanged += new System.EventHandler(this.cmb_TipoVisita_SelectedIndexChanged);
+            this.cmb_TipoVisita.SelectedIndexChanged += new System.EventHandler(this.tomarSeleccionTipoVisita);
             // 
             // txt_visitantes
             // 
@@ -167,6 +165,59 @@
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Exposiciones Seleccionadas";
+            // 
+            // dgv_ExposicionesSeleccionadas
+            // 
+            this.dgv_ExposicionesSeleccionadas.AllowUserToAddRows = false;
+            this.dgv_ExposicionesSeleccionadas.AllowUserToDeleteRows = false;
+            this.dgv_ExposicionesSeleccionadas.AllowUserToResizeColumns = false;
+            this.dgv_ExposicionesSeleccionadas.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.dgv_ExposicionesSeleccionadas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgv_ExposicionesSeleccionadas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_ExposicionesSeleccionadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_ExposicionesSeleccionadas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4});
+            this.dgv_ExposicionesSeleccionadas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_ExposicionesSeleccionadas.Location = new System.Drawing.Point(3, 22);
+            this.dgv_ExposicionesSeleccionadas.Name = "dgv_ExposicionesSeleccionadas";
+            this.dgv_ExposicionesSeleccionadas.ReadOnly = true;
+            this.dgv_ExposicionesSeleccionadas.RowHeadersVisible = false;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.dgv_ExposicionesSeleccionadas.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgv_ExposicionesSeleccionadas.RowTemplate.Height = 40;
+            this.dgv_ExposicionesSeleccionadas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_ExposicionesSeleccionadas.Size = new System.Drawing.Size(664, 251);
+            this.dgv_ExposicionesSeleccionadas.TabIndex = 1;
+            this.dgv_ExposicionesSeleccionadas.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgv_ExposicionesSeleccionadas_RowsAdded_1);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Exposicion";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Publico";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Hora apertura";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Hora cierre";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // panel2
             // 
@@ -333,6 +384,46 @@
             this.panel9.Size = new System.Drawing.Size(150, 336);
             this.panel9.TabIndex = 42;
             // 
+            // btn_QuitarGuia
+            // 
+            this.btn_QuitarGuia.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_QuitarGuia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.btn_QuitarGuia.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.btn_QuitarGuia.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btn_QuitarGuia.BorderRadius = 18;
+            this.btn_QuitarGuia.BorderSize = 0;
+            this.btn_QuitarGuia.FlatAppearance.BorderSize = 0;
+            this.btn_QuitarGuia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_QuitarGuia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_QuitarGuia.ForeColor = System.Drawing.Color.White;
+            this.btn_QuitarGuia.Location = new System.Drawing.Point(14, 202);
+            this.btn_QuitarGuia.Name = "btn_QuitarGuia";
+            this.btn_QuitarGuia.Size = new System.Drawing.Size(113, 36);
+            this.btn_QuitarGuia.TabIndex = 41;
+            this.btn_QuitarGuia.Text = "← Quitar";
+            this.btn_QuitarGuia.TextColor = System.Drawing.Color.White;
+            this.btn_QuitarGuia.UseVisualStyleBackColor = false;
+            // 
+            // btn_agregarGuia
+            // 
+            this.btn_agregarGuia.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_agregarGuia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.btn_agregarGuia.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.btn_agregarGuia.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btn_agregarGuia.BorderRadius = 18;
+            this.btn_agregarGuia.BorderSize = 0;
+            this.btn_agregarGuia.FlatAppearance.BorderSize = 0;
+            this.btn_agregarGuia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_agregarGuia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_agregarGuia.ForeColor = System.Drawing.Color.White;
+            this.btn_agregarGuia.Location = new System.Drawing.Point(14, 136);
+            this.btn_agregarGuia.Name = "btn_agregarGuia";
+            this.btn_agregarGuia.Size = new System.Drawing.Size(113, 36);
+            this.btn_agregarGuia.TabIndex = 40;
+            this.btn_agregarGuia.Text = "Agregar →";
+            this.btn_agregarGuia.TextColor = System.Drawing.Color.White;
+            this.btn_agregarGuia.UseVisualStyleBackColor = false;
+            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.dgv_Guias);
@@ -417,6 +508,27 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1569, 60);
             this.panel5.TabIndex = 29;
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.btnCerrar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.btnCerrar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnCerrar.BorderRadius = 20;
+            this.btnCerrar.BorderSize = 0;
+            this.btnCerrar.FlatAppearance.BorderSize = 0;
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrar.ForeColor = System.Drawing.Color.White;
+            this.btnCerrar.Location = new System.Drawing.Point(1365, 8);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(150, 40);
+            this.btnCerrar.TabIndex = 0;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.TextColor = System.Drawing.Color.White;
+            this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // cmb_Guias
             // 
@@ -527,109 +639,6 @@
             this.panel1.Size = new System.Drawing.Size(150, 276);
             this.panel1.TabIndex = 13;
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.dgv_Exposiciones);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(0, 0);
-            this.groupBox3.MinimumSize = new System.Drawing.Size(500, 0);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(670, 276);
-            this.groupBox3.TabIndex = 14;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Exposiciones disponibles";
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.btn_Cancelar);
-            this.panel8.Controls.Add(this.btn_Registrar);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel8.Location = new System.Drawing.Point(60, 839);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1449, 75);
-            this.panel8.TabIndex = 34;
-            // 
-            // btn_QuitarGuia
-            // 
-            this.btn_QuitarGuia.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_QuitarGuia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
-            this.btn_QuitarGuia.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
-            this.btn_QuitarGuia.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btn_QuitarGuia.BorderRadius = 18;
-            this.btn_QuitarGuia.BorderSize = 0;
-            this.btn_QuitarGuia.FlatAppearance.BorderSize = 0;
-            this.btn_QuitarGuia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_QuitarGuia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_QuitarGuia.ForeColor = System.Drawing.Color.White;
-            this.btn_QuitarGuia.Location = new System.Drawing.Point(14, 202);
-            this.btn_QuitarGuia.Name = "btn_QuitarGuia";
-            this.btn_QuitarGuia.Size = new System.Drawing.Size(113, 36);
-            this.btn_QuitarGuia.TabIndex = 41;
-            this.btn_QuitarGuia.Text = "← Quitar";
-            this.btn_QuitarGuia.TextColor = System.Drawing.Color.White;
-            this.btn_QuitarGuia.UseVisualStyleBackColor = false;
-            // 
-            // btn_agregarGuia
-            // 
-            this.btn_agregarGuia.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_agregarGuia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
-            this.btn_agregarGuia.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
-            this.btn_agregarGuia.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btn_agregarGuia.BorderRadius = 18;
-            this.btn_agregarGuia.BorderSize = 0;
-            this.btn_agregarGuia.FlatAppearance.BorderSize = 0;
-            this.btn_agregarGuia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_agregarGuia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_agregarGuia.ForeColor = System.Drawing.Color.White;
-            this.btn_agregarGuia.Location = new System.Drawing.Point(14, 136);
-            this.btn_agregarGuia.Name = "btn_agregarGuia";
-            this.btn_agregarGuia.Size = new System.Drawing.Size(113, 36);
-            this.btn_agregarGuia.TabIndex = 40;
-            this.btn_agregarGuia.Text = "Agregar →";
-            this.btn_agregarGuia.TextColor = System.Drawing.Color.White;
-            this.btn_agregarGuia.UseVisualStyleBackColor = false;
-            // 
-            // btn_Cancelar
-            // 
-            this.btn_Cancelar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btn_Cancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
-            this.btn_Cancelar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
-            this.btn_Cancelar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btn_Cancelar.BorderRadius = 20;
-            this.btn_Cancelar.BorderSize = 0;
-            this.btn_Cancelar.FlatAppearance.BorderSize = 0;
-            this.btn_Cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Cancelar.ForeColor = System.Drawing.Color.White;
-            this.btn_Cancelar.Location = new System.Drawing.Point(784, 29);
-            this.btn_Cancelar.Name = "btn_Cancelar";
-            this.btn_Cancelar.Size = new System.Drawing.Size(150, 40);
-            this.btn_Cancelar.TabIndex = 2;
-            this.btn_Cancelar.Text = "Cancelar";
-            this.btn_Cancelar.TextColor = System.Drawing.Color.White;
-            this.btn_Cancelar.UseVisualStyleBackColor = false;
-            // 
-            // btn_Registrar
-            // 
-            this.btn_Registrar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btn_Registrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
-            this.btn_Registrar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
-            this.btn_Registrar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btn_Registrar.BorderRadius = 20;
-            this.btn_Registrar.BorderSize = 0;
-            this.btn_Registrar.FlatAppearance.BorderSize = 0;
-            this.btn_Registrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Registrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Registrar.ForeColor = System.Drawing.Color.White;
-            this.btn_Registrar.Location = new System.Drawing.Point(493, 29);
-            this.btn_Registrar.Name = "btn_Registrar";
-            this.btn_Registrar.Size = new System.Drawing.Size(150, 40);
-            this.btn_Registrar.TabIndex = 1;
-            this.btn_Registrar.Text = "Registrar";
-            this.btn_Registrar.TextColor = System.Drawing.Color.White;
-            this.btn_Registrar.UseVisualStyleBackColor = false;
-            // 
             // btn_quitar
             // 
             this.btn_quitar.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -672,26 +681,18 @@
             this.btn_agregar.UseVisualStyleBackColor = false;
             this.btn_agregar.Click += new System.EventHandler(this.btn_agregar_Click);
             // 
-            // btnCerrar
+            // groupBox3
             // 
-            this.btnCerrar.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
-            this.btnCerrar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
-            this.btnCerrar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnCerrar.BorderRadius = 20;
-            this.btnCerrar.BorderSize = 0;
-            this.btnCerrar.FlatAppearance.BorderSize = 0;
-            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrar.ForeColor = System.Drawing.Color.White;
-            this.btnCerrar.Location = new System.Drawing.Point(1365, 8);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(150, 40);
-            this.btnCerrar.TabIndex = 0;
-            this.btnCerrar.Text = "Cerrar";
-            this.btnCerrar.TextColor = System.Drawing.Color.White;
-            this.btnCerrar.UseVisualStyleBackColor = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            this.groupBox3.Controls.Add(this.dgv_Exposiciones);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(0, 0);
+            this.groupBox3.MinimumSize = new System.Drawing.Size(500, 0);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(670, 276);
+            this.groupBox3.TabIndex = 14;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Exposiciones disponibles";
             // 
             // dgv_Exposiciones
             // 
@@ -699,18 +700,10 @@
             this.dgv_Exposiciones.AllowUserToDeleteRows = false;
             this.dgv_Exposiciones.AllowUserToResizeColumns = false;
             this.dgv_Exposiciones.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
-            this.dgv_Exposiciones.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.dgv_Exposiciones.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_Exposiciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_Exposiciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgv_Exposiciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Exposiciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colExposicion,
@@ -722,8 +715,8 @@
             this.dgv_Exposiciones.Name = "dgv_Exposiciones";
             this.dgv_Exposiciones.ReadOnly = true;
             this.dgv_Exposiciones.RowHeadersVisible = false;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
-            this.dgv_Exposiciones.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.dgv_Exposiciones.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgv_Exposiciones.RowTemplate.Height = 40;
             this.dgv_Exposiciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_Exposiciones.Size = new System.Drawing.Size(664, 251);
@@ -753,65 +746,55 @@
             this.colCierre.Name = "colCierre";
             this.colCierre.ReadOnly = true;
             // 
-            // dgv_ExposicionesSeleccionadas
+            // panel8
             // 
-            this.dgv_ExposicionesSeleccionadas.AllowUserToAddRows = false;
-            this.dgv_ExposicionesSeleccionadas.AllowUserToDeleteRows = false;
-            this.dgv_ExposicionesSeleccionadas.AllowUserToResizeColumns = false;
-            this.dgv_ExposicionesSeleccionadas.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
-            this.dgv_ExposicionesSeleccionadas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgv_ExposicionesSeleccionadas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_ExposicionesSeleccionadas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgv_ExposicionesSeleccionadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_ExposicionesSeleccionadas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
-            this.dgv_ExposicionesSeleccionadas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_ExposicionesSeleccionadas.Location = new System.Drawing.Point(3, 22);
-            this.dgv_ExposicionesSeleccionadas.Name = "dgv_ExposicionesSeleccionadas";
-            this.dgv_ExposicionesSeleccionadas.ReadOnly = true;
-            this.dgv_ExposicionesSeleccionadas.RowHeadersVisible = false;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
-            this.dgv_ExposicionesSeleccionadas.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgv_ExposicionesSeleccionadas.RowTemplate.Height = 40;
-            this.dgv_ExposicionesSeleccionadas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_ExposicionesSeleccionadas.Size = new System.Drawing.Size(664, 251);
-            this.dgv_ExposicionesSeleccionadas.TabIndex = 1;
+            this.panel8.Controls.Add(this.btn_Cancelar);
+            this.panel8.Controls.Add(this.btn_Registrar);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel8.Location = new System.Drawing.Point(60, 839);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(1449, 75);
+            this.panel8.TabIndex = 34;
             // 
-            // dataGridViewTextBoxColumn1
+            // btn_Cancelar
             // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Exposicion";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.btn_Cancelar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btn_Cancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.btn_Cancelar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.btn_Cancelar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btn_Cancelar.BorderRadius = 20;
+            this.btn_Cancelar.BorderSize = 0;
+            this.btn_Cancelar.FlatAppearance.BorderSize = 0;
+            this.btn_Cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Cancelar.ForeColor = System.Drawing.Color.White;
+            this.btn_Cancelar.Location = new System.Drawing.Point(784, 29);
+            this.btn_Cancelar.Name = "btn_Cancelar";
+            this.btn_Cancelar.Size = new System.Drawing.Size(150, 40);
+            this.btn_Cancelar.TabIndex = 2;
+            this.btn_Cancelar.Text = "Cancelar";
+            this.btn_Cancelar.TextColor = System.Drawing.Color.White;
+            this.btn_Cancelar.UseVisualStyleBackColor = false;
             // 
-            // dataGridViewTextBoxColumn2
+            // btn_Registrar
             // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Publico";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Hora apertura";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Hora cierre";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.btn_Registrar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btn_Registrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.btn_Registrar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.btn_Registrar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btn_Registrar.BorderRadius = 20;
+            this.btn_Registrar.BorderSize = 0;
+            this.btn_Registrar.FlatAppearance.BorderSize = 0;
+            this.btn_Registrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Registrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Registrar.ForeColor = System.Drawing.Color.White;
+            this.btn_Registrar.Location = new System.Drawing.Point(493, 29);
+            this.btn_Registrar.Name = "btn_Registrar";
+            this.btn_Registrar.Size = new System.Drawing.Size(150, 40);
+            this.btn_Registrar.TabIndex = 1;
+            this.btn_Registrar.Text = "Registrar";
+            this.btn_Registrar.TextColor = System.Drawing.Color.White;
+            this.btn_Registrar.UseVisualStyleBackColor = false;
             // 
             // Frm_RegistrarVisita
             // 
@@ -833,6 +816,7 @@
             this.Text = "Registrar Visita";
             this.Load += new System.EventHandler(this.Frm_RegistrarVisita_Load);
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_ExposicionesSeleccionadas)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -849,9 +833,8 @@
             this.panelExposiciones.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
-            this.panel8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Exposiciones)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_ExposicionesSeleccionadas)).EndInit();
+            this.panel8.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

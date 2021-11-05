@@ -42,7 +42,7 @@ namespace MuseoDSI.Clases
 
         public List<Exposicion> ListaExposicion = new List<Exposicion>();
         Exposicion expo = new Exposicion();
-        public List<Exposicion> BuscarListaExposicion(int nroSedee, string tipoExposicion) 
+        public List<Exposicion> BuscarExposiciones(int nroSedee, string tipoExposicion) 
         {
             ListaExposicion.Clear();
             int nroSede = nroSedee + 1;
@@ -71,7 +71,7 @@ namespace MuseoDSI.Clases
                 exposicion.fechaFin = DateTime.Parse(tabla.Rows[i]["fechaCierre"].ToString());
                 ListaExposicion.Add(exposicion);
             }
-            ListaExposicion = expo.ComprobarVigencia(ListaExposicion);// getExpovigente 
+            ListaExposicion = expo.getExpoVigentes(ListaExposicion);// getExpovigente 
             return ListaExposicion;
             
             
@@ -112,9 +112,9 @@ namespace MuseoDSI.Clases
             return CantAlumnos;
         }
 
-        public int CalcularDuracionEstimada(List<Exposicion> lista, string tipoExposicion)
+        public int BuscarDuracionExposiciones(List<Exposicion> lista, string tipoVisita)
         {
-            int duracion = expo.CalcularDuracionEstimada(lista, tipoExposicion);
+            int duracion = expo.BuscarDuracionExtendidaObras(lista, tipoVisita);
             return duracion;
         }
       

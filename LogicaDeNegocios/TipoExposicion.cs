@@ -13,7 +13,7 @@ namespace MuseoDSI.Clases
 
 
         Publico publico = new Publico();
-        public List<Exposicion> BuscarExpoTipoTemp(List<Exposicion> lista)
+        public List<Exposicion> esTemporal(List<Exposicion> lista)
         {
             for(int i = 0; i < lista.Count; i++)
             {

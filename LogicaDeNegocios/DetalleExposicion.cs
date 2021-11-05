@@ -38,7 +38,7 @@ namespace MuseoDSI.Clases
         }
         
 
-        public int CalcularDuracionEstimada(List<Exposicion> lista, string tipoExposicion)
+        public int BuscarDuracionExtendidaObras(List<Exposicion> lista, string tipoVisita)
         {
             
             Obras obra1 = new Obras();
@@ -58,7 +58,7 @@ namespace MuseoDSI.Clases
 
                             if (ListadeExpos[i].idExposicion == ListaObras[k].idExposicion)
                             {
-                                if (tipoExposicion.Equals("porExposicion"))
+                                if (tipoVisita.Equals("porExposicion"))
                                 {
                                     duracion += ListaObras[k].duracionExtendida;
                                 }
