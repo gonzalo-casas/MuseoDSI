@@ -148,8 +148,7 @@ namespace MuseoDSI.Formularios
 
                 if (guiasNecesarios >= listaGuias.Count())
                 {
-                    MessageBox.Show("No hay suficientes guias disponibles", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    timerGuia.Stop();
+                    MessageBox.Show("No hay suficientes guias disponibles para esta fecha y hora", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -194,17 +193,52 @@ namespace MuseoDSI.Formularios
             if (cmb_TipoVisita.Enabled.Equals(true))
             {
                 int estrategia = this.cmb_TipoVisita.SelectedIndex; // cambiar por string
-                gestor.crearEstrategia(estrategia); 
-
-                if (cmb_Sede.SelectedItem.ToString() != "")
+                gestor.crearEstrategia(estrategia);
+                List<Exposicion> listaExpos = gestor.TomarExposionesTempVig(cmb_Sede.SelectedIndex);  // aca obtiene las lista de exposiones
+                CargarGrilla(listaExpos);
+                switch (cmb_TipoVisita.SelectedIndex)
                 {
+                    case 1:
 
-                    List<Exposicion> listaExpos = gestor.TomarExposionesTempVig(cmb_Sede.SelectedIndex);  // aca obtiene las lista de exposiones
-                    CargarGrilla(listaExpos);
-                    btn_agregar.Enabled = true;
-                    btn_quitar.Enabled = true;
-                    return;
+                        btn_agregar.Enabled = true;
+                        btn_quitar.Enabled = true;
+                        dgv_ExposicionesSeleccionadas.Rows.Clear();
+                        break;
+
+                    case 0:
+                        btn_agregar.Enabled = false;
+                        btn_quitar.Enabled = false;
+                        foreach (DataGridViewRow r in dgv_Exposiciones.Rows)
+                        {
+                            int index = dgv_ExposicionesSeleccionadas.Rows.Add(r.Clone() as DataGridViewRow);
+                            foreach (DataGridViewCell o in r.Cells)
+                            {
+                                dgv_ExposicionesSeleccionadas.Rows[index].Cells[o.ColumnIndex].Value = o.Value;
+                            }
+
+                            expoSeleccionada = new Exposicion();
+                            expoSeleccionada.nombre = dgv_Exposiciones.Rows[r.Index].Cells[0].Value.ToString();
+                            expoSeleccionada.idPublico = dgv_Exposiciones.Rows[r.Index].Cells[1].Value.ToString();
+                            expoSeleccionada.horaInicio = DateTime.Parse(dgv_Exposiciones.Rows[r.Index].Cells[2].Value.ToString());
+                            expoSeleccionada.horaFin = DateTime.Parse(dgv_Exposiciones.Rows[r.Index].Cells[3].Value.ToString());
+                            exposicionesSeleccionadas.Add(expoSeleccionada);
+                        }
+
+                        break;
+
+                    default:
+                        break;
                 }
+
+                //if (cmb_TipoVisita.SelectedIndex == 1)
+                //{
+
+
+                //}
+                //if (cmb_TipoVisita.SelectedIndex == 0)
+                //{
+
+                //}
 
             }
         }
@@ -215,9 +249,10 @@ namespace MuseoDSI.Formularios
             lblDuracion.Enabled = true;
             gestor.GuardarListaExposición(exposicionesSeleccionadas);
             int tipoExposicion = cmb_TipoVisita.SelectedIndex;
-            int duracion = gestor.CalcularDuracionEstimada(tipoExposicion);
-            lblDuracion.Text = duracion.ToString();
-            lblDuracion.BringToFront();
+            int duracionMinutos = gestor.CalcularDuracionEstimada(tipoExposicion);
+            TimeSpan duracion = TimeSpan.FromMinutes(duracionMinutos);
+            lblDuracion.Text = duracion.ToString(@"hh\:mm") + " horas";
+            panelDuracion.Visible = true;
         }
         private void CargarGrillaGuia(List<Empleado> lista)
         {
@@ -267,17 +302,15 @@ namespace MuseoDSI.Formularios
 
         private void dtpHoraReserva_ValueChanged(object sender, EventArgs e)
         {
-            timerGuia.Stop();
-            timerGuia.Start();
+
         }
 
-        private void timerGuia_Tick(object sender, EventArgs e)
+        private void btn_Verificar_Click(object sender, EventArgs e)
         {
             CalcularDuracionEstimada();
             CalcularVisitantes();
             btn_agregarGuia.Enabled = true;
             btn_QuitarGuia.Enabled = true;
-            timerGuia.Stop();
         }
 
         private void btn_agregarGuia_Click_1(object sender, EventArgs e)
@@ -339,10 +372,10 @@ namespace MuseoDSI.Formularios
 
         private void Frm_RegistrarVisita_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("¿Esta seguro de que desea cancelar la reserva?\n Se perderan todos los datos", "Saliendo", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
-                e.Cancel = false;
-            else
-                e.Cancel = true;
+            //if (MessageBox.Show("¿Esta seguro de que desea cancelar la reserva?\n Se perderan todos los datos", "Saliendo", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+            //    e.Cancel = false;
+            //else
+            //    e.Cancel = true;
         }
 
         private void dgv_GuiasSeleccionados_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
@@ -372,6 +405,29 @@ namespace MuseoDSI.Formularios
             gestor.RegistrarReserva(numReserva, Int32.Parse(cmb_Sede.SelectedValue.ToString()), Int32.Parse(cmb_Escuela.SelectedValue.ToString()), DateTime.Parse(dtpFechaReserva.Text.ToString()), DateTime.Now, int.Parse(txt_visitantes.Text), Int32.Parse(cmb_TipoVisita.SelectedValue.ToString()), 1);
             MessageBox.Show("Reserva Creada Correctamente", "Reserva creada", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
+        }
+
+        private void dgv_ExposicionesSeleccionadas_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            if (dgv_ExposicionesSeleccionadas.Rows.Count > 0)
+            {
+                dtpFechaReserva.Enabled = true;
+                dtpHoraReserva.Enabled = true;
+            }
+        }
+
+        private void dgv_ExposicionesSeleccionadas_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            if (dgv_ExposicionesSeleccionadas.Rows.Count > 0)
+            {
+                dtpFechaReserva.Enabled = true;
+                dtpHoraReserva.Enabled = true;
+            }
+        }
+
+        private void dtpFechaReserva_Validating(object sender, CancelEventArgs e)
+        {
+            btn_Verificar.Enabled = true;
         }
     }
 }
