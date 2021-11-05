@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cmb_Sede = new System.Windows.Forms.ComboBox();
             this.cmb_TipoVisita = new System.Windows.Forms.ComboBox();
             this.txt_visitantes = new System.Windows.Forms.TextBox();
@@ -52,21 +52,27 @@
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.lblDuracion = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lbl_GuiasNecesarios = new System.Windows.Forms.Label();
-            this.dtpHoraReserva = new System.Windows.Forms.DateTimePicker();
+            this.panel11 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
+            this.lbl_GuiasNecesarios = new System.Windows.Forms.Label();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblDuracion = new System.Windows.Forms.Label();
+            this.dtpHoraReserva = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaReserva = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.dgv_GuiasSeleccionados = new System.Windows.Forms.DataGridView();
+            this.colDocumentoSeleccionado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.btn_QuitarGuia = new MuseoDSI.Formularios.BotonRedondeado();
-            this.btn_agregarGuia = new MuseoDSI.Formularios.BotonRedondeado();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dgv_Guias = new System.Windows.Forms.DataGridView();
+            this.colDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -78,8 +84,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panelExposiciones = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btn_quitar = new MuseoDSI.Formularios.BotonRedondeado();
-            this.btn_agregar = new MuseoDSI.Formularios.BotonRedondeado();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgv_Exposiciones = new System.Windows.Forms.DataGridView();
             this.colExposicion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -87,20 +91,18 @@
             this.colApertura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCierre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.timerGuia = new System.Windows.Forms.Timer(this.components);
+            this.btn_QuitarGuia = new MuseoDSI.Formularios.BotonRedondeado();
+            this.btn_agregarGuia = new MuseoDSI.Formularios.BotonRedondeado();
             this.btn_Cancelar = new MuseoDSI.Formularios.BotonRedondeado();
             this.btn_Registrar = new MuseoDSI.Formularios.BotonRedondeado();
-            this.timerGuia = new System.Windows.Forms.Timer(this.components);
-            this.colDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDocumentoSeleccionado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
+            this.btn_quitar = new MuseoDSI.Formularios.BotonRedondeado();
+            this.btn_agregar = new MuseoDSI.Formularios.BotonRedondeado();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ExposicionesSeleccionadas)).BeginInit();
             this.panel2.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.panel10.SuspendLayout();
             this.panel3.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_GuiasSeleccionados)).BeginInit();
@@ -114,8 +116,6 @@
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Exposiciones)).BeginInit();
             this.panel8.SuspendLayout();
-            this.panel10.SuspendLayout();
-            this.panel11.SuspendLayout();
             this.SuspendLayout();
             // 
             // cmb_Sede
@@ -142,7 +142,7 @@
             this.cmb_TipoVisita.Name = "cmb_TipoVisita";
             this.cmb_TipoVisita.Size = new System.Drawing.Size(167, 28);
             this.cmb_TipoVisita.TabIndex = 18;
-            this.cmb_TipoVisita.SelectedIndexChanged += new System.EventHandler(this.cmb_TipoVisita_SelectedIndexChanged);
+            this.cmb_TipoVisita.SelectedIndexChanged += new System.EventHandler(this.tomarSeleccionTipoVisita);
             this.cmb_TipoVisita.Click += new System.EventHandler(this.cmb_TipoVisita_Click);
             // 
             // txt_visitantes
@@ -187,18 +187,18 @@
             this.dgv_ExposicionesSeleccionadas.AllowUserToDeleteRows = false;
             this.dgv_ExposicionesSeleccionadas.AllowUserToResizeColumns = false;
             this.dgv_ExposicionesSeleccionadas.AllowUserToResizeRows = false;
-            dataGridViewCellStyle37.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle37.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
-            this.dgv_ExposicionesSeleccionadas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle37;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.dgv_ExposicionesSeleccionadas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_ExposicionesSeleccionadas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle38.BackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle38.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle38.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_ExposicionesSeleccionadas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_ExposicionesSeleccionadas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_ExposicionesSeleccionadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_ExposicionesSeleccionadas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -211,12 +211,13 @@
             this.dgv_ExposicionesSeleccionadas.Name = "dgv_ExposicionesSeleccionadas";
             this.dgv_ExposicionesSeleccionadas.ReadOnly = true;
             this.dgv_ExposicionesSeleccionadas.RowHeadersVisible = false;
-            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
-            this.dgv_ExposicionesSeleccionadas.RowsDefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.dgv_ExposicionesSeleccionadas.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_ExposicionesSeleccionadas.RowTemplate.Height = 40;
             this.dgv_ExposicionesSeleccionadas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_ExposicionesSeleccionadas.Size = new System.Drawing.Size(664, 251);
             this.dgv_ExposicionesSeleccionadas.TabIndex = 1;
+            this.dgv_ExposicionesSeleccionadas.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgv_ExposicionesSeleccionadas_RowsAdded_1);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -256,16 +257,45 @@
             this.panel2.Size = new System.Drawing.Size(1449, 88);
             this.panel2.TabIndex = 14;
             // 
-            // lblDuracion
+            // panel11
             // 
-            this.lblDuracion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblDuracion.AutoSize = true;
-            this.lblDuracion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDuracion.Location = new System.Drawing.Point(201, 11);
-            this.lblDuracion.Name = "lblDuracion";
-            this.lblDuracion.Size = new System.Drawing.Size(95, 25);
-            this.lblDuracion.TabIndex = 21;
-            this.lblDuracion.Text = "Dur. Est.";
+            this.panel11.Controls.Add(this.label7);
+            this.panel11.Controls.Add(this.lbl_GuiasNecesarios);
+            this.panel11.Location = new System.Drawing.Point(970, 6);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(342, 49);
+            this.panel11.TabIndex = 40;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(12, 12);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(185, 25);
+            this.label7.TabIndex = 35;
+            this.label7.Text = "Guias necesarios:";
+            // 
+            // lbl_GuiasNecesarios
+            // 
+            this.lbl_GuiasNecesarios.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lbl_GuiasNecesarios.AutoSize = true;
+            this.lbl_GuiasNecesarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_GuiasNecesarios.Location = new System.Drawing.Point(220, 11);
+            this.lbl_GuiasNecesarios.Name = "lbl_GuiasNecesarios";
+            this.lbl_GuiasNecesarios.Size = new System.Drawing.Size(119, 25);
+            this.lbl_GuiasNecesarios.TabIndex = 37;
+            this.lbl_GuiasNecesarios.Text = "Cant Guias";
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.label5);
+            this.panel10.Controls.Add(this.lblDuracion);
+            this.panel10.Location = new System.Drawing.Point(650, 6);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(299, 49);
+            this.panel10.TabIndex = 39;
             // 
             // label5
             // 
@@ -278,16 +308,16 @@
             this.label5.TabIndex = 38;
             this.label5.Text = "Duracion estimada:";
             // 
-            // lbl_GuiasNecesarios
+            // lblDuracion
             // 
-            this.lbl_GuiasNecesarios.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.lbl_GuiasNecesarios.AutoSize = true;
-            this.lbl_GuiasNecesarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_GuiasNecesarios.Location = new System.Drawing.Point(220, 11);
-            this.lbl_GuiasNecesarios.Name = "lbl_GuiasNecesarios";
-            this.lbl_GuiasNecesarios.Size = new System.Drawing.Size(119, 25);
-            this.lbl_GuiasNecesarios.TabIndex = 37;
-            this.lbl_GuiasNecesarios.Text = "Cant Guias";
+            this.lblDuracion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDuracion.AutoSize = true;
+            this.lblDuracion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDuracion.Location = new System.Drawing.Point(201, 11);
+            this.lblDuracion.Name = "lblDuracion";
+            this.lblDuracion.Size = new System.Drawing.Size(95, 25);
+            this.lblDuracion.TabIndex = 21;
+            this.lblDuracion.Text = "Dur. Est.";
             // 
             // dtpHoraReserva
             // 
@@ -302,17 +332,6 @@
             this.dtpHoraReserva.Size = new System.Drawing.Size(89, 26);
             this.dtpHoraReserva.TabIndex = 36;
             this.dtpHoraReserva.ValueChanged += new System.EventHandler(this.dtpHoraReserva_ValueChanged);
-            // 
-            // label7
-            // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(12, 12);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(185, 25);
-            this.label7.TabIndex = 35;
-            this.label7.Text = "Guias necesarios:";
             // 
             // dtpFechaReserva
             // 
@@ -370,18 +389,18 @@
             this.dgv_GuiasSeleccionados.AllowUserToDeleteRows = false;
             this.dgv_GuiasSeleccionados.AllowUserToResizeColumns = false;
             this.dgv_GuiasSeleccionados.AllowUserToResizeRows = false;
-            dataGridViewCellStyle40.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
-            this.dgv_GuiasSeleccionados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle40;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.dgv_GuiasSeleccionados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgv_GuiasSeleccionados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle41.BackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle41.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle41.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle41.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle41.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_GuiasSeleccionados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle41;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_GuiasSeleccionados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgv_GuiasSeleccionados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_GuiasSeleccionados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colDocumentoSeleccionado,
@@ -393,12 +412,30 @@
             this.dgv_GuiasSeleccionados.Name = "dgv_GuiasSeleccionados";
             this.dgv_GuiasSeleccionados.ReadOnly = true;
             this.dgv_GuiasSeleccionados.RowHeadersVisible = false;
-            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
-            this.dgv_GuiasSeleccionados.RowsDefaultCellStyle = dataGridViewCellStyle42;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.dgv_GuiasSeleccionados.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgv_GuiasSeleccionados.RowTemplate.Height = 40;
             this.dgv_GuiasSeleccionados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_GuiasSeleccionados.Size = new System.Drawing.Size(664, 311);
             this.dgv_GuiasSeleccionados.TabIndex = 2;
+            // 
+            // colDocumentoSeleccionado
+            // 
+            this.colDocumentoSeleccionado.HeaderText = "Documento";
+            this.colDocumentoSeleccionado.Name = "colDocumentoSeleccionado";
+            this.colDocumentoSeleccionado.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "Apellido";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
             // panel9
             // 
@@ -429,18 +466,18 @@
             this.dgv_Guias.AllowUserToDeleteRows = false;
             this.dgv_Guias.AllowUserToResizeColumns = false;
             this.dgv_Guias.AllowUserToResizeRows = false;
-            dataGridViewCellStyle43.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle43.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
-            this.dgv_Guias.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle43;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.dgv_Guias.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgv_Guias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle44.BackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle44.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle44.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle44.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle44.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle44.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_Guias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle44;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Guias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgv_Guias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Guias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colDocumento,
@@ -452,12 +489,30 @@
             this.dgv_Guias.Name = "dgv_Guias";
             this.dgv_Guias.ReadOnly = true;
             this.dgv_Guias.RowHeadersVisible = false;
-            dataGridViewCellStyle45.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
-            this.dgv_Guias.RowsDefaultCellStyle = dataGridViewCellStyle45;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.dgv_Guias.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dgv_Guias.RowTemplate.Height = 40;
             this.dgv_Guias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_Guias.Size = new System.Drawing.Size(664, 311);
             this.dgv_Guias.TabIndex = 1;
+            // 
+            // colDocumento
+            // 
+            this.colDocumento.HeaderText = "Documento";
+            this.colDocumento.Name = "colDocumento";
+            this.colDocumento.ReadOnly = true;
+            // 
+            // colNombre
+            // 
+            this.colNombre.HeaderText = "Nombre";
+            this.colNombre.Name = "colNombre";
+            this.colNombre.ReadOnly = true;
+            // 
+            // colApellido
+            // 
+            this.colApellido.HeaderText = "Apellido";
+            this.colApellido.Name = "colApellido";
+            this.colApellido.ReadOnly = true;
             // 
             // panel4
             // 
@@ -477,29 +532,6 @@
             this.label1.Size = new System.Drawing.Size(266, 26);
             this.label1.TabIndex = 0;
             this.label1.Text = "Registrar nueva reserva";
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.btnCerrar);
-            this.panel5.Controls.Add(this.cmb_Guias);
-            this.panel5.Controls.Add(this.btnConfirmar);
-            this.panel5.Controls.Add(this.dataGridView2);
-            this.panel5.Controls.Add(this.button5);
-            this.panel5.Controls.Add(this.button2);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(0, 914);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1569, 60);
-            this.panel5.TabIndex = 29;
-            // 
-            // cmb_Guias
-            // 
-            this.cmb_Guias.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.cmb_Guias.FormattingEnabled = true;
-            this.cmb_Guias.Location = new System.Drawing.Point(728, 8);
-            this.cmb_Guias.Name = "cmb_Guias";
-            this.cmb_Guias.Size = new System.Drawing.Size(163, 26);
-            this.cmb_Guias.TabIndex = 21;
             // 
             // panel6
             // 
@@ -601,6 +633,181 @@
             this.panel1.Size = new System.Drawing.Size(150, 276);
             this.panel1.TabIndex = 13;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.dgv_Exposiciones);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(0, 0);
+            this.groupBox3.MinimumSize = new System.Drawing.Size(500, 0);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(670, 276);
+            this.groupBox3.TabIndex = 14;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Exposiciones disponibles";
+            // 
+            // dgv_Exposiciones
+            // 
+            this.dgv_Exposiciones.AllowUserToAddRows = false;
+            this.dgv_Exposiciones.AllowUserToDeleteRows = false;
+            this.dgv_Exposiciones.AllowUserToResizeColumns = false;
+            this.dgv_Exposiciones.AllowUserToResizeRows = false;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.dgv_Exposiciones.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            this.dgv_Exposiciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Exposiciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            this.dgv_Exposiciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_Exposiciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colExposicion,
+            this.colPublico,
+            this.colApertura,
+            this.colCierre});
+            this.dgv_Exposiciones.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_Exposiciones.EnableHeadersVisualStyles = false;
+            this.dgv_Exposiciones.Location = new System.Drawing.Point(3, 22);
+            this.dgv_Exposiciones.Name = "dgv_Exposiciones";
+            this.dgv_Exposiciones.ReadOnly = true;
+            this.dgv_Exposiciones.RowHeadersVisible = false;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.dgv_Exposiciones.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            this.dgv_Exposiciones.RowTemplate.Height = 40;
+            this.dgv_Exposiciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_Exposiciones.Size = new System.Drawing.Size(664, 251);
+            this.dgv_Exposiciones.TabIndex = 0;
+            // 
+            // colExposicion
+            // 
+            this.colExposicion.HeaderText = "Exposicion";
+            this.colExposicion.Name = "colExposicion";
+            this.colExposicion.ReadOnly = true;
+            // 
+            // colPublico
+            // 
+            this.colPublico.HeaderText = "Publico";
+            this.colPublico.Name = "colPublico";
+            this.colPublico.ReadOnly = true;
+            // 
+            // colApertura
+            // 
+            this.colApertura.HeaderText = "Hora apertura";
+            this.colApertura.Name = "colApertura";
+            this.colApertura.ReadOnly = true;
+            // 
+            // colCierre
+            // 
+            this.colCierre.HeaderText = "Hora cierre";
+            this.colCierre.Name = "colCierre";
+            this.colCierre.ReadOnly = true;
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.btn_Cancelar);
+            this.panel8.Controls.Add(this.btn_Registrar);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel8.Location = new System.Drawing.Point(60, 849);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(1449, 125);
+            this.panel8.TabIndex = 34;
+            // 
+            // timerGuia
+            // 
+            this.timerGuia.Interval = 1000;
+            this.timerGuia.Tick += new System.EventHandler(this.timerGuia_Tick);
+            // 
+            // btn_QuitarGuia
+            // 
+            this.btn_QuitarGuia.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_QuitarGuia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.btn_QuitarGuia.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.btn_QuitarGuia.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btn_QuitarGuia.BorderRadius = 18;
+            this.btn_QuitarGuia.BorderSize = 0;
+            this.btn_QuitarGuia.Enabled = false;
+            this.btn_QuitarGuia.FlatAppearance.BorderSize = 0;
+            this.btn_QuitarGuia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_QuitarGuia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_QuitarGuia.ForeColor = System.Drawing.Color.White;
+            this.btn_QuitarGuia.Location = new System.Drawing.Point(14, 202);
+            this.btn_QuitarGuia.Name = "btn_QuitarGuia";
+            this.btn_QuitarGuia.Size = new System.Drawing.Size(113, 36);
+            this.btn_QuitarGuia.TabIndex = 41;
+            this.btn_QuitarGuia.Text = "← Quitar";
+            this.btn_QuitarGuia.TextColor = System.Drawing.Color.White;
+            this.btn_QuitarGuia.UseVisualStyleBackColor = false;
+            this.btn_QuitarGuia.Click += new System.EventHandler(this.btn_QuitarGuia_Click);
+            // 
+            // btn_agregarGuia
+            // 
+            this.btn_agregarGuia.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_agregarGuia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.btn_agregarGuia.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.btn_agregarGuia.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btn_agregarGuia.BorderRadius = 18;
+            this.btn_agregarGuia.BorderSize = 0;
+            this.btn_agregarGuia.Enabled = false;
+            this.btn_agregarGuia.FlatAppearance.BorderSize = 0;
+            this.btn_agregarGuia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_agregarGuia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_agregarGuia.ForeColor = System.Drawing.Color.White;
+            this.btn_agregarGuia.Location = new System.Drawing.Point(14, 136);
+            this.btn_agregarGuia.Name = "btn_agregarGuia";
+            this.btn_agregarGuia.Size = new System.Drawing.Size(113, 36);
+            this.btn_agregarGuia.TabIndex = 40;
+            this.btn_agregarGuia.Text = "Agregar →";
+            this.btn_agregarGuia.TextColor = System.Drawing.Color.White;
+            this.btn_agregarGuia.UseVisualStyleBackColor = false;
+            this.btn_agregarGuia.Click += new System.EventHandler(this.btn_agregarGuia_Click_1);
+            // 
+            // btn_Cancelar
+            // 
+            this.btn_Cancelar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btn_Cancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.btn_Cancelar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.btn_Cancelar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btn_Cancelar.BorderRadius = 20;
+            this.btn_Cancelar.BorderSize = 0;
+            this.btn_Cancelar.FlatAppearance.BorderSize = 0;
+            this.btn_Cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Cancelar.ForeColor = System.Drawing.Color.White;
+            this.btn_Cancelar.Location = new System.Drawing.Point(785, 40);
+            this.btn_Cancelar.Name = "btn_Cancelar";
+            this.btn_Cancelar.Size = new System.Drawing.Size(150, 40);
+            this.btn_Cancelar.TabIndex = 2;
+            this.btn_Cancelar.Text = "Cancelar";
+            this.btn_Cancelar.TextColor = System.Drawing.Color.White;
+            this.btn_Cancelar.UseVisualStyleBackColor = false;
+            this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
+            // 
+            // btn_Registrar
+            // 
+            this.btn_Registrar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btn_Registrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.btn_Registrar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.btn_Registrar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btn_Registrar.BorderRadius = 20;
+            this.btn_Registrar.BorderSize = 0;
+            this.btn_Registrar.Enabled = false;
+            this.btn_Registrar.FlatAppearance.BorderSize = 0;
+            this.btn_Registrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Registrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Registrar.ForeColor = System.Drawing.Color.White;
+            this.btn_Registrar.Location = new System.Drawing.Point(493, 40);
+            this.btn_Registrar.Name = "btn_Registrar";
+            this.btn_Registrar.Size = new System.Drawing.Size(150, 40);
+            this.btn_Registrar.TabIndex = 1;
+            this.btn_Registrar.Text = "Registrar";
+            this.btn_Registrar.TextColor = System.Drawing.Color.White;
+            this.btn_Registrar.UseVisualStyleBackColor = false;
+            // 
             // btn_quitar
             // 
             this.btn_quitar.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -645,140 +852,6 @@
             this.btn_agregar.UseVisualStyleBackColor = false;
             this.btn_agregar.Click += new System.EventHandler(this.btn_agregar_Click);
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.dgv_Exposiciones);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(0, 0);
-            this.groupBox3.MinimumSize = new System.Drawing.Size(500, 0);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(670, 276);
-            this.groupBox3.TabIndex = 14;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Exposiciones disponibles";
-            // 
-            // dgv_Exposiciones
-            // 
-            this.dgv_Exposiciones.AllowUserToAddRows = false;
-            this.dgv_Exposiciones.AllowUserToDeleteRows = false;
-            this.dgv_Exposiciones.AllowUserToResizeColumns = false;
-            this.dgv_Exposiciones.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
-            this.dgv_Exposiciones.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgv_Exposiciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_Exposiciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgv_Exposiciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_Exposiciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colExposicion,
-            this.colPublico,
-            this.colApertura,
-            this.colCierre});
-            this.dgv_Exposiciones.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_Exposiciones.EnableHeadersVisualStyles = false;
-            this.dgv_Exposiciones.Location = new System.Drawing.Point(3, 22);
-            this.dgv_Exposiciones.Name = "dgv_Exposiciones";
-            this.dgv_Exposiciones.ReadOnly = true;
-            this.dgv_Exposiciones.RowHeadersVisible = false;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
-            this.dgv_Exposiciones.RowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgv_Exposiciones.RowTemplate.Height = 40;
-            this.dgv_Exposiciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_Exposiciones.Size = new System.Drawing.Size(664, 251);
-            this.dgv_Exposiciones.TabIndex = 0;
-            // 
-            // colExposicion
-            // 
-            this.colExposicion.HeaderText = "Exposicion";
-            this.colExposicion.Name = "colExposicion";
-            this.colExposicion.ReadOnly = true;
-            // 
-            // colPublico
-            // 
-            this.colPublico.HeaderText = "Publico";
-            this.colPublico.Name = "colPublico";
-            this.colPublico.ReadOnly = true;
-            // 
-            // colApertura
-            // 
-            this.colApertura.HeaderText = "Hora apertura";
-            this.colApertura.Name = "colApertura";
-            this.colApertura.ReadOnly = true;
-            // 
-            // colCierre
-            // 
-            this.colCierre.HeaderText = "Hora cierre";
-            this.colCierre.Name = "colCierre";
-            this.colCierre.ReadOnly = true;
-            // 
-            // dgv_ExposicionesSeleccionadas
-            // 
-            this.dgv_ExposicionesSeleccionadas.AllowUserToAddRows = false;
-            this.dgv_ExposicionesSeleccionadas.AllowUserToDeleteRows = false;
-            this.dgv_ExposicionesSeleccionadas.AllowUserToResizeColumns = false;
-            this.dgv_ExposicionesSeleccionadas.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
-            this.dgv_ExposicionesSeleccionadas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgv_ExposicionesSeleccionadas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_ExposicionesSeleccionadas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgv_ExposicionesSeleccionadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_ExposicionesSeleccionadas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
-            this.dgv_ExposicionesSeleccionadas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_ExposicionesSeleccionadas.Location = new System.Drawing.Point(3, 22);
-            this.dgv_ExposicionesSeleccionadas.Name = "dgv_ExposicionesSeleccionadas";
-            this.dgv_ExposicionesSeleccionadas.ReadOnly = true;
-            this.dgv_ExposicionesSeleccionadas.RowHeadersVisible = false;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
-            this.dgv_ExposicionesSeleccionadas.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgv_ExposicionesSeleccionadas.RowTemplate.Height = 40;
-            this.dgv_ExposicionesSeleccionadas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_ExposicionesSeleccionadas.Size = new System.Drawing.Size(664, 251);
-            this.dgv_ExposicionesSeleccionadas.TabIndex = 1;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Exposicion";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Publico";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Hora apertura";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Hora cierre";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
             // Frm_RegistrarVisita
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -802,6 +875,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ExposicionesSeleccionadas)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_GuiasSeleccionados)).EndInit();
@@ -817,8 +894,6 @@
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Exposiciones)).EndInit();
             this.panel8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_Exposiciones)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_ExposicionesSeleccionadas)).EndInit();
             this.ResumeLayout(false);
 
         }
