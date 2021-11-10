@@ -133,7 +133,6 @@
             this.cmb_Sede.Size = new System.Drawing.Size(167, 28);
             this.cmb_Sede.TabIndex = 19;
             this.cmb_Sede.SelectedIndexChanged += new System.EventHandler(this.cmb_Sede_SelectedIndexChanged);
-            this.cmb_Sede.Click += new System.EventHandler(this.cmb_Sede_Click);
             // 
             // cmb_TipoVisita
             // 
@@ -147,7 +146,6 @@
             this.cmb_TipoVisita.Size = new System.Drawing.Size(167, 28);
             this.cmb_TipoVisita.TabIndex = 18;
             this.cmb_TipoVisita.SelectedIndexChanged += new System.EventHandler(this.tomarSeleccionTipoVisita);
-            this.cmb_TipoVisita.Click += new System.EventHandler(this.cmb_TipoVisita_Click);
             // 
             // txt_visitantes
             // 
@@ -308,7 +306,6 @@
             this.dtpHoraReserva.ShowUpDown = true;
             this.dtpHoraReserva.Size = new System.Drawing.Size(89, 26);
             this.dtpHoraReserva.TabIndex = 36;
-            this.dtpHoraReserva.ValueChanged += new System.EventHandler(this.dtpHoraReserva_ValueChanged);
             // 
             // dtpFechaReserva
             // 
@@ -932,7 +929,6 @@
             this.Name = "Frm_RegistrarVisita";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registrar Visita";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Frm_RegistrarVisita_FormClosing);
             this.Load += new System.EventHandler(this.Frm_RegistrarVisita_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ExposicionesSeleccionadas)).EndInit();

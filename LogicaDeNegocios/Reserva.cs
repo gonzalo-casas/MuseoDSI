@@ -53,7 +53,8 @@ namespace MuseoDSI.Clases
             reserva.idEstado = idEstado;
 
             HE.newHistorialEstado(1, 1, 0, idReserva, DateTime.Now, DateTime.Now);
-            
+
+            dao.CrearReserva(idReserva, nroSede, idEscuela, horaInicio, fechaReserva, CantidadAlumnos, idTipoReserva, idEstado);
 
             return reserva;
         }
