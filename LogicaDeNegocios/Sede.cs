@@ -18,17 +18,17 @@ namespace MuseoDSI.Clases
         public int nroCalle { get; set; }
         public int CantidadMaximaVisitantes { get; set; }
         public int CantidadMaximaPorGuia { get; set; }
-        private ISede dao;
+        private ISede daoSede;
         public Sede()
         {
-            dao = new SedeDao();
+            daoSede = new SedeDao();
         }
 
         public List<Sede> ListaSede = new List<Sede>();
         
         public List<Sede> BuscarlistaSedes()
         {
-            return dao.BuscarlistaSedes();
+            return daoSede.BuscarlistaSedes();
         }
 
         public List<Exposicion> ListaExposicion = new List<Exposicion>();
@@ -36,9 +36,9 @@ namespace MuseoDSI.Clases
 
     
 
-        public List<Exposicion> BuscarExposiciones(int nroSedee, string tipoExposicion) 
+        public List<Exposicion> BuscarExposiciones(string nombreSede, string tipoExposicion) 
         {
-            return dao.BuscarExposiciones(nroSedee, tipoExposicion);
+            return daoSede.BuscarExposiciones(nombreSede, tipoExposicion);
         }
 
         public int MisReservasParaEstaFecha(string nombre, DateTime fecha)

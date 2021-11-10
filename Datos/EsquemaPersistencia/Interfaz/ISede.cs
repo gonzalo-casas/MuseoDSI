@@ -10,7 +10,7 @@ namespace MuseoDSI.Datos.EsquemaPersistencia.Interfaz
     interface ISede
     {
         List<Sede> BuscarlistaSedes();
-        List<Exposicion> BuscarExposiciones(int nroSedee, string tipoExposicion);
+        List<Exposicion> BuscarExposiciones(string nombreSede, string tipoExposicion);
 
 
     }

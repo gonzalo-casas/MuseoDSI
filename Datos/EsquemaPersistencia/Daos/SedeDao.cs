@@ -38,12 +38,12 @@ namespace MuseoDSI.Datos.EsquemaPersistencia.Daos
 
 
 
-        public List<Exposicion> BuscarExposiciones(int nroSedee, string tipoExposicion)
+        public List<Exposicion> BuscarExposiciones(string nombreSede, string tipoExposicion)
         {
             ListaExposicion.Clear();
-            int nroSede = nroSedee + 1;
+            //int nroSede = nroSedee + 1;
             DataTable tabla = new DataTable();
-            string sql = "SELECT * FROM Exposicion WHERE nroSede = " + nroSede + " AND idTipoExposicion in " + tipoExposicion;
+            string sql = "SELECT * FROM Exposicion e JOIN  Sede s ON (s.nroSede = e.nroSede) WHERE s.nombreSede = '" + nombreSede + "' AND idTipoExposicion in " + tipoExposicion;
 
             tabla = Backend.obtenerInstancia().Consulta(sql);
             for (int i = 0; i < tabla.Rows.Count; i++)

@@ -38,7 +38,7 @@ namespace MuseoDSI.Clases
             return ListaDeTipoReserva;
         }
 
-        public List<Exposicion> TomarExposionesTempVig(int nombreSede)
+        public List<Exposicion> TomarExposionesTempVig(string nombreSede)
         {
            return estrategia.TomarExposicionesTempVig(nombreSede);    //mostrarDatosTemp
         }
@@ -141,10 +141,10 @@ namespace MuseoDSI.Clases
             
             reserva.nuevaReserva(idReserva, nroSede, idEscuela, horaInicio, fechaReserva, CantidadAlumnos, idTipoReserva, idEstado);
         }
-       public void crearEstrategia(int estrategiaSeleccionada)
+       public void crearEstrategia(string estrategiaSeleccionada)
         {
             
-            if (estrategiaSeleccionada.Equals(1))
+            if (estrategiaSeleccionada.Equals("Visita Particular"))
             {
               estrategia = new EstrategiaCalculoDuracionPorExposicion();
             }else

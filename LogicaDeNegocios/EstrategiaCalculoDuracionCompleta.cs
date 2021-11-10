@@ -11,9 +11,9 @@ namespace MuseoDSI.LogicaDeNegocios
     {
         Sede sede = new Sede();
 
-        public List<Exposicion> TomarExposicionesTempVig(int nroSede)
+        public List<Exposicion> TomarExposicionesTempVig(string nombreSede)
         {
-            List<Exposicion> ListaExpos = sede.BuscarExposiciones(nroSede, "('1', '2')");
+            List<Exposicion> ListaExpos = sede.BuscarExposiciones(nombreSede, "('1', '2')");
             return ListaExpos;
         }
 
