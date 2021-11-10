@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using MuseoDSI;
+using MuseoDSI.Datos.EsquemaPersistencia.Interfaz;
+using MuseoDSI.Datos.EsquemaPersistencia.Daos;
+
 namespace MuseoDSI.Clases
 {
     class Reserva
@@ -18,23 +21,15 @@ namespace MuseoDSI.Clases
         public int idTipoReserva { get; set; }
         public int idEstado { get; set; }
 
-        Backend _BD = new Backend();
+        private IReserva dao;
+        public Reserva()
+        {
+            dao = new ReservaDao();
+        }
         public List<Reserva> ListaDeReservas = new List<Reserva>();
         public List<Reserva> ListaReservas()
         {
-            DataTable tabla = new DataTable();
-            string sql = "SELECT * FROM Reserva";
-            tabla = _BD.Consulta(sql);
-            for (int i = 0; i < tabla.Rows.Count; i++)
-                {
-                    Reserva reserva = new Reserva();
-                    reserva.idReserva = int.Parse(tabla.Rows[i]["idReserva"].ToString());
-                    reserva.fechaReserva = DateTime.Parse(tabla.Rows[i]["fechaReserva"].ToString());
-                    reserva.cantidadAlumnos = int.Parse(tabla.Rows[i]["cantidadAlumnos"].ToString());
-                    reserva.horaInicio = DateTime.Parse(tabla.Rows[i]["horaInicio"].ToString());
-                    ListaDeReservas.Add(reserva);
-                }
-            return ListaDeReservas;
+            return dao.ListaReservas();
         }
 
         private void AgregarNuevaReserva(Reserva reserva)
@@ -42,6 +37,9 @@ namespace MuseoDSI.Clases
             ListaDeReservas.Add(reserva);
         }
         HistorialEstado HE = new HistorialEstado();
+
+
+
         public Reserva nuevaReserva(int idReserva, int nroSede, int idEscuela, DateTime horaInicio, DateTime fechaReserva, int CantidadAlumnos, int idTipoReserva, int idEstado)
         {
             Reserva reserva = new Reserva();

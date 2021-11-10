@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using MuseoDSI.Clases;
 using System.Data;
+using MuseoDSI.Datos.EsquemaPersistencia.Interfaz;
+using MuseoDSI.Datos.EsquemaPersistencia.Daos;
 
 namespace MuseoDSI.Clases
 {
@@ -16,65 +18,27 @@ namespace MuseoDSI.Clases
         public int nroCalle { get; set; }
         public int CantidadMaximaVisitantes { get; set; }
         public int CantidadMaximaPorGuia { get; set; }
+        private ISede dao;
+        public Sede()
+        {
+            dao = new SedeDao();
+        }
 
-        Backend _BD = new Backend();
         public List<Sede> ListaSede = new List<Sede>();
         
         public List<Sede> BuscarlistaSedes()
         {
-            DataTable tabla = new DataTable();
-            string sql = "SELECT * FROM Sede";
-            tabla = _BD.Consulta(sql);
-
-            for (int i = 0; i < tabla.Rows.Count; i++)
-            {
-                Sede sede = new Sede();
-                sede.nroSede = int.Parse(tabla.Rows[i]["nroSede"].ToString());
-                sede.nombreSede = tabla.Rows[i]["nombreSede"].ToString();
-                sede.CantidadMaximaPorGuia = int.Parse(tabla.Rows[i]["CantidadMaximaPorGuia"].ToString());
-                sede.CantidadMaximaVisitantes = int.Parse(tabla.Rows[i]["CantidadMaximaVisitantes"].ToString());
-                
-                ListaSede.Add(sede);
-            }
-
-            return ListaSede;
+            return dao.BuscarlistaSedes();
         }
 
         public List<Exposicion> ListaExposicion = new List<Exposicion>();
         Exposicion expo = new Exposicion();
+
+    
+
         public List<Exposicion> BuscarExposiciones(int nroSedee, string tipoExposicion) 
         {
-            ListaExposicion.Clear();
-            int nroSede = nroSedee + 1;
-            //for (int i = 0; i < ListaSede.Count; i++)
-            //{
-            //    if (nombreSede == ListaSede[i].nombreSede)
-            //    {
-            //        nroSede = ListaSede[i].nroSede;
-            //    }
-            //}
-            DataTable tabla = new DataTable();
-            string sql = "SELECT * FROM Exposicion WHERE nroSede = " + nroSede + " AND idTipoExposicion in "+ tipoExposicion;
-            
-            tabla = _BD.Consulta(sql);
-            for (int i = 0; i < tabla.Rows.Count; i++)
-            {
-                Exposicion exposicion = new Exposicion();
-               
-                exposicion.idExposicion = int.Parse(tabla.Rows[i]["idExposicion"].ToString());
-                exposicion.nroSede = int.Parse(tabla.Rows[i]["nroSede"].ToString());
-                exposicion.nombre = tabla.Rows[i]["nombreExposicion"].ToString();
-                exposicion.idPublico =tabla.Rows[i]["idPublico"].ToString();
-                exposicion.horaInicio = DateTime.Parse(tabla.Rows[i]["horaInicio"].ToString());
-                exposicion.horaFin = DateTime.Parse(tabla.Rows[i]["horaCierre"].ToString());
-                exposicion.fechaInicio = DateTime.Parse(tabla.Rows[i]["fechaInicio"].ToString());
-                exposicion.fechaFin = DateTime.Parse(tabla.Rows[i]["fechaCierre"].ToString());
-                ListaExposicion.Add(exposicion);
-            }
-            ListaExposicion = expo.getExpoVigentes(ListaExposicion);// getExpovigente 
-            return ListaExposicion;
-            
-            
+            return dao.BuscarExposiciones(nroSedee, tipoExposicion);
         }
 
         public int MisReservasParaEstaFecha(string nombre, DateTime fecha)

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -52,15 +51,15 @@
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lbl_GuiasNecesarios = new System.Windows.Forms.Label();
-            this.panel10 = new System.Windows.Forms.Panel();
+            this.panelDuracion = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.lblDuracion = new System.Windows.Forms.Label();
             this.dtpHoraReserva = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaReserva = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
+            this.panelGuiasNecesarios = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lbl_GuiasNecesarios = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.dgv_GuiasSeleccionados = new System.Windows.Forms.DataGridView();
@@ -91,18 +90,21 @@
             this.colApertura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCierre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.timerGuia = new System.Windows.Forms.Timer(this.components);
+            this.panelGuiasSeleccionados = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lbl_GuiasSeleccionados = new System.Windows.Forms.Label();
             this.btn_QuitarGuia = new MuseoDSI.Formularios.BotonRedondeado();
             this.btn_agregarGuia = new MuseoDSI.Formularios.BotonRedondeado();
             this.btn_Cancelar = new MuseoDSI.Formularios.BotonRedondeado();
             this.btn_Registrar = new MuseoDSI.Formularios.BotonRedondeado();
+            this.btn_Verificar = new MuseoDSI.Formularios.BotonRedondeado();
             this.btn_quitar = new MuseoDSI.Formularios.BotonRedondeado();
             this.btn_agregar = new MuseoDSI.Formularios.BotonRedondeado();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ExposicionesSeleccionadas)).BeginInit();
             this.panel2.SuspendLayout();
-            this.panel11.SuspendLayout();
-            this.panel10.SuspendLayout();
+            this.panelDuracion.SuspendLayout();
+            this.panelGuiasNecesarios.SuspendLayout();
             this.panel3.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_GuiasSeleccionados)).BeginInit();
@@ -116,12 +118,14 @@
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Exposiciones)).BeginInit();
             this.panel8.SuspendLayout();
+            this.panelGuiasSeleccionados.SuspendLayout();
             this.SuspendLayout();
             // 
             // cmb_Sede
             // 
             this.cmb_Sede.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmb_Sede.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_Sede.Enabled = false;
             this.cmb_Sede.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmb_Sede.FormattingEnabled = true;
             this.cmb_Sede.Location = new System.Drawing.Point(720, 22);
@@ -129,13 +133,13 @@
             this.cmb_Sede.Size = new System.Drawing.Size(167, 28);
             this.cmb_Sede.TabIndex = 19;
             this.cmb_Sede.SelectedIndexChanged += new System.EventHandler(this.cmb_Sede_SelectedIndexChanged);
-            this.cmb_Sede.SelectedValueChanged += new System.EventHandler(this.cmb_Sede_SelectedValueChanged);
             this.cmb_Sede.Click += new System.EventHandler(this.cmb_Sede_Click);
             // 
             // cmb_TipoVisita
             // 
             this.cmb_TipoVisita.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmb_TipoVisita.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_TipoVisita.Enabled = false;
             this.cmb_TipoVisita.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmb_TipoVisita.FormattingEnabled = true;
             this.cmb_TipoVisita.Location = new System.Drawing.Point(1034, 22);
@@ -158,6 +162,7 @@
             // 
             this.cmb_Escuela.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmb_Escuela.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_Escuela.Enabled = false;
             this.cmb_Escuela.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmb_Escuela.FormattingEnabled = true;
             this.cmb_Escuela.IntegralHeight = false;
@@ -172,7 +177,7 @@
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.dgv_ExposicionesSeleccionadas);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(820, 0);
             this.groupBox1.MinimumSize = new System.Drawing.Size(500, 0);
             this.groupBox1.Name = "groupBox1";
@@ -193,7 +198,7 @@
             this.dgv_ExposicionesSeleccionadas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -217,7 +222,7 @@
             this.dgv_ExposicionesSeleccionadas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_ExposicionesSeleccionadas.Size = new System.Drawing.Size(664, 251);
             this.dgv_ExposicionesSeleccionadas.TabIndex = 1;
-            this.dgv_ExposicionesSeleccionadas.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgv_ExposicionesSeleccionadas_RowsAdded_1);
+            this.dgv_ExposicionesSeleccionadas.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgv_ExposicionesSeleccionadas_RowsAdded);
             this.dgv_ExposicionesSeleccionadas.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dgv_ExposicionesSeleccionadas_RowsRemoved);
             // 
             // dataGridViewTextBoxColumn1
@@ -247,32 +252,105 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.Controls.Add(this.panel11);
-            this.panel2.Controls.Add(this.panel10);
+            this.panel2.Controls.Add(this.btn_Verificar);
+            this.panel2.Controls.Add(this.panelDuracion);
             this.panel2.Controls.Add(this.dtpHoraReserva);
             this.panel2.Controls.Add(this.dtpFechaReserva);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(60, 409);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1449, 88);
+            this.panel2.Size = new System.Drawing.Size(1449, 58);
             this.panel2.TabIndex = 14;
             // 
-            // panel11
+            // panelDuracion
             // 
-            this.panel11.Controls.Add(this.label7);
-            this.panel11.Controls.Add(this.lbl_GuiasNecesarios);
-            this.panel11.Location = new System.Drawing.Point(970, 6);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(342, 49);
-            this.panel11.TabIndex = 40;
+            this.panelDuracion.Controls.Add(this.label5);
+            this.panelDuracion.Controls.Add(this.lblDuracion);
+            this.panelDuracion.Location = new System.Drawing.Point(874, 5);
+            this.panelDuracion.Name = "panelDuracion";
+            this.panelDuracion.Size = new System.Drawing.Size(484, 49);
+            this.panelDuracion.TabIndex = 39;
+            this.panelDuracion.Visible = false;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(18, 13);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(197, 25);
+            this.label5.TabIndex = 38;
+            this.label5.Text = "Duracion estimada:";
+            // 
+            // lblDuracion
+            // 
+            this.lblDuracion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDuracion.AutoSize = true;
+            this.lblDuracion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDuracion.Location = new System.Drawing.Point(221, 13);
+            this.lblDuracion.Name = "lblDuracion";
+            this.lblDuracion.Size = new System.Drawing.Size(95, 25);
+            this.lblDuracion.TabIndex = 21;
+            this.lblDuracion.Text = "Dur. Est.";
+            // 
+            // dtpHoraReserva
+            // 
+            this.dtpHoraReserva.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpHoraReserva.Checked = false;
+            this.dtpHoraReserva.CustomFormat = "HH:mm";
+            this.dtpHoraReserva.Enabled = false;
+            this.dtpHoraReserva.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpHoraReserva.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpHoraReserva.Location = new System.Drawing.Point(482, 17);
+            this.dtpHoraReserva.Name = "dtpHoraReserva";
+            this.dtpHoraReserva.ShowUpDown = true;
+            this.dtpHoraReserva.Size = new System.Drawing.Size(89, 26);
+            this.dtpHoraReserva.TabIndex = 36;
+            this.dtpHoraReserva.ValueChanged += new System.EventHandler(this.dtpHoraReserva_ValueChanged);
+            // 
+            // dtpFechaReserva
+            // 
+            this.dtpFechaReserva.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaReserva.Checked = false;
+            this.dtpFechaReserva.CustomFormat = "dd/MM/yyyy";
+            this.dtpFechaReserva.Enabled = false;
+            this.dtpFechaReserva.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaReserva.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpFechaReserva.Location = new System.Drawing.Point(336, 17);
+            this.dtpFechaReserva.Name = "dtpFechaReserva";
+            this.dtpFechaReserva.Size = new System.Drawing.Size(140, 26);
+            this.dtpFechaReserva.TabIndex = 34;
+            this.dtpFechaReserva.Validating += new System.ComponentModel.CancelEventHandler(this.dtpFechaReserva_Validating);
+            // 
+            // label8
+            // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(131, 5);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(199, 20);
+            this.label8.TabIndex = 22;
+            this.label8.Text = "Fecha y hora de la reserva:";
+            // 
+            // panelGuiasNecesarios
+            // 
+            this.panelGuiasNecesarios.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.panelGuiasNecesarios.Controls.Add(this.label7);
+            this.panelGuiasNecesarios.Controls.Add(this.lbl_GuiasNecesarios);
+            this.panelGuiasNecesarios.Location = new System.Drawing.Point(243, 473);
+            this.panelGuiasNecesarios.Name = "panelGuiasNecesarios";
+            this.panelGuiasNecesarios.Size = new System.Drawing.Size(342, 49);
+            this.panelGuiasNecesarios.TabIndex = 40;
             // 
             // label7
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(12, 12);
+            this.label7.Location = new System.Drawing.Point(29, 11);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(185, 25);
             this.label7.TabIndex = 35;
@@ -288,76 +366,6 @@
             this.lbl_GuiasNecesarios.Size = new System.Drawing.Size(119, 25);
             this.lbl_GuiasNecesarios.TabIndex = 37;
             this.lbl_GuiasNecesarios.Text = "Cant Guias";
-            // 
-            // panel10
-            // 
-            this.panel10.Controls.Add(this.label5);
-            this.panel10.Controls.Add(this.lblDuracion);
-            this.panel10.Location = new System.Drawing.Point(650, 6);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(299, 49);
-            this.panel10.TabIndex = 39;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 11);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(197, 25);
-            this.label5.TabIndex = 38;
-            this.label5.Text = "Duracion estimada:";
-            // 
-            // lblDuracion
-            // 
-            this.lblDuracion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblDuracion.AutoSize = true;
-            this.lblDuracion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDuracion.Location = new System.Drawing.Point(201, 11);
-            this.lblDuracion.Name = "lblDuracion";
-            this.lblDuracion.Size = new System.Drawing.Size(95, 25);
-            this.lblDuracion.TabIndex = 21;
-            this.lblDuracion.Text = "Dur. Est.";
-            // 
-            // dtpHoraReserva
-            // 
-            this.dtpHoraReserva.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpHoraReserva.Checked = false;
-            this.dtpHoraReserva.CustomFormat = "HH:mm";
-            this.dtpHoraReserva.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpHoraReserva.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpHoraReserva.Location = new System.Drawing.Point(506, 17);
-            this.dtpHoraReserva.Name = "dtpHoraReserva";
-            this.dtpHoraReserva.ShowUpDown = true;
-            this.dtpHoraReserva.Size = new System.Drawing.Size(89, 26);
-            this.dtpHoraReserva.TabIndex = 36;
-            this.dtpHoraReserva.ValueChanged += new System.EventHandler(this.dtpHoraReserva_ValueChanged);
-            // 
-            // dtpFechaReserva
-            // 
-            this.dtpFechaReserva.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFechaReserva.Checked = false;
-            this.dtpFechaReserva.CustomFormat = "dd/MM/yyyy";
-            this.dtpFechaReserva.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFechaReserva.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFechaReserva.Location = new System.Drawing.Point(336, 17);
-            this.dtpFechaReserva.Name = "dtpFechaReserva";
-            this.dtpFechaReserva.ShowCheckBox = true;
-            this.dtpFechaReserva.Size = new System.Drawing.Size(161, 26);
-            this.dtpFechaReserva.TabIndex = 34;
-            this.dtpFechaReserva.ValueChanged += new System.EventHandler(this.dtpFechaReserva_ValueChanged);
-            // 
-            // label8
-            // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(131, 20);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(199, 20);
-            this.label8.TabIndex = 22;
-            this.label8.Text = "Fecha y hora de la reserva:";
             // 
             // panel3
             // 
@@ -375,7 +383,7 @@
             // 
             this.groupBox5.Controls.Add(this.dgv_GuiasSeleccionados);
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(820, 0);
             this.groupBox5.MinimumSize = new System.Drawing.Size(500, 0);
             this.groupBox5.Name = "groupBox5";
@@ -396,7 +404,7 @@
             this.dgv_GuiasSeleccionados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -419,6 +427,8 @@
             this.dgv_GuiasSeleccionados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_GuiasSeleccionados.Size = new System.Drawing.Size(664, 311);
             this.dgv_GuiasSeleccionados.TabIndex = 2;
+            this.dgv_GuiasSeleccionados.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgv_GuiasSeleccionados_RowsAdded);
+            this.dgv_GuiasSeleccionados.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dgv_GuiasSeleccionados_RowsRemoved);
             // 
             // colDocumentoSeleccionado
             // 
@@ -452,7 +462,7 @@
             // 
             this.groupBox4.Controls.Add(this.dgv_Guias);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(0, 0);
             this.groupBox4.MinimumSize = new System.Drawing.Size(500, 0);
             this.groupBox4.Name = "groupBox4";
@@ -473,7 +483,7 @@
             this.dgv_Guias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -638,7 +648,7 @@
             // 
             this.groupBox3.Controls.Add(this.dgv_Exposiciones);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
             this.groupBox3.MinimumSize = new System.Drawing.Size(500, 0);
             this.groupBox3.Name = "groupBox3";
@@ -659,7 +669,7 @@
             this.dgv_Exposiciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -718,10 +728,37 @@
             this.panel8.Size = new System.Drawing.Size(1449, 125);
             this.panel8.TabIndex = 34;
             // 
-            // timerGuia
+            // panelGuiasSeleccionados
             // 
-            this.timerGuia.Interval = 1000;
-            this.timerGuia.Tick += new System.EventHandler(this.timerGuia_Tick);
+            this.panelGuiasSeleccionados.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelGuiasSeleccionados.Controls.Add(this.label9);
+            this.panelGuiasSeleccionados.Controls.Add(this.lbl_GuiasSeleccionados);
+            this.panelGuiasSeleccionados.Location = new System.Drawing.Point(972, 470);
+            this.panelGuiasSeleccionados.Name = "panelGuiasSeleccionados";
+            this.panelGuiasSeleccionados.Size = new System.Drawing.Size(413, 49);
+            this.panelGuiasSeleccionados.TabIndex = 41;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(18, 11);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(218, 25);
+            this.label9.TabIndex = 35;
+            this.label9.Text = "Guias seleccionados:";
+            // 
+            // lbl_GuiasSeleccionados
+            // 
+            this.lbl_GuiasSeleccionados.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lbl_GuiasSeleccionados.AutoSize = true;
+            this.lbl_GuiasSeleccionados.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_GuiasSeleccionados.Location = new System.Drawing.Point(242, 11);
+            this.lbl_GuiasSeleccionados.Name = "lbl_GuiasSeleccionados";
+            this.lbl_GuiasSeleccionados.Size = new System.Drawing.Size(119, 25);
+            this.lbl_GuiasSeleccionados.TabIndex = 37;
+            this.lbl_GuiasSeleccionados.Text = "Cant Guias";
             // 
             // btn_QuitarGuia
             // 
@@ -808,6 +845,29 @@
             this.btn_Registrar.Text = "Registrar";
             this.btn_Registrar.TextColor = System.Drawing.Color.White;
             this.btn_Registrar.UseVisualStyleBackColor = false;
+            this.btn_Registrar.Click += new System.EventHandler(this.btn_Registrar_Click);
+            // 
+            // btn_Verificar
+            // 
+            this.btn_Verificar.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btn_Verificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.btn_Verificar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(116)))));
+            this.btn_Verificar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btn_Verificar.BorderRadius = 15;
+            this.btn_Verificar.BorderSize = 0;
+            this.btn_Verificar.Enabled = false;
+            this.btn_Verificar.FlatAppearance.BorderSize = 0;
+            this.btn_Verificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Verificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Verificar.ForeColor = System.Drawing.Color.White;
+            this.btn_Verificar.Location = new System.Drawing.Point(624, 14);
+            this.btn_Verificar.Name = "btn_Verificar";
+            this.btn_Verificar.Size = new System.Drawing.Size(124, 29);
+            this.btn_Verificar.TabIndex = 40;
+            this.btn_Verificar.Text = "Verificar";
+            this.btn_Verificar.TextColor = System.Drawing.Color.White;
+            this.btn_Verificar.UseVisualStyleBackColor = false;
+            this.btn_Verificar.Click += new System.EventHandler(this.btn_Verificar_Click);
             // 
             // btn_quitar
             // 
@@ -859,7 +919,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1569, 974);
+            this.Controls.Add(this.panelGuiasSeleccionados);
             this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panelGuiasNecesarios);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panelExposiciones);
@@ -876,10 +938,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ExposicionesSeleccionadas)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel11.ResumeLayout(false);
-            this.panel11.PerformLayout();
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
+            this.panelDuracion.ResumeLayout(false);
+            this.panelDuracion.PerformLayout();
+            this.panelGuiasNecesarios.ResumeLayout(false);
+            this.panelGuiasNecesarios.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_GuiasSeleccionados)).EndInit();
@@ -895,6 +957,8 @@
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Exposiciones)).EndInit();
             this.panel8.ResumeLayout(false);
+            this.panelGuiasSeleccionados.ResumeLayout(false);
+            this.panelGuiasSeleccionados.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -948,14 +1012,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridView dgv_Guias;
         private System.Windows.Forms.DataGridView dgv_GuiasSeleccionados;
-        private System.Windows.Forms.Timer timerGuia;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDocumentoSeleccionado;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDocumento;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn colApellido;
-        private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Panel panelGuiasNecesarios;
+        private System.Windows.Forms.Panel panelDuracion;
+        private System.Windows.Forms.Panel panelGuiasSeleccionados;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lbl_GuiasSeleccionados;
+        private BotonRedondeado btn_Verificar;
     }
 }

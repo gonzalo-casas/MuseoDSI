@@ -26,6 +26,8 @@ namespace MuseoDSI.Clases
         public string contraseña { get; set; }
         public DateTime caducidad { get; set; }
 
+        public Empleado empleado { get; set; }
+
         public List<Usuario> listaUsuarios= new List<Usuario>();
 
        /* public List<Usuario> LlenarListaUsuario()

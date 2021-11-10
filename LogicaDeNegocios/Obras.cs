@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using MuseoDSI.Clases;
 using System.Data;
+using MuseoDSI.Datos.EsquemaPersistencia.Interfaz;
+using MuseoDSI.Datos.EsquemaPersistencia.Daos;
 
 namespace MuseoDSI.Clases
 {
@@ -24,31 +26,16 @@ namespace MuseoDSI.Clases
         public string descripcion { get; set; }
 
         public List<Obras> ListaObras = new List<Obras>();
-        Backend _BD = new Backend();
+
+        private IObras dao;
+        public Obras()
+        {
+            dao = new ObrasDao();
+        }
+
         public List<Obras> LlenarListaObras()
         {
-
-            DataTable tabla = new DataTable();
-            string sql = @"SELECT *  FROM Obras ob
-                        JOIN DetalleExposicion de ON(ob.idObras = de.idObra)
-                         ";
-
-            tabla = _BD.Consulta(sql);
-            
-            for (int i = 0; i < tabla.Rows.Count; i++)
-            {
-                Obras obra = new Obras();
-                obra.idObras = int.Parse(tabla.Rows[i]["idObras"].ToString());
-                obra.idExposicion = int.Parse(tabla.Rows[i]["idExposicion"].ToString());
-                obra.nombre = tabla.Rows[i]["nombre"].ToString();
-                obra.duracionExtendida = int.Parse(tabla.Rows[i]["duracionExtendida"].ToString());
-                obra.duracionResumida = int.Parse(tabla.Rows[i]["duracionResumida"].ToString());
-               
-                ListaObras.Add(obra);
-            }
-            return ListaObras;
-
-            
+            return dao.LlenarListaObras();
         }
 
         public int DevolverDuracionExtendida(int id)

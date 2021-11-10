@@ -47,7 +47,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Datos\EsquemaPersistencia\Daos\TipoReservaDao.cs" />
+    <Compile Include="Datos\EsquemaPersistencia\Daos\SedeDao.cs" />
+    <Compile Include="Datos\EsquemaPersistencia\Daos\ReservaDao.cs" />
+    <Compile Include="Datos\EsquemaPersistencia\Daos\ObrasDao.cs" />
+    <Compile Include="Datos\EsquemaPersistencia\Daos\HorarioEmpleadoDao.cs" />
+    <Compile Include="Datos\EsquemaPersistencia\Daos\ExposicionDao.cs" />
+    <Compile Include="Datos\EsquemaPersistencia\Daos\EscuelaDao.cs" />
+    <Compile Include="Datos\EsquemaPersistencia\Daos\EmpleadoDao.cs" />
     <Compile Include="Datos\EsquemaPersistencia\Daos\UsuarioDao.cs" />
+    <Compile Include="Datos\EsquemaPersistencia\Interfaz\ITipoReserva.cs" />
+    <Compile Include="Datos\EsquemaPersistencia\Interfaz\ISede.cs" />
+    <Compile Include="Datos\EsquemaPersistencia\Interfaz\IReserva.cs" />
+    <Compile Include="Datos\EsquemaPersistencia\Interfaz\IObras.cs" />
+    <Compile Include="Datos\EsquemaPersistencia\Interfaz\IHorarioEmpleado.cs" />
+    <Compile Include="Datos\EsquemaPersistencia\Interfaz\IExposicion.cs" />
+    <Compile Include="Datos\EsquemaPersistencia\Interfaz\IEscuela.cs" />
+    <Compile Include="Datos\EsquemaPersistencia\Interfaz\IEmpleado.cs" />
     <Compile Include="Datos\EsquemaPersistencia\Interfaz\IUsuario.cs" />
     <Compile Include="Formularios\BotonRedondeado.cs">
       <SubType>Component</SubType>

@@ -5,31 +5,27 @@ using System.Text;
 using System.Threading.Tasks;
 using MuseoDSI.Clases;
 using System.Data;
+using MuseoDSI.Datos.EsquemaPersistencia.Interfaz;
+using MuseoDSI.Datos.EsquemaPersistencia.Daos;
 
 namespace MuseoDSI.Clases
 {
     class TipoReserva
     {
-        Backend _BD = new Backend();
         public int idTipoReserva { get; set; }
         public string descripcion { get; set; }
 
+        private ITipoReserva dao;
+        public TipoReserva()
+        {
+            dao = new TipoReservaDao();
+        }
+
         public List<TipoReserva> ListaTipoReserva = new List<TipoReserva>();
+
         public List<TipoReserva> BuscarlistaTipoReserva()
         {
-            DataTable tabla = new DataTable();
-            string sql = "SELECT * FROM TipoReserva";
-            tabla = _BD.Consulta(sql);
-
-            for (int i = 0; i < tabla.Rows.Count; i++)
-            {
-                TipoReserva tipoReserva = new TipoReserva();
-                tipoReserva.idTipoReserva= int.Parse(tabla.Rows[i]["idTipoReserva"].ToString());
-                tipoReserva.descripcion = tabla.Rows[i]["descripcion"].ToString();
-                ListaTipoReserva.Add(tipoReserva);
-            }
-
-            return ListaTipoReserva;
+            return dao.BuscarlistaTipoReserva();
         }
 
     }

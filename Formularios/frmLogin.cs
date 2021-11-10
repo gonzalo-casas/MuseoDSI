@@ -51,8 +51,11 @@ namespace MuseoDSI.Formularios
 
             this.miUsuario.idUsuario = this.txtUsuario.Text;
             this.miUsuario.contraseña = this.txtContrasena.Text;
+
             Array arrayUsuario = this.miUsuario.ValidarUsuario(miUsuario.idUsuario, miUsuario.contraseña);
             this.miUsuario.nombre = arrayUsuario.GetValue(0).ToString();
+            this.miUsuario.empleado = new Empleado();
+            this.miUsuario.empleado.idCargo = Int32.Parse(arrayUsuario.GetValue(1).ToString());
             
 
             if (this.miUsuario.nombre != string.Empty)

@@ -33,8 +33,6 @@ namespace MuseoDSI.Clases
                 DE.idObra = int.Parse(tabla.Rows[i]["idObra"].ToString());
                 listaDE.Add(DE);
             }
-
-
         }
         
 
