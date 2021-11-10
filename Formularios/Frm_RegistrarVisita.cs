@@ -25,6 +25,7 @@ namespace MuseoDSI.Formularios
             InitializeComponent();
         }
 
+       
 
         private void MostrarListaEscuelas()
         {
@@ -193,7 +194,7 @@ namespace MuseoDSI.Formularios
             if (cmb_TipoVisita.Enabled.Equals(true))
             {
                 string estrategia = this.cmb_TipoVisita.Text.ToString(); // cambiar por string
-                gestor.crearEstrategia(estrategia);
+                gestor.tomarSeleccionTipoVisita(estrategia);
                 List<Exposicion> listaExpos = gestor.TomarExposionesTempVig(cmb_Sede.Text.ToString());  // aca obtiene las lista de exposiones
                 CargarGrilla(listaExpos);
                 switch (cmb_TipoVisita.SelectedIndex)

@@ -20,6 +20,11 @@ namespace MuseoDSI.Clases
         TipoReserva tipoReserva = new TipoReserva();
         IEstrategiaCalculoDuracion estrategia;
 
+        public void tomarSeleccionTipoVisita(string estrategia)
+        {
+            gestor.crearEstrategia(estrategia);
+        }
+
 
         public List<Escuela> RecuperarListaEscuelas()
         {
