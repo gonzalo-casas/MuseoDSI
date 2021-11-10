@@ -141,11 +141,12 @@ namespace MuseoDSI.Clases
                 
         }
 
-        public void RegistrarReserva (int idReserva, int nroSede, int idEscuela, DateTime horaInicio, DateTime fechaReserva, int CantidadAlumnos, int idTipoReserva, int idEstado)
+        public void RegistrarReserva (int nroSede, int idEscuela, DateTime horaInicio, DateTime fechaReserva, int CantidadAlumnos, int idTipoReserva, int idEstado)
         {
-            
+            int idReserva = ObtenerCantidadReservas();
             reserva.nuevaReserva(idReserva, nroSede, idEscuela, horaInicio, fechaReserva, CantidadAlumnos, idTipoReserva, idEstado);
         }
+
        public void crearEstrategia(string estrategiaSeleccionada)
         {
             
@@ -157,6 +158,15 @@ namespace MuseoDSI.Clases
 
            
         }
-        
+
+        public int ObtenerCantidadReservas()
+        {
+            Reserva reserva = new Reserva();
+            List<Reserva> Reservas = reserva.ListaReservas();
+            int num = Reservas.Count + 1;
+
+            return num;
+        }
+
     }
 }

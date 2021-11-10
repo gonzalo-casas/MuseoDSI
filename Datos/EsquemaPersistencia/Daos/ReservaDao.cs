@@ -12,6 +12,7 @@ namespace MuseoDSI.Datos.EsquemaPersistencia.Daos
     class ReservaDao : IReserva
     {
         public List<Reserva> ListaDeReservas = new List<Reserva>();
+
         public List<Reserva> ListaReservas()
         {
             DataTable tabla = new DataTable();
@@ -28,5 +29,13 @@ namespace MuseoDSI.Datos.EsquemaPersistencia.Daos
             }
             return ListaDeReservas;
         }
+
+        public void CrearReserva(int idReserva, int nroSede, int idEscuela, DateTime horaInicio, DateTime fechaReserva, int CantidadAlumnos, int idTipoReserva, int idEstado)
+        {
+            string sql = @"INSERT INTO Reserva 
+                           VALUES (" + idReserva.ToString() + "," + nroSede.ToString() + "," + idEscuela.ToString() + ", '" + horaInicio.ToString("HH:mm:ss") + "','" + fechaReserva.ToString("yyyy-MM-dd") + "'," + CantidadAlumnos.ToString() + "," + idTipoReserva.ToString() + "," + idEstado.ToString() + ")";
+            Backend.obtenerInstancia().EjecutarSQL(sql);
+        }
+
     }
 }

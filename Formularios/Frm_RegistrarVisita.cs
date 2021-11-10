@@ -132,7 +132,7 @@ namespace MuseoDSI.Formularios
             }
         }
 
-        private void CalcularVisitantes()
+        private void MostrarVisitantes()
         {
             string respuesta = gestor.CalcularSobrepaso(txt_visitantes.Text, cmb_Sede.Text);
             if (respuesta == "sobrepasado")
@@ -147,7 +147,7 @@ namespace MuseoDSI.Formularios
                 List<Empleado> listaGuias = gestor.ObtenerEmpleado(dtpHoraReserva.Value);
                 
 
-                if (guiasNecesarios >= listaGuias.Count())
+                if (guiasNecesarios > listaGuias.Count())
                 {
                     MessageBox.Show("No hay suficientes guias disponibles para esta fecha y hora", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -157,37 +157,7 @@ namespace MuseoDSI.Formularios
                 }
             }
         }
-
-       // int guiasElegidos = 0;
         
-        private void button3_Click(object sender, EventArgs e)
-        {
-            int numReserva = ObtenerCantidadReservas();
-            int idSede = 0;
-            List<Sede> sedes = gestor.RecuperarListaSedes();
-            for(int i = 0;i < sedes.Count; i++)
-            {
-                if(sedes[i].nombreSede == cmb_Sede.Text)
-                {
-                    idSede = sedes[i].nroSede + 1 ;
-                }
-            }
-            gestor.RegistrarReserva(numReserva, idSede, 1, DateTime.Parse(dtpFechaReserva.Text.ToString()), DateTime.Now, int.Parse(txt_visitantes.Text), 1, 1);
-            MessageBox.Show("Reserva Creada Correctamente");
-            this.Close();
-        }
-
-        private int ObtenerCantidadReservas()
-        {
-            Reserva reserva = new Reserva();
-            List<Reserva> Reservas = reserva.ListaReservas();
-            int num = 0;
-            for(int i = 0; i < Reservas.Count; i++)
-            {
-                num = i + 1;
-            }
-            return num;
-        }
 
         private void tomarSeleccionTipoVisita(object sender, EventArgs e) 
         {
@@ -204,11 +174,15 @@ namespace MuseoDSI.Formularios
                         btn_agregar.Enabled = true;
                         btn_quitar.Enabled = true;
                         dgv_ExposicionesSeleccionadas.Rows.Clear();
+                        exposicionesSeleccionadas.Clear();
                         break;
 
                     case 0:
+
                         btn_agregar.Enabled = false;
                         btn_quitar.Enabled = false;
+                        dgv_ExposicionesSeleccionadas.Rows.Clear();
+                        exposicionesSeleccionadas.Clear();
                         foreach (DataGridViewRow r in dgv_Exposiciones.Rows)
                         {
                             int index = dgv_ExposicionesSeleccionadas.Rows.Add(r.Clone() as DataGridViewRow);
@@ -231,21 +205,11 @@ namespace MuseoDSI.Formularios
                         break;
                 }
 
-                //if (cmb_TipoVisita.SelectedIndex == 1)
-                //{
-
-
-                //}
-                //if (cmb_TipoVisita.SelectedIndex == 0)
-                //{
-
-                //}
-
             }
         }
 
 
-        private void CalcularDuracionEstimada()
+        private void MostrarDuracionEstimada()
         {
             lblDuracion.Enabled = true;
             gestor.GuardarListaExposición(exposicionesSeleccionadas);
@@ -257,17 +221,6 @@ namespace MuseoDSI.Formularios
         }
 
 
-
-        private void dtpHoraReserva_LostFocus(object sender, EventArgs e)
-        {
-            //lblDuracion.Enabled = true;
-            //gestor.GuardarListaExposición(exposicionesSeleccionadas);
-            //int tipoExposicion = cmb_TipoVisita.SelectedIndex;
-            //int duracionMinutos = gestor.CalcularDuracionEstimada(tipoExposicion);
-            //TimeSpan duracion = TimeSpan.FromMinutes(duracionMinutos);
-            //lblDuracion.Text = duracion.ToString(@"hh\:mm") + " horas";
-            //panelDuracion.Visible = true;
-        }
         private void CargarGrillaGuia(List<Empleado> lista)
         {
             dgv_Guias.Rows.Clear();
@@ -277,22 +230,6 @@ namespace MuseoDSI.Formularios
                 dgv_Guias.Rows[i].Cells[0].Value = lista[i].dni;
                 dgv_Guias.Rows[i].Cells[1].Value = lista[i].nombre;
                 dgv_Guias.Rows[i].Cells[2].Value = lista[i].apellido;
-            }
-        }
-
-        private void cmb_Sede_Click(object sender, EventArgs e)
-        {
-            if (!cmb_Sede.Enabled)
-            {
-                MessageBox.Show("Debes seleccionar antes una escuela", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private void cmb_TipoVisita_Click(object sender, EventArgs e)
-        {
-            if (!cmb_TipoVisita.Enabled)
-            {
-                MessageBox.Show("Debes seleccionar antes una sede", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -314,15 +251,10 @@ namespace MuseoDSI.Formularios
             }
         }
 
-        private void dtpHoraReserva_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btn_Verificar_Click(object sender, EventArgs e)
         {
-            CalcularDuracionEstimada();
-            CalcularVisitantes();
+            MostrarDuracionEstimada();
+            MostrarVisitantes();
             btn_agregarGuia.Enabled = true;
             btn_QuitarGuia.Enabled = true;
         }
@@ -381,15 +313,8 @@ namespace MuseoDSI.Formularios
 
         private void btn_Cancelar_Click(object sender, EventArgs e)
         {
-            this.Close();
-        }
-
-        private void Frm_RegistrarVisita_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            //if (MessageBox.Show("¿Esta seguro de que desea cancelar la reserva?\n Se perderan todos los datos", "Saliendo", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
-            //    e.Cancel = false;
-            //else
-            //    e.Cancel = true;
+            if (MessageBox.Show("¿Esta seguro de que desea cancelar la reserva?\n Se perderan todos los datos", "Saliendo", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+                this.Close();
         }
 
         private void dgv_GuiasSeleccionados_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
@@ -399,6 +324,10 @@ namespace MuseoDSI.Formularios
             if (lbl_GuiasSeleccionados.Text == lbl_GuiasNecesarios.Text)
             {
                 btn_Registrar.Enabled = true;
+            }
+            else
+            {
+                btn_Registrar.Enabled = false;
             }
         }
 
@@ -410,13 +339,15 @@ namespace MuseoDSI.Formularios
             {
                 btn_Registrar.Enabled = true;
             }
+            else
+            {
+                btn_Registrar.Enabled = false;
+            }
         }
 
         private void btn_Registrar_Click(object sender, EventArgs e)
         {
-            int numReserva = ObtenerCantidadReservas();
-   
-            gestor.RegistrarReserva(numReserva, Int32.Parse(cmb_Sede.SelectedValue.ToString()), Int32.Parse(cmb_Escuela.SelectedValue.ToString()), DateTime.Parse(dtpFechaReserva.Text.ToString()), DateTime.Now, int.Parse(txt_visitantes.Text), Int32.Parse(cmb_TipoVisita.SelectedValue.ToString()), 1);
+            gestor.RegistrarReserva(Int32.Parse(cmb_Sede.SelectedValue.ToString()), Int32.Parse(cmb_Escuela.SelectedValue.ToString()), DateTime.Parse(dtpHoraReserva.Text.ToString()), DateTime.Parse(dtpFechaReserva.Text.ToString()), int.Parse(txt_visitantes.Text), Int32.Parse(cmb_TipoVisita.SelectedValue.ToString()), 1);
             MessageBox.Show("Reserva Creada Correctamente", "Reserva creada", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
