@@ -22,7 +22,7 @@ namespace MuseoDSI.Clases
 
         public void tomarSeleccionTipoVisita(string estrategia)
         {
-            gestor.crearEstrategia(estrategia);
+            this.crearEstrategia(estrategia);
         }
 
 

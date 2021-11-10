@@ -54,15 +54,14 @@ namespace MuseoDSI.Formularios
 
             Array arrayUsuario = this.miUsuario.ValidarUsuario(miUsuario.idUsuario, miUsuario.contraseña);
             this.miUsuario.nombre = arrayUsuario.GetValue(0).ToString();
-            this.miUsuario.empleado = new Empleado();
-            this.miUsuario.empleado.idCargo = Int32.Parse(arrayUsuario.GetValue(1).ToString());
+
             
 
             if (this.miUsuario.nombre != string.Empty)
             {
                 MessageBox.Show("Login OK", "Ingreso al Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
-               // miUsuario.Perfil = new Es_Perfil();
-               //this.miUsuario.Perfil.IdPerfil = int.Parse(arrayUsuario.GetValue(1).ToString());
+                this.miUsuario.empleado = new Empleado();
+                this.miUsuario.empleado.idCargo = Int32.Parse(arrayUsuario.GetValue(1).ToString());
                 this.Close();
             }
             else
