@@ -40,7 +40,7 @@ namespace MuseoDSI.Clases
 
         public List<Exposicion> TomarExposionesTempVig(int nombreSede)
         {
-           return estrategia.BuscarExposiciones(nombreSede);    //mostrarDatosTemp
+           return estrategia.TomarExposicionesTempVig(nombreSede);    //mostrarDatosTemp
         }
        
 

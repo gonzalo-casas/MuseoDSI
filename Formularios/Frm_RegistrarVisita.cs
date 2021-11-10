@@ -262,12 +262,12 @@ namespace MuseoDSI.Formularios
 
         private void dgv_ExposicionesSeleccionadas_RowsAdded_1(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            lblDuracion.Enabled = true;
-            gestor.GuardarListaExposición(exposicionesSeleccionadas);
-            int tipoExposicion = cmb_TipoVisita.SelectedIndex;
-            int duracion = gestor.CalcularDuracionEstimada(tipoExposicion);
-            lblDuracion.Text = duracion.ToString();
-            lblDuracion.BringToFront();
+            calcular();
+        }
+
+        private void dgv_ExposicionesSeleccionadas_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            calcular();
         }
 
         private void dtpHoraReserva_LostFocus(object sender, EventArgs e)
@@ -385,5 +385,7 @@ namespace MuseoDSI.Formularios
             else
                 e.Cancel = true;
         }
+
+       
     }
 }

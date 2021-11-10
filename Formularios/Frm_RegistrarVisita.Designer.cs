@@ -218,6 +218,7 @@
             this.dgv_ExposicionesSeleccionadas.Size = new System.Drawing.Size(664, 251);
             this.dgv_ExposicionesSeleccionadas.TabIndex = 1;
             this.dgv_ExposicionesSeleccionadas.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgv_ExposicionesSeleccionadas_RowsAdded_1);
+            this.dgv_ExposicionesSeleccionadas.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dgv_ExposicionesSeleccionadas_RowsRemoved);
             // 
             // dataGridViewTextBoxColumn1
             // 

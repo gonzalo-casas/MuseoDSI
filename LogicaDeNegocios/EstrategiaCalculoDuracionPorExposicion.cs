@@ -19,7 +19,7 @@ namespace MuseoDSI.LogicaDeNegocios
 
 
 
-        public List<Exposicion> BuscarExposiciones(int nombreSede) // cambiar nombreSede string
+        public List<Exposicion> TomarExposicionesTempVig(int nombreSede) // cambiar nombreSede string
         {
 
             List<Exposicion> ListaExposTemporalesVigentes = sede.BuscarExposiciones(nombreSede, "('2')"); 
