@@ -246,16 +246,6 @@ namespace MuseoDSI.Formularios
 
         private void CalcularDuracionEstimada()
         {
-            calcular();
-        }
-
-        private void dgv_ExposicionesSeleccionadas_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
-        {
-            calcular();
-        }
-
-        private void dtpHoraReserva_LostFocus(object sender, EventArgs e)
-        {
             lblDuracion.Enabled = true;
             gestor.GuardarListaExposición(exposicionesSeleccionadas);
             int tipoExposicion = cmb_TipoVisita.SelectedIndex;
@@ -263,6 +253,19 @@ namespace MuseoDSI.Formularios
             TimeSpan duracion = TimeSpan.FromMinutes(duracionMinutos);
             lblDuracion.Text = duracion.ToString(@"hh\:mm") + " horas";
             panelDuracion.Visible = true;
+        }
+
+
+
+        private void dtpHoraReserva_LostFocus(object sender, EventArgs e)
+        {
+            //lblDuracion.Enabled = true;
+            //gestor.GuardarListaExposición(exposicionesSeleccionadas);
+            //int tipoExposicion = cmb_TipoVisita.SelectedIndex;
+            //int duracionMinutos = gestor.CalcularDuracionEstimada(tipoExposicion);
+            //TimeSpan duracion = TimeSpan.FromMinutes(duracionMinutos);
+            //lblDuracion.Text = duracion.ToString(@"hh\:mm") + " horas";
+            //panelDuracion.Visible = true;
         }
         private void CargarGrillaGuia(List<Empleado> lista)
         {
