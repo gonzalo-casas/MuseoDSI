@@ -54,22 +54,23 @@ namespace MuseoDSI.Clases
 
         //Guardamos lista de exposiciones seleccionadas desde la pantalla 
         public  List<Exposicion> ExposicionesSeleccionadas = new List<Exposicion>();
-        public void GuardarListaExposición(List<Exposicion> exposiciones)
-        {
-            ExposicionesSeleccionadas = exposiciones;
-           // ExposicionesSeleccionadas.Add(expo);
-        }
+        //public void GuardarListaExposición(List<Exposicion> exposiciones)
+        //{
+        //    ExposicionesSeleccionadas = exposiciones;
+        //   // ExposicionesSeleccionadas.Add(expo);
+        //}
         Obras obra = new Obras();
 
         //Calcula La duracion estimada de la reserva
 
-        public int calcularDuracion(int tipoExposicion)
+        public int calcularDuracion(List<Exposicion> exposiciones)
         {
-            return CalcularDuracionEstimada(tipoExposicion); // metodo self
+            ExposicionesSeleccionadas = exposiciones;
+            return CalcularDuracionEstimada(exposiciones); // metodo self
         }
 
 
-        public int CalcularDuracionEstimada(int tipoExposicionn) 
+        public int CalcularDuracionEstimada(List<Exposicion> exposiciones) 
         {
 
             return estrategia.CalcularDuracionEstimadaResv(ExposicionesSeleccionadas); // le delega el calculo de la duracion a la estrategia

@@ -25,6 +25,7 @@ namespace MuseoDSI.Datos.EsquemaPersistencia.Daos
                 reserva.fechaReserva = DateTime.Parse(tabla.Rows[i]["fechaReserva"].ToString());
                 reserva.cantidadAlumnos = int.Parse(tabla.Rows[i]["cantidadAlumnos"].ToString());
                 reserva.horaInicio = DateTime.Parse(tabla.Rows[i]["horaInicio"].ToString());
+                reserva.nroSede = int.Parse(tabla.Rows[i]["nroSede"].ToString());
                 ListaDeReservas.Add(reserva);
             }
             return ListaDeReservas;

@@ -18,7 +18,7 @@ namespace MuseoDSI.Datos.EsquemaPersistencia.Daos
             DataTable tabla = new DataTable();
             string sql = "SELECT * FROM Sede";
             tabla = Backend.obtenerInstancia().Consulta(sql);
-
+            ListaSede.Clear();
             for (int i = 0; i < tabla.Rows.Count; i++)
             {
                 Sede sede = new Sede();

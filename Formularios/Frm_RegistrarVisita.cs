@@ -213,9 +213,9 @@ namespace MuseoDSI.Formularios
         private void MostrarDuracionEstimada()
         {
             lblDuracion.Enabled = true;
-            gestor.GuardarListaExposición(exposicionesSeleccionadas);
-            int tipoExposicion = cmb_TipoVisita.SelectedIndex;
-            int duracionMinutos = gestor.calcularDuracion(tipoExposicion);
+            //gestor.GuardarListaExposición(exposicionesSeleccionadas);
+            //int tipoExposicion = cmb_TipoVisita.SelectedIndex;
+            int duracionMinutos = gestor.calcularDuracion(exposicionesSeleccionadas);
             TimeSpan duracion = TimeSpan.FromMinutes(duracionMinutos);
             lblDuracion.Text = duracion.ToString(@"hh\:mm") + " horas";
             panelDuracion.Visible = true;

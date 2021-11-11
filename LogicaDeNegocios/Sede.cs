@@ -49,7 +49,7 @@ namespace MuseoDSI.Clases
             List<Reserva> reservasDeEstaSede = new List<Reserva>();
             List<Reserva> reservas = reserva.ListaReservas();
             List<Reserva> reservasParaXFecha = new List<Reserva>();
-            for (int i = 0; i < reservas.Count; i++)
+            for (int i = 0; i < listaSedes.Count; i++)
             {
                 if (listaSedes[i].nombreSede == nombre)
                 {
@@ -95,7 +95,7 @@ namespace MuseoDSI.Clases
                 }
             }
 
-            int guiasNecesarios = Convert.ToInt32(visitantes / MaximoPorGuia);
+            int guiasNecesarios = Convert.ToInt32(Math.Ceiling((double)visitantes / MaximoPorGuia))  ;
             
             
             return guiasNecesarios;
