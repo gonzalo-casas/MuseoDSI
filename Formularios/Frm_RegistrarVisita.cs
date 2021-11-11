@@ -65,6 +65,8 @@ namespace MuseoDSI.Formularios
             MostrarListaEscuelas();
             panelGuiasNecesarios.Visible = false;
             panelGuiasSeleccionados.Visible = false;
+            dtpFechaReserva.MinDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day + 1);
+            dtpHoraReserva.
         }
 
         private void CargarGrilla(List<Exposicion> lista)
