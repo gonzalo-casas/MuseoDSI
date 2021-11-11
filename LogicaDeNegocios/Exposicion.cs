@@ -67,7 +67,7 @@ namespace MuseoDSI.Clases
        
         public int BuscarDuracionExtendidaObras(List<Exposicion> lista, string tipoVisita)
         {
-            int duracion = de.BuscarDuracionExtendidaObras(lista, tipoVisita);
+            int duracion = de.BuscarDuracionExtendidaObras(lista, tipoVisita); // exposicion le pide a detalle que busque la duracion extendida de las obras
             return duracion;
         }
 

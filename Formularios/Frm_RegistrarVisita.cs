@@ -163,9 +163,8 @@ namespace MuseoDSI.Formularios
         {
             if (cmb_TipoVisita.Enabled.Equals(true))
             {
-                string estrategia = this.cmb_TipoVisita.Text.ToString(); // cambiar por string
-                gestor.tomarSeleccionTipoVisita(estrategia);
-                List<Exposicion> listaExpos = gestor.TomarExposionesTempVig(cmb_Sede.Text.ToString());  // aca obtiene las lista de exposiones
+                string estrategia = this.cmb_TipoVisita.Text.ToString(); // obtengo el nombre de la estrategia elegida por el usuario
+                List<Exposicion> listaExpos = gestor.tomarSeleccionTipoVisita(estrategia, cmb_Sede.Text.ToString());  // paso como parametro la estrategia y la sede
                 CargarGrilla(listaExpos);
                 switch (cmb_TipoVisita.SelectedIndex)
                 {
@@ -214,7 +213,7 @@ namespace MuseoDSI.Formularios
             lblDuracion.Enabled = true;
             gestor.GuardarListaExposición(exposicionesSeleccionadas);
             int tipoExposicion = cmb_TipoVisita.SelectedIndex;
-            int duracionMinutos = gestor.CalcularDuracionEstimada(tipoExposicion);
+            int duracionMinutos = gestor.calcularDuracion(tipoExposicion);
             TimeSpan duracion = TimeSpan.FromMinutes(duracionMinutos);
             lblDuracion.Text = duracion.ToString(@"hh\:mm") + " horas";
             panelDuracion.Visible = true;

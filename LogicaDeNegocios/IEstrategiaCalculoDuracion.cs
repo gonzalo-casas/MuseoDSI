@@ -9,7 +9,8 @@ namespace MuseoDSI.LogicaDeNegocios
 {
     interface IEstrategiaCalculoDuracion
     {
-        int CalcularDuracionEstimadaResv(List<Exposicion> ExposicionesSeleccionadas, string tipoExposicion);
-       List<Exposicion> TomarExposicionesTempVig(string nroSede);
+        //int CalcularDuracionEstimadaResv(List<Exposicion> ExposicionesSeleccionadas, string tipoExposicion);
+        int CalcularDuracionEstimadaResv(List<Exposicion> ExposicionesSeleccionadas);
+        List<Exposicion> TomarExposicionesTempVig(string nroSede);
     }
 }

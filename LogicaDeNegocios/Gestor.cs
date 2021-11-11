@@ -20,9 +20,12 @@ namespace MuseoDSI.Clases
         TipoReserva tipoReserva = new TipoReserva();
         IEstrategiaCalculoDuracion estrategia;
 
-        public void tomarSeleccionTipoVisita(string estrategia)
+        public List<Exposicion> tomarSeleccionTipoVisita(string estrategia, string nombreSede)
         {
-            gestor.crearEstrategia(estrategia);
+            this.crearEstrategia(estrategia); // creo la estrategia segun la eleccion
+            return this.TomarExposionesTempVig(nombreSede); 
+
+            
         }
 
 
@@ -45,7 +48,7 @@ namespace MuseoDSI.Clases
 
         public List<Exposicion> TomarExposionesTempVig(string nombreSede)
         {
-           return estrategia.TomarExposicionesTempVig(nombreSede);    //mostrarDatosTemp
+           return estrategia.TomarExposicionesTempVig(nombreSede);    //busca las exposiciones 
         }
        
 
@@ -59,19 +62,20 @@ namespace MuseoDSI.Clases
         Obras obra = new Obras();
 
         //Calcula La duracion estimada de la reserva
-        public int CalcularDuracionEstimada(int tipoExposicionn) /// 
+
+        public int calcularDuracion(int tipoExposicion)
+        {
+            return CalcularDuracionEstimada(tipoExposicion); // metodo self
+        }
+
+
+        public int CalcularDuracionEstimada(int tipoExposicionn) 
         {
 
-            if (tipoExposicionn.Equals(1))
-            {
-               return estrategia.CalcularDuracionEstimadaResv(ExposicionesSeleccionadas, "porExposicion");
-            }
-            else
-            {
-                return estrategia.CalcularDuracionEstimadaResv(ExposicionesSeleccionadas, "completa");
-            }
+            return estrategia.CalcularDuracionEstimadaResv(ExposicionesSeleccionadas); // le delega el calculo de la duracion a la estrategia
 
         }
+
 
 
 

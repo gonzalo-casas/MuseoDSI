@@ -60,7 +60,7 @@ namespace MuseoDSI.Datos.EsquemaPersistencia.Daos
                 exposicion.fechaFin = DateTime.Parse(tabla.Rows[i]["fechaCierre"].ToString());
                 ListaExposicion.Add(exposicion);
             }
-            ListaExposicion = expo.getExpoVigentes(ListaExposicion);// getExpovigente 
+           // getExpovigente 
             return ListaExposicion;
 
 

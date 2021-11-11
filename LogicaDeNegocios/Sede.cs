@@ -38,7 +38,8 @@ namespace MuseoDSI.Clases
 
         public List<Exposicion> BuscarExposiciones(string nombreSede, string tipoExposicion) 
         {
-            return daoSede.BuscarExposiciones(nombreSede, tipoExposicion);
+            ListaExposicion = daoSede.BuscarExposiciones(nombreSede, tipoExposicion);
+            return expo.getExpoVigentes(ListaExposicion);
         }
 
         public int MisReservasParaEstaFecha(string nombre, DateTime fecha)
@@ -78,7 +79,7 @@ namespace MuseoDSI.Clases
 
         public int BuscarDuracionExposiciones(List<Exposicion> lista, string tipoVisita)
         {
-            int duracion = expo.BuscarDuracionExtendidaObras(lista, tipoVisita);
+            int duracion = expo.BuscarDuracionExtendidaObras(lista, tipoVisita); //sede le pide a exposicio que busque la duracion extendida
             return duracion;
         }
       

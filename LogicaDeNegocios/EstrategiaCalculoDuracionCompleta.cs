@@ -18,9 +18,9 @@ namespace MuseoDSI.LogicaDeNegocios
         }
 
 
-        public int CalcularDuracionEstimadaResv(List<Exposicion> ExposicionesSeleccionadas, string tipoExposicion)
+        public int CalcularDuracionEstimadaResv(List<Exposicion> ExposicionesSeleccionadas)
         {
-            int duracionEstimada = sede.BuscarDuracionExposiciones(ExposicionesSeleccionadas, tipoExposicion);
+            int duracionEstimada = sede.BuscarDuracionExposiciones(ExposicionesSeleccionadas, "completa");
             return duracionEstimada;
         }
     }

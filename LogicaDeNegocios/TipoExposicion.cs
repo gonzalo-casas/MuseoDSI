@@ -22,7 +22,7 @@ namespace MuseoDSI.Clases
                     lista.RemoveAt(i);
                 }
             }
-            //lista = publico.ObtenerPublico(lista);
+            
             return lista;
         }
     }

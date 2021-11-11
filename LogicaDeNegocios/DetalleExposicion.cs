@@ -40,7 +40,7 @@ namespace MuseoDSI.Clases
         {
             
             Obras obra1 = new Obras();
-            List<Obras> ListaObras = obra1.LlenarListaObras();
+            List<Obras> ListaObras = obra1.LlenarListaObras(); 
 
             int duracion = 0;
             Exposicion exposicion = new Exposicion();
@@ -58,7 +58,7 @@ namespace MuseoDSI.Clases
                             {
                                 if (tipoVisita.Equals("porExposicion"))
                                 {
-                                    duracion += ListaObras[k].duracionExtendida;
+                                    duracion += ListaObras[k].duracionExtendida;  // get duracion extendida()
                                 }
                                 else
                                 {
