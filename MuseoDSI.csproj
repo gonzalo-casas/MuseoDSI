@@ -91,13 +91,13 @@
     <Compile Include="LogicaDeNegocios\DetalleExposicion.cs" />
     <Compile Include="LogicaDeNegocios\Empleado.cs" />
     <Compile Include="LogicaDeNegocios\Escuela.cs" />
-    <Compile Include="LogicaDeNegocios\EstrategiaCalculoDuracionCompleta.cs" />
-    <Compile Include="LogicaDeNegocios\EstrategiaCalculoDuracionPorExposicion.cs" />
+    <Compile Include="LogicaDeNegocios\EstrategiaCompleta.cs" />
+    <Compile Include="LogicaDeNegocios\EstrategiaPorExposicion.cs" />
     <Compile Include="LogicaDeNegocios\Exposicion.cs" />
     <Compile Include="LogicaDeNegocios\Gestor.cs" />
     <Compile Include="LogicaDeNegocios\HistorialEstado.cs" />
     <Compile Include="LogicaDeNegocios\HorarioEmpleado.cs" />
-    <Compile Include="LogicaDeNegocios\IEstrategiaCalculoDuracion.cs" />
+    <Compile Include="LogicaDeNegocios\IEstrategiaTipoVisita.cs" />
     <Compile Include="LogicaDeNegocios\Obras.cs" />
     <Compile Include="LogicaDeNegocios\Publico.cs" />
     <Compile Include="LogicaDeNegocios\Reserva.cs" />

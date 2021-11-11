@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace MuseoDSI.LogicaDeNegocios
 {
-    interface IEstrategiaCalculoDuracion
+    interface IEstrategiaTipoVisita
     {
         //int CalcularDuracionEstimadaResv(List<Exposicion> ExposicionesSeleccionadas, string tipoExposicion);
         int CalcularDuracionEstimadaResv(List<Exposicion> ExposicionesSeleccionadas);
-        List<Exposicion> TomarExposicionesTempVig(string nroSede);
+        List<Exposicion> TomarExposiciones(string nroSede);
     }
 }

@@ -18,7 +18,7 @@ namespace MuseoDSI.Clases
         Escuela escuela = new Escuela();
         Sede sede = new Sede();
         TipoReserva tipoReserva = new TipoReserva();
-        IEstrategiaCalculoDuracion estrategia;
+        IEstrategiaTipoVisita estrategia;
 
         public List<Exposicion> tomarSeleccionTipoVisita(string estrategia, string nombreSede)
         {
@@ -48,7 +48,7 @@ namespace MuseoDSI.Clases
 
         public List<Exposicion> TomarExposionesTempVig(string nombreSede)
         {
-           return estrategia.TomarExposicionesTempVig(nombreSede);    //busca las exposiciones 
+           return estrategia.TomarExposiciones(nombreSede);    //busca las exposiciones 
         }
        
 
@@ -156,9 +156,9 @@ namespace MuseoDSI.Clases
             
             if (estrategiaSeleccionada.Equals("Visita Particular"))
             {
-              estrategia = new EstrategiaCalculoDuracionPorExposicion();
+              estrategia = new EstrategiaPorExposicion();
             }else
-               estrategia = new EstrategiaCalculoDuracionCompleta();
+               estrategia = new EstrategiaCompleta();
 
            
         }

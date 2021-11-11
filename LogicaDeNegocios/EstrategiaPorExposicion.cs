@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MuseoDSI.LogicaDeNegocios
 {
-    class EstrategiaCalculoDuracionPorExposicion : IEstrategiaCalculoDuracion
+    class EstrategiaPorExposicion : IEstrategiaTipoVisita
     {
         Sede sede = new Sede();
 
@@ -17,7 +17,10 @@ namespace MuseoDSI.LogicaDeNegocios
             return duracionEstimada;
         }
 
-
+        public List<Exposicion> TomarExposiciones(string nombreSede)
+        {
+            return TomarExposicionesTempVig(nombreSede);
+        }
 
         public List<Exposicion> TomarExposicionesTempVig(string nombreSede) // cambiar nombreSede string
         {
