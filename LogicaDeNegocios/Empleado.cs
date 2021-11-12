@@ -10,7 +10,7 @@ using MuseoDSI.Datos.EsquemaPersistencia.Daos;
 
 namespace MuseoDSI.Clases
 {
-    class Empleado
+   public class Empleado
     {
         public int dni { get; set; }
         public int idTipoDoc { get; set; }

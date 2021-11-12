@@ -6,24 +6,24 @@ using System.Threading.Tasks;
 
 namespace MuseoDSI.Clases
 {
-    class TipoExposicion
+    public class TipoExposicion
     {
         public int idTipoReserva { get; set; }
         public string descripcion { get; set; }
 
 
         Publico publico = new Publico();
-        public List<Exposicion> esTemporal(List<Exposicion> lista)
-        {
-            for(int i = 0; i < lista.Count; i++)
-            {
-                if(lista[i].idTipoExposicion == 2)
-                {
-                    lista.RemoveAt(i);
-                }
-            }
+        //public List<Exposicion> esTemporal(List<Exposicion> lista)
+        //{
+        //    for(int i = 0; i < lista.Count; i++)
+        //    {
+        //        if(lista[i].idTipoExposicion == 1)
+        //        {
+        //            lista.RemoveAt(i);
+        //        }
+        //    }
             
-            return lista;
-        }
+        //    return lista;
+        //}
     }
 }

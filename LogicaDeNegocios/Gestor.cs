@@ -20,10 +20,10 @@ namespace MuseoDSI.Clases
         TipoReserva tipoReserva = new TipoReserva();
         IEstrategiaTipoVisita estrategia;
 
-        public List<Exposicion> tomarSeleccionTipoVisita(string estrategia, string nombreSede)
+        public List<Exposicion> tomarSeleccionTipoVisita(TipoReserva tipoVisitaSeleccionada, Sede SedeSeleccionada)
         {
-            this.crearEstrategia(estrategia); // creo la estrategia segun la eleccion
-            return this.TomarExposionesTempVig(nombreSede); 
+            this.crearEstrategia(tipoVisitaSeleccionada); // creo la estrategia segun la eleccion
+            return this.TomarExposionesTempVig(SedeSeleccionada); 
 
             
         }
@@ -46,9 +46,9 @@ namespace MuseoDSI.Clases
             return ListaDeTipoReserva;
         }
 
-        public List<Exposicion> TomarExposionesTempVig(string nombreSede)
+        public List<Exposicion> TomarExposionesTempVig(Sede sedeSeleccionada)
         {
-           return estrategia.TomarExposiciones(nombreSede);    //busca las exposiciones 
+           return estrategia.TomarExposiciones(sedeSeleccionada);    //busca las exposiciones 
         }
        
 
@@ -152,14 +152,14 @@ namespace MuseoDSI.Clases
             reserva.nuevaReserva(idReserva, nroSede, idEscuela, horaInicio, fechaReserva, CantidadAlumnos, idTipoReserva, idEstado);
         }
 
-       public void crearEstrategia(string estrategiaSeleccionada)
+       public void crearEstrategia(TipoReserva tipoVisitaSeleccionada)
         {
             
-            if (estrategiaSeleccionada.Equals("Visita Particular"))
+            if (tipoVisitaSeleccionada.descripcion.Equals("Visita Particular"))
             {
               estrategia = new EstrategiaPorExposicion();
-            }else
-               estrategia = new EstrategiaCompleta();
+            }//else
+              // estrategia = new EstrategiaCompleta();
 
            
         }

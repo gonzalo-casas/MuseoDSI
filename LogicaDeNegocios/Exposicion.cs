@@ -22,6 +22,32 @@ namespace MuseoDSI.Clases
         public string nombre { get; set; }
         public string idPublico { get; set; }
 
+        public TipoExposicion TipoExposicion { get => _tipoExposicion; set => _tipoExposicion = value; }
+        public Empleado Empleado { get => _empleado; set => _empleado = value; }
+        public Publico PublicoDestino { get => _publicoDestino; set => _publicoDestino = value; }
+
+        public List<DetalleExposicion> DetalleExposiciones { get; set; }
+        //public List<DetalleExposicion> DetalleExposiciones
+        //{
+        //    get
+        //    {
+        //        List<DetalleExposicion> listaRetorno = new List<DetalleExposicion>();
+        //        foreach (DetalleExposicion DE in _DetalleExposiciones)
+        //        {
+        //            listaRetorno.Add(DE);
+        //        }
+        //        return listaRetorno;
+        //    }
+
+        //    set => _DetalleExposiciones = value;
+        //}
+
+
+        private TipoExposicion _tipoExposicion;
+        private Empleado _empleado;
+        private Publico _publicoDestino;
+       
+
         private IExposicion dao;
 
         public Exposicion()
@@ -58,7 +84,7 @@ namespace MuseoDSI.Clases
                     ListaExposicionesVigentes.Add(lista[i]);
                 }
             }
-            ListaExposicionesVigentes = tipoExposicion.esTemporal(ListaExposicionesVigentes); // esTemporal()
+            //ListaExposicionesVigentes = tipoExposicion.esTemporal(ListaExposicionesVigentes); // esTemporal()
             return ListaExposicionesVigentes;
 
            

@@ -18,6 +18,24 @@ namespace MuseoDSI.Clases
         public int nroCalle { get; set; }
         public int CantidadMaximaVisitantes { get; set; }
         public int CantidadMaximaPorGuia { get; set; }
+        public List<Exposicion> ListaExposiciones { get; set; }
+        //public List<Exposicion> ListaExposiciones
+        //{
+        //    get
+        //    {
+        //        List<Exposicion> listaRetorno = new List<Exposicion>();
+        //        foreach (Exposicion expo in ListaExposiciones)
+        //        {
+        //            listaRetorno.Add(expo);
+        //        }
+        //        return listaRetorno;
+        //    }
+
+        //    set => ListaExposiciones = value;
+        //}
+
+
+
         private ISede daoSede;
         public Sede()
         {
@@ -36,9 +54,9 @@ namespace MuseoDSI.Clases
 
     
 
-        public List<Exposicion> BuscarExposiciones(string nombreSede, string tipoExposicion) 
+        public List<Exposicion> BuscarExposiciones(Sede sedeSeleccionada) 
         {
-            ListaExposicion = daoSede.BuscarExposiciones(nombreSede, tipoExposicion);
+           // ListaExposicion = daoSede.BuscarExposiciones(nombreSede, tipoExposicion);
             return expo.getExpoVigentes(ListaExposicion);
         }
 
@@ -79,7 +97,7 @@ namespace MuseoDSI.Clases
 
         public int BuscarDuracionExposiciones(List<Exposicion> lista, string tipoVisita)
         {
-            int duracion = expo.BuscarDuracionExtendidaObras(lista, tipoVisita); //sede le pide a exposicio que busque la duracion extendida
+            int duracion = expo.BuscarDuracionExtendidaObras(lista, tipoVisita); //sede le pide a exposicion que busque la duracion extendida
             return duracion;
         }
       

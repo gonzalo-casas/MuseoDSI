@@ -17,15 +17,15 @@ namespace MuseoDSI.LogicaDeNegocios
             return duracionEstimada;
         }
 
-        public List<Exposicion> TomarExposiciones(string nombreSede)
+        public List<Exposicion> TomarExposiciones(Sede sedeSeleccionada)
         {
-            return TomarExposicionesTempVig(nombreSede);
+            return TomarExposicionesTempVig(sedeSeleccionada);
         }
 
-        public List<Exposicion> TomarExposicionesTempVig(string nombreSede) // cambiar nombreSede string
+        public List<Exposicion> TomarExposicionesTempVig(Sede sedeSeleccionada) 
         {
 
-            List<Exposicion> ListaExposTemporalesVigentes = sede.BuscarExposiciones(nombreSede, "('2')");  // le pide a sede seleccionada  que busque las exposiciones
+            List<Exposicion> ListaExposTemporalesVigentes = sede.BuscarExposiciones(sedeSeleccionada);  // le pide a sede seleccionada  que busque las exposiciones
             return ListaExposTemporalesVigentes; // se lo devuelve a gestor la lista de exposiciones para que despues se lo pase a pantalla
         }
 

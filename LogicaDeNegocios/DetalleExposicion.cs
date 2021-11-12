@@ -11,8 +11,16 @@ namespace MuseoDSI.Clases
     class DetalleExposicion
     {
         public int idDetalle { get; set; }
-        public int idObra { get; set; }
-        public int idExposicion { get; set; }
+        private Obras _obra;
+        private string _lugarAsignado;
+        public int idObra { get; set; } // esto no va
+        public int idExposicion { get; set; } // hay que borrar esto chabon
+
+     
+
+
+        public Obras Obra { get => _obra; set => _obra = value; }
+        public string LugarAsignado { get => _lugarAsignado; set => _lugarAsignado = value; }
 
         Backend _BD = new Backend();
 
