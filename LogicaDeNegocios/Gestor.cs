@@ -17,52 +17,64 @@ namespace MuseoDSI.Clases
         Backend _BD = new Backend();
         Escuela escuela = new Escuela();
         Sede sede = new Sede();
-        TipoReserva tipoReserva = new TipoReserva();
+        TipoReserva tipoVisita = new TipoReserva();
         IEstrategiaTipoVisita estrategia;
-
-        public List<Exposicion> tomarSeleccionTipoVisita(TipoReserva tipoVisitaSeleccionada, Sede SedeSeleccionada)
-        {
-            this.crearEstrategia(tipoVisitaSeleccionada); // creo la estrategia segun la eleccion
-            return this.TomarExposionesTempVig(SedeSeleccionada); 
-
-            
-        }
-
 
         public List<Escuela> RecuperarListaEscuelas()
         {
             List<Escuela> ListaDeEscuelas = escuela.BuscarlistaEscuelas();
             return ListaDeEscuelas;
         }
+
+        public void TomarSeleccionEscuela(Escuela escuelaSeleccionada)
+        {
+            escuela = escuelaSeleccionada;
+        }
+
+
         public List<Sede> RecuperarListaSedes()
         {
             List<Sede> ListaDeSedes = sede.BuscarlistaSedes();
             return ListaDeSedes;
         }
 
+        public void TomarSeleccionSede(Sede sedeSeleccionada)
+        {
+            sede = sedeSeleccionada;
+        }
+
+
+
+        public List<Exposicion> tomarSeleccionTipoVisita(TipoReserva tipoVisitaSeleccionada)
+        {
+            tipoVisita = tipoVisitaSeleccionada;
+            this.crearEstrategia(); // creo la estrategia segun la eleccion
+            return this.TomarExposiciones(); 
+
+            
+        }
+
+
+       
+
         public List<TipoReserva> RecuperarListaTipoReserva()
         {
-            List<TipoReserva> ListaDeTipoReserva = (tipoReserva.BuscarlistaTipoReserva());
+            List<TipoReserva> ListaDeTipoReserva = (tipoVisita.BuscarlistaTipoReserva());
             return ListaDeTipoReserva;
         }
 
-        public List<Exposicion> TomarExposionesTempVig(Sede sedeSeleccionada)
+        public List<Exposicion> TomarExposiciones()
         {
-           return estrategia.TomarExposiciones(sedeSeleccionada);    //busca las exposiciones 
+           return estrategia.TomarExposiciones(sede);    
         }
        
 
-        //Guardamos lista de exposiciones seleccionadas desde la pantalla 
+     
         public  List<Exposicion> ExposicionesSeleccionadas = new List<Exposicion>();
-        //public void GuardarListaExposición(List<Exposicion> exposiciones)
-        //{
-        //    ExposicionesSeleccionadas = exposiciones;
-        //   // ExposicionesSeleccionadas.Add(expo);
-        //}
+      
         Obras obra = new Obras();
 
-        //Calcula La duracion estimada de la reserva
-
+       
         public int calcularDuracion(List<Exposicion> exposiciones) // este deberia ser el tomarFechaHoraReserva()
         {
             ExposicionesSeleccionadas = exposiciones;
@@ -152,10 +164,10 @@ namespace MuseoDSI.Clases
             reserva.nuevaReserva(idReserva, nroSede, idEscuela, horaInicio, fechaReserva, CantidadAlumnos, idTipoReserva, idEstado);
         }
 
-       public void crearEstrategia(TipoReserva tipoVisitaSeleccionada)
+       public void crearEstrategia()
         {
             
-            if (tipoVisitaSeleccionada.descripcion.Equals("Visita Particular"))
+            if (tipoVisita.descripcion.Equals("Visita Particular"))
             {
               estrategia = new EstrategiaPorExposicion();
             }else

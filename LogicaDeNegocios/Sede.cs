@@ -78,7 +78,7 @@ namespace MuseoDSI.Clases
 
             foreach (Exposicion exposicion in this.ListaExposiciones) // mientras haya exposiciones en la sede
             {
-                if (exposicion.getExpoVigentesCompleta())  // le pide a exposicion que busque si es vigente
+                if (exposicion.getExpoVigentesCompleta())  // le pide a exposicion si es vigente
                 {
                     ColeccionExposicionesFiltradas.Add(exposicion);
                 }

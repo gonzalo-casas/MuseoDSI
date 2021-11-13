@@ -92,6 +92,24 @@ namespace MuseoDSI.Clases
 
         }
 
+        public int BuscarDuracionResumidaObra()
+        {
+            int duracion = 0;
+            foreach (DetalleExposicion dt in this.DetalleExposiciones) // mientras haya detalles
+            {
+                duracion += dt.BuscarDuracionResumidaObras();
+            }
+
+            return duracion;
+
+
+        }
+
+
+        
+
+
+
 
 
 

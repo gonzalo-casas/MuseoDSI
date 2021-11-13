@@ -25,7 +25,8 @@ namespace MuseoDSI.Formularios
             InitializeComponent();
         }
 
-       
+        
+
 
         private void MostrarListaEscuelas()
         {
@@ -71,9 +72,9 @@ namespace MuseoDSI.Formularios
 
         private void CargarGrilla(List<Exposicion> lista)
         {
-           
 
-            dgv_Exposiciones.Rows.Clear();
+
+            // dgv_Exposiciones.Rows.Clear();
             //for (int i = 0; i < lista.Count; i++)
             //{
 
@@ -84,11 +85,15 @@ namespace MuseoDSI.Formularios
             //    dgv_Exposiciones.Rows[i].Cells[3].Value = lista[i].horaFin.ToString("t");
             //}
 
-            var datos = new BindingSource();
-            ////datos.DataSource = gestorReserva.buscarExposicionesTemporales();
+            //var datos = new BindingSource();
+            ////////datos.DataSource = gestorReserva.buscarExposicionesTemporales();
 
-            datos.DataSource = lista;
-            dgv_Exposiciones.DataSource = datos;
+            //datos.DataSource = lista;
+            //dgv_Exposiciones.DataSource = datos;
+
+            //datos.DataSource = lista;
+            dgv_Exposiciones.DataSource = lista;
+
             dgv_Exposiciones.Columns["idExposicion"].Visible = false;
             dgv_Exposiciones.Columns["nroSede"].Visible = false;
             dgv_Exposiciones.Columns["fechaInicio"].Visible = false;
@@ -97,14 +102,28 @@ namespace MuseoDSI.Formularios
             dgv_Exposiciones.Columns["TipoExposicion"].Visible = false;
             dgv_Exposiciones.Columns["Publico"].Visible = false;
 
-            // dgv_Exposiciones.DataSource = lista.Select(expo => new { expo.nombre , expo.idPublico, expo.horaInicio, expo.horaFin }).ToList();
-
+            //lista.Select(expo => new {
+            //    expo.nombre,
+            //    expo.idPublico,
+            //    expo.horaInicio,
+            //    expo.horaFin,
+            //    expo.idExposicion,
+            //    expo.nroSede,
+            //    expo.fechaInicio,
+            //    expo.fechaFin,
+            //    expo.TipoExposicion,
+            //    expo.Publico,
+            //    expo.Empleado,
+            //    expo.DetalleExposiciones
+            //}).ToList();
 
         }
 
         private void btn_agregar_Click(object sender, EventArgs e)
         {
-            if(dgv_Exposiciones.Rows.Count >= 1)
+            
+
+            if (dgv_Exposiciones.Rows.Count >= 1)
             {
                 bool flag = true;
                 for (int i = 0; i < dgv_ExposicionesSeleccionadas.Rows.Count; i++)
@@ -121,7 +140,8 @@ namespace MuseoDSI.Formularios
                     //expoSeleccionada.idPublico = dgv_Exposiciones.CurrentRow.Cells[1].Value.ToString();
                     //expoSeleccionada.horaInicio = DateTime.Parse(dgv_Exposiciones.CurrentRow.Cells[2].Value.ToString());
                     //expoSeleccionada.horaFin = DateTime.Parse(dgv_Exposiciones.CurrentRow.Cells[3].Value.ToString());
-                    Exposicion expoSeleccionada = dgv_Exposiciones.CurrentRow.DataBoundItem as Exposicion;
+                    Exposicion expoSeleccionada = (Exposicion)dgv_Exposiciones.CurrentRow.DataBoundItem ;
+                    
                     exposicionesSeleccionadas.Add(expoSeleccionada);
 
                     //expoSeleccionada = new Exposicion();
@@ -140,8 +160,8 @@ namespace MuseoDSI.Formularios
                     //}
 
 
-
-                    dgv_ExposicionesSeleccionadas.DataSource = exposicionesSeleccionadas.Select(expo => new { expo.nombre , expo.idPublico, expo.horaInicio, expo.horaFin }).ToList();
+                   
+                 dgv_ExposicionesSeleccionadas.Rows.Add(expoSeleccionada.nombre, expoSeleccionada.idPublico, expoSeleccionada.horaInicio, expoSeleccionada.horaFin);
 
 
 
@@ -195,11 +215,12 @@ namespace MuseoDSI.Formularios
 
         private void tomarSeleccionTipoVisita(object sender, EventArgs e) 
         {
+            exposicionesSeleccionadas.Clear();
             if (cmb_TipoVisita.Enabled.Equals(true))
             {
                 TipoReserva tipoVisitaSeleccionada = (TipoReserva)cmb_TipoVisita.SelectedItem; // obtengo el tipo visita seleccionada
-                Sede sedeSeleccionada = (Sede)cmb_Sede.SelectedItem;
-                List<Exposicion> listaExpos = gestor.tomarSeleccionTipoVisita(tipoVisitaSeleccionada, sedeSeleccionada);  // paso como parametro la estrategia y la sede
+                List<Exposicion> listaExpos = gestor.tomarSeleccionTipoVisita(tipoVisitaSeleccionada);  // paso como parametro el tipo de visita seleccionada
+                
                 CargarGrilla(listaExpos);
                 switch (cmb_TipoVisita.SelectedIndex)
                 {
@@ -207,31 +228,47 @@ namespace MuseoDSI.Formularios
 
                         btn_agregar.Enabled = true;
                         btn_quitar.Enabled = true;
-                        dgv_ExposicionesSeleccionadas.Rows.Clear();
-                        exposicionesSeleccionadas.Clear();
+                        dgv_ExposicionesSeleccionadas.DataSource = null;
+                        //dgv_ExposicionesSeleccionadas.Rows.Clear();
+                      
+
                         break;
 
                     case 0:
 
                         btn_agregar.Enabled = false;
                         btn_quitar.Enabled = false;
-                        dgv_ExposicionesSeleccionadas.Rows.Clear();
-                        exposicionesSeleccionadas.Clear();
-                        foreach (DataGridViewRow r in dgv_Exposiciones.Rows)
-                        {
-                            int index = dgv_ExposicionesSeleccionadas.Rows.Add(r.Clone() as DataGridViewRow);
-                            foreach (DataGridViewCell o in r.Cells)
-                            {
-                                dgv_ExposicionesSeleccionadas.Rows[index].Cells[o.ColumnIndex].Value = o.Value;
-                            }
 
-                            expoSeleccionada = new Exposicion();
-                            expoSeleccionada.nombre = dgv_Exposiciones.Rows[r.Index].Cells[0].Value.ToString();
-                            expoSeleccionada.idPublico = dgv_Exposiciones.Rows[r.Index].Cells[1].Value.ToString();
-                            expoSeleccionada.horaInicio = DateTime.Parse(dgv_Exposiciones.Rows[r.Index].Cells[2].Value.ToString());
-                            expoSeleccionada.horaFin = DateTime.Parse(dgv_Exposiciones.Rows[r.Index].Cells[3].Value.ToString());
-                            exposicionesSeleccionadas.Add(expoSeleccionada);
+                        // exposicionesSeleccionadas = listaExpos;
+
+
+                        dgv_ExposicionesSeleccionadas.DataSource = listaExpos.Select(expo => new { expo.nombre, expo.idPublico, expo.horaInicio, expo.horaFin }).ToList();
+                        
+                        //foreach (DataGridViewRow r in dgv_Exposiciones.Rows)
+                        //{
+                        //    //int index = dgv_ExposicionesSeleccionadas.Rows.Add(r.Clone() as DataGridViewRow);
+                        //    //foreach (DataGridViewCell o in r.Cells)
+                        //    //{
+                        //    //    dgv_ExposicionesSeleccionadas.Rows[index].Cells[o.ColumnIndex].Value = o.Value;
+                        //    //}
+
+                        for (int r = 0; r < dgv_Exposiciones.Rows.Count; r++)
+                        {
+                            exposicionesSeleccionadas.Add((Exposicion)dgv_Exposiciones.Rows[r].DataBoundItem);
                         }
+
+                       
+
+                            
+
+                            //expoSeleccionada = new Exposicion();
+                            //expoSeleccionada.nombre = dgv_Exposiciones.Rows[r.Index].Cells[0].Value.ToString();
+                            //expoSeleccionada.idPublico = dgv_Exposiciones.Rows[r.Index].Cells[1].Value.ToString();
+                            //expoSeleccionada.horaInicio = DateTime.Parse(dgv_Exposiciones.Rows[r.Index].Cells[2].Value.ToString());
+                            //expoSeleccionada.horaFin = DateTime.Parse(dgv_Exposiciones.Rows[r.Index].Cells[3].Value.ToString());
+                            //exposicionesSeleccionadas.Add(expoSeleccionada);
+                          
+                        //}
 
                         break;
 
@@ -271,6 +308,7 @@ namespace MuseoDSI.Formularios
         {
             if (cmb_Escuela.Enabled.Equals(true))
             {
+                gestor.TomarSeleccionEscuela( cmb_Escuela.SelectedItem as Escuela );
                 MostrarListaDeSedes();
             }
 
@@ -281,6 +319,7 @@ namespace MuseoDSI.Formularios
         {
             if (cmb_Sede.Enabled.Equals(true))
             {
+                gestor.TomarSeleccionSede(cmb_Sede.SelectedItem as Sede);
             MostrarListaDeTipoReserva();
             }
         }

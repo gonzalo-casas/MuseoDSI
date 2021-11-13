@@ -20,6 +20,14 @@ namespace MuseoDSI.Clases
             
         }
 
+        public int BuscarDuracionResumidaObras()
+        {
+            return this.Obra.GetduracionResumida();
+
+        }
+
+
+
 
 
         //Backend _BD = new Backend();
