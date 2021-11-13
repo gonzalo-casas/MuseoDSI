@@ -14,7 +14,6 @@ namespace MuseoDSI.Clases
     {
         public int idExposicion { get; set; }
         public int nroSede { get; set; }
-        public int idTipoExposicion { get; set; }
         public DateTime fechaInicio { get; set; }
         public DateTime fechaFin { get; set; }
         public DateTime horaInicio { get; set; }
@@ -22,46 +21,29 @@ namespace MuseoDSI.Clases
         public string nombre { get; set; }
         public string idPublico { get; set; }
 
-        public TipoExposicion TipoExposicion { get => _tipoExposicion; set => _tipoExposicion = value; }
-        public Empleado Empleado { get => _empleado; set => _empleado = value; }
-        public Publico PublicoDestino { get => _publicoDestino; set => _publicoDestino = value; }
+        public TipoExposicion TipoExposicion { get; set; }
+        public Empleado Empleado { get; set; }
+        public Publico Publico { get; set; }
+
+
 
         public List<DetalleExposicion> DetalleExposiciones { get; set; }
-        //public List<DetalleExposicion> DetalleExposiciones
-        //{
-        //    get
-        //    {
-        //        List<DetalleExposicion> listaRetorno = new List<DetalleExposicion>();
-        //        foreach (DetalleExposicion DE in _DetalleExposiciones)
-        //        {
-        //            listaRetorno.Add(DE);
-        //        }
-        //        return listaRetorno;
-        //    }
-
-        //    set => _DetalleExposiciones = value;
-        //}
-
-
-        private TipoExposicion _tipoExposicion;
-        private Empleado _empleado;
-        private Publico _publicoDestino;
-       
+ 
 
         private IExposicion dao;
 
         public Exposicion()
         {
-            dao = new ExposicionDao();
+            //dao = new ExposicionDao();
         }
 
-        public List<Exposicion> Exposiciones = new List<Exposicion>();
-        public List<Exposicion> BuscarListaDeExposiciones()
-        {
-           return dao.BuscarListaDeExposiciones();
-        }
+        //public List<Exposicion> Exposiciones = new List<Exposicion>();
+        //public List<Exposicion> BuscarListaDeExposiciones()
+        //{
+        //   return dao.BuscarListaDeExposiciones();
+        //}
 
-        List<Exposicion> ListaExposicionesVigentes = new List<Exposicion>();
+        //List<Exposicion> ListaExposicionesVigentes = new List<Exposicion>();
 
         private DateTime ObtenerFechaActual()
         {
@@ -69,33 +51,55 @@ namespace MuseoDSI.Clases
             return DateTime.Parse(fechaActual);
         }
 
-        TipoExposicion tipoExposicion = new TipoExposicion();
+        //TipoExposicion tipoExposicion = new TipoExposicion();
 
-        public List<Exposicion> getExpoVigentes(List<Exposicion> lista)
+        public bool getExpoVigentes()
         {
             DateTime fechaHoy = ObtenerFechaActual();
 
-          
-
-            for( int i = 0; i < lista.Count; i++)
-            {
-                if (lista[i].fechaFin > fechaHoy)
-                {
-                    ListaExposicionesVigentes.Add(lista[i]);
-                }
+            if(this.fechaFin > fechaHoy){   // si es vigente ...
+               return  this.TipoExposicion.esTemporal(); // le pide a TipoExposicion si es temporal, return true si es temporal
             }
-            //ListaExposicionesVigentes = tipoExposicion.esTemporal(ListaExposicionesVigentes); // esTemporal()
-            return ListaExposicionesVigentes;
+            return false;
+          
+                       
 
            
         }
-        DetalleExposicion de = new DetalleExposicion();
-       
-        public int BuscarDuracionExtendidaObras(List<Exposicion> lista, string tipoVisita)
+
+        public bool getExpoVigentesCompleta()
         {
-            int duracion = de.BuscarDuracionExtendidaObras(lista, tipoVisita); // exposicion le pide a detalle que busque la duracion extendida de las obras
-            return duracion;
+            DateTime fechaHoy = ObtenerFechaActual();
+
+            return this.fechaFin > fechaHoy; // si es vigente devuelve true
+          
+
+
+
+
         }
+
+        public int BuscarDuracionExtendidaObra()
+        {
+            int duracion = 0;
+            foreach (DetalleExposicion dt in this.DetalleExposiciones) // mientras haya detalles
+            {
+                 duracion +=  dt.BuscarDuracionExtendidaObras();
+            }
+
+            return duracion;
+
+
+        }
+
+
+
+
+        //public int BuscarDuracionExtendidaObras(List<Exposicion> lista, string tipoVisita)
+        //{
+        //    int duracion = de.BuscarDuracionExtendidaObras(lista, tipoVisita); // exposicion le pide a detalle que busque la duracion extendida de las obras
+        //    return duracion;
+        //}
 
 
 

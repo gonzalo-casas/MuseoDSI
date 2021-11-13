@@ -63,14 +63,14 @@ namespace MuseoDSI.Clases
 
         //Calcula La duracion estimada de la reserva
 
-        public int calcularDuracion(List<Exposicion> exposiciones)
+        public int calcularDuracion(List<Exposicion> exposiciones) // este deberia ser el tomarFechaHoraReserva()
         {
             ExposicionesSeleccionadas = exposiciones;
-            return CalcularDuracionEstimada(exposiciones); // metodo self
+            return CalcularDuracionEstimadaResv(exposiciones); // metodo self
         }
 
 
-        public int CalcularDuracionEstimada(List<Exposicion> exposiciones) 
+        public int CalcularDuracionEstimadaResv(List<Exposicion> exposiciones) 
         {
 
             return estrategia.CalcularDuracionEstimadaResv(ExposicionesSeleccionadas); // le delega el calculo de la duracion a la estrategia
@@ -158,10 +158,10 @@ namespace MuseoDSI.Clases
             if (tipoVisitaSeleccionada.descripcion.Equals("Visita Particular"))
             {
               estrategia = new EstrategiaPorExposicion();
-            }//else
-              // estrategia = new EstrategiaCompleta();
+            }else
+                estrategia = new EstrategiaCompleta();
 
-           
+
         }
 
         public int ObtenerCantidadReservas()

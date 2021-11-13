@@ -14,7 +14,7 @@ namespace MuseoDSI.Datos.EsquemaPersistencia.Daos
         public List<Sede> ListaSede = new List<Sede>();
         public List<Exposicion> ListaExposicion = new List<Exposicion>();
         public List<DetalleExposicion> ListaDetalleExposicion = new List<DetalleExposicion>();
-        Exposicion expo = new Exposicion();
+        
 
         public List<Sede> BuscarlistaSedes()
         {
@@ -29,19 +29,10 @@ namespace MuseoDSI.Datos.EsquemaPersistencia.Daos
                 sede.nombreSede = tabla.Rows[i]["nombreSede"].ToString();
                 sede.CantidadMaximaPorGuia = int.Parse(tabla.Rows[i]["CantidadMaximaPorGuia"].ToString());
                 sede.CantidadMaximaVisitantes = int.Parse(tabla.Rows[i]["CantidadMaximaVisitantes"].ToString());
-
+                traerExposicionesPorSede(sede);
 
 
                 ListaSede.Add(sede);
-            }
-
-            foreach (Sede sede in ListaSede)
-            {
-                
-                List<Exposicion> listaExposiciones = traerExposicionesPorSede(sede);
-                sede.ListaExposiciones = listaExposiciones;
-             
-
             }
 
 
@@ -49,9 +40,12 @@ namespace MuseoDSI.Datos.EsquemaPersistencia.Daos
         }
 
       
-        public List<Exposicion> traerExposicionesPorSede(Sede sede)
+        public void traerExposicionesPorSede(Sede sede)
         {
-            ListaExposicion.Clear();
+
+            sede.ListaExposiciones = new List<Exposicion>(); 
+           
+           
 
             DataTable tabla = new DataTable();
             string sql = "SELECT * FROM Exposicion e JOIN  Sede s ON (s.nroSede = e.nroSede) WHERE s.nroSede = " + sede.nroSede ;
@@ -69,27 +63,26 @@ namespace MuseoDSI.Datos.EsquemaPersistencia.Daos
                 exposicion.horaFin = DateTime.Parse(tabla.Rows[i]["horaCierre"].ToString());
                 exposicion.fechaInicio = DateTime.Parse(tabla.Rows[i]["fechaInicio"].ToString());
                 exposicion.fechaFin = DateTime.Parse(tabla.Rows[i]["fechaCierre"].ToString());
-                ListaExposicion.Add(exposicion);
+                var idTipoExposicion = int.Parse(tabla.Rows[i]["idTipoExposicion"].ToString());
+                exposicion.TipoExposicion = traerTipoExposicionPorExpo(idTipoExposicion);
+                traerDetalleExposicionPorExpo(exposicion);
+          
+
+                sede.ListaExposiciones.Add(exposicion); // meto  la exposicion a la lista que apunta la sede
             }
 
-            foreach (Exposicion expo in ListaExposicion)
-            {
-
-                List<DetalleExposicion> listaDetalleExposiciones = traerDetalleExposicionPorExpo(expo);
-                expo.DetalleExposiciones = listaDetalleExposiciones;
 
 
-            }
-
-           
-            return ListaExposicion;
+          
 
 
         }
 
-        public List<DetalleExposicion> traerDetalleExposicionPorExpo(Exposicion expo)
+        public void traerDetalleExposicionPorExpo(Exposicion expo)
         {
-            ListaDetalleExposicion.Clear();
+
+            expo.DetalleExposiciones = new List<DetalleExposicion>();
+           
 
             DataTable tabla = new DataTable();
             string sql = "SELECT * FROM DetalleExposicion dt WHERE dt.idExposicion = " + expo.idExposicion;
@@ -99,23 +92,45 @@ namespace MuseoDSI.Datos.EsquemaPersistencia.Daos
             {
                DetalleExposicion detalleExpo = new DetalleExposicion();
 
-               detalleExpo.idExposicion = int.Parse(tabla.Rows[i]["idExposicion"].ToString());
-               detalleExpo.idObra = int.Parse(tabla.Rows[i]["idObra"].ToString()); // ver q hacer con esto
-               detalleExpo.Obra = traerObraPorDE(detalleExpo);
-              
 
-                ListaDetalleExposicion.Add(detalleExpo);
+               var idObra = int.Parse(tabla.Rows[i]["idObra"].ToString()); // ver q hacer con esto
+               detalleExpo.idDetalle = int.Parse(tabla.Rows[i]["idDetalle"].ToString());
+               detalleExpo.Obra = traerObraPorDE(idObra);
+                expo.DetalleExposiciones.Add(detalleExpo);   // meto el detalleExposicion a la lista  que apunta la exposicion
             }
 
-            return ListaDetalleExposicion;
+           
         }
 
-        public Obras traerObraPorDE(DetalleExposicion detalleExpo)
+        public TipoExposicion traerTipoExposicionPorExpo(int idTipoExposicion)
+        {
+
+
+            DataTable tabla = new DataTable();
+            string sql = " SELECT * FROM TipoExposicion WHERE idTipoExposicion = " + idTipoExposicion;
+
+            tabla = Backend.obtenerInstancia().Consulta(sql);
+
+            TipoExposicion tipoExposicion = new TipoExposicion();
+
+            tipoExposicion.idTipoExposicion = int.Parse(tabla.Rows[0]["idTipoExposicion"].ToString());
+            tipoExposicion.descripcion = tabla.Rows[0]["descripcion"].ToString();
+          
+
+
+            return tipoExposicion;
+
+
+        }
+
+
+        public Obras traerObraPorDE(int idObra)
         {
             
 
+
             DataTable tabla = new DataTable();
-            string sql = " SELECT* FROM obras WHERE idObras = " + detalleExpo.idObra;
+            string sql = " SELECT* FROM obras WHERE idObras = " + idObra;
 
             tabla = Backend.obtenerInstancia().Consulta(sql);
           

@@ -38,20 +38,17 @@ namespace MuseoDSI.Clases
             return dao.LlenarListaObras();
         }
 
-        public int DevolverDuracionExtendida(int id)
+        public int GetduracionExtendida()
         {
-            int duracion = 0;
-            for(int i = 0; i < ListaObras.Count; i++)
-            {
-               
-                if(ListaObras[i].idObras == id)
-                {
-                    
-                    duracion = ListaObras[i].duracionExtendida;
-                }
-            }
-            return duracion;
+            return this.duracionExtendida;
         }
+
+        public int GetduracionResumida()
+        {
+            return this.duracionResumida;
+        }
+
+
 
 
     }

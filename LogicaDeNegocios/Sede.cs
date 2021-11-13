@@ -49,16 +49,49 @@ namespace MuseoDSI.Clases
             return daoSede.BuscarlistaSedes();
         }
 
-        public List<Exposicion> ListaExposicion = new List<Exposicion>();
-        Exposicion expo = new Exposicion();
+        public List<Exposicion> ColeccionExposicionesFiltradas = new List<Exposicion>();
+        
 
-    
 
-        public List<Exposicion> BuscarExposiciones(Sede sedeSeleccionada) 
+
+        public List<Exposicion> BuscarExposiciones()
         {
-           // ListaExposicion = daoSede.BuscarExposiciones(nombreSede, tipoExposicion);
-            return expo.getExpoVigentes(ListaExposicion);
+            ColeccionExposicionesFiltradas.Clear();
+
+            foreach (Exposicion exposicion in this.ListaExposiciones) // mientras haya exposiciones en la sede
+            {
+                if (exposicion.getExpoVigentes())  // le pide a exposicion que busque si es vigente
+                {
+                    ColeccionExposicionesFiltradas.Add(exposicion);
+                }
+                
+            }
+
+            return ColeccionExposicionesFiltradas;
+
+
         }
+
+        public List<Exposicion> BuscarExposicionesCompleta()
+        {
+            ColeccionExposicionesFiltradas.Clear();
+
+            foreach (Exposicion exposicion in this.ListaExposiciones) // mientras haya exposiciones en la sede
+            {
+                if (exposicion.getExpoVigentesCompleta())  // le pide a exposicion que busque si es vigente
+                {
+                    ColeccionExposicionesFiltradas.Add(exposicion);
+                }
+
+            }
+
+            return ColeccionExposicionesFiltradas;
+
+
+        }
+
+
+
 
         public int MisReservasParaEstaFecha(string nombre, DateTime fecha)
         {
@@ -95,12 +128,7 @@ namespace MuseoDSI.Clases
             return CantAlumnos;
         }
 
-        public int BuscarDuracionExposiciones(List<Exposicion> lista, string tipoVisita)
-        {
-            int duracion = expo.BuscarDuracionExtendidaObras(lista, tipoVisita); //sede le pide a exposicion que busque la duracion extendida
-            return duracion;
-        }
-      
+    
         public int GetCantidadMaximaPorGuia(string nombreSede,int visitantes)
         {
             int MaximoPorGuia = 0;

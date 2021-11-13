@@ -71,19 +71,35 @@ namespace MuseoDSI.Formularios
 
         private void CargarGrilla(List<Exposicion> lista)
         {
-
+           
 
             dgv_Exposiciones.Rows.Clear();
-            for (int i = 0; i < lista.Count; i++)
-            {
-                
-                dgv_Exposiciones.Rows.Add();
-                dgv_Exposiciones.Rows[i].Cells[0].Value = lista[i].nombre;
-                dgv_Exposiciones.Rows[i].Cells[1].Value = lista[i].idPublico;
-                dgv_Exposiciones.Rows[i].Cells[2].Value = lista[i].horaInicio.ToString("t");
-                dgv_Exposiciones.Rows[i].Cells[3].Value = lista[i].horaFin.ToString("t");
+            //for (int i = 0; i < lista.Count; i++)
+            //{
 
-            }
+            //    dgv_Exposiciones.Rows.Add();
+            //    dgv_Exposiciones.Rows[i].Cells[0].Value = lista[i].nombre;
+            //    dgv_Exposiciones.Rows[i].Cells[1].Value = lista[i].idPublico;
+            //    dgv_Exposiciones.Rows[i].Cells[2].Value = lista[i].horaInicio.ToString("t");
+            //    dgv_Exposiciones.Rows[i].Cells[3].Value = lista[i].horaFin.ToString("t");
+            //}
+
+            var datos = new BindingSource();
+            ////datos.DataSource = gestorReserva.buscarExposicionesTemporales();
+
+            datos.DataSource = lista;
+            dgv_Exposiciones.DataSource = datos;
+            dgv_Exposiciones.Columns["idExposicion"].Visible = false;
+            dgv_Exposiciones.Columns["nroSede"].Visible = false;
+            dgv_Exposiciones.Columns["fechaInicio"].Visible = false;
+            dgv_Exposiciones.Columns["fechaFin"].Visible = false;
+            dgv_Exposiciones.Columns["Empleado"].Visible = false;
+            dgv_Exposiciones.Columns["TipoExposicion"].Visible = false;
+            dgv_Exposiciones.Columns["Publico"].Visible = false;
+
+            // dgv_Exposiciones.DataSource = lista.Select(expo => new { expo.nombre , expo.idPublico, expo.horaInicio, expo.horaFin }).ToList();
+
+
         }
 
         private void btn_agregar_Click(object sender, EventArgs e)
@@ -100,18 +116,34 @@ namespace MuseoDSI.Formularios
                 }
                 if (flag)
                 {
-                    expoSeleccionada = new Exposicion();
-                    expoSeleccionada.nombre = dgv_Exposiciones.CurrentRow.Cells[0].Value.ToString();
-                    expoSeleccionada.idPublico = dgv_Exposiciones.CurrentRow.Cells[1].Value.ToString();
-                    expoSeleccionada.horaInicio = DateTime.Parse(dgv_Exposiciones.CurrentRow.Cells[2].Value.ToString());
-                    expoSeleccionada.horaFin = DateTime.Parse(dgv_Exposiciones.CurrentRow.Cells[3].Value.ToString());
+                    //expoSeleccionada = new Exposicion();
+                    //expoSeleccionada.nombre = dgv_Exposiciones.CurrentRow.Cells[0].Value.ToString();
+                    //expoSeleccionada.idPublico = dgv_Exposiciones.CurrentRow.Cells[1].Value.ToString();
+                    //expoSeleccionada.horaInicio = DateTime.Parse(dgv_Exposiciones.CurrentRow.Cells[2].Value.ToString());
+                    //expoSeleccionada.horaFin = DateTime.Parse(dgv_Exposiciones.CurrentRow.Cells[3].Value.ToString());
+                    Exposicion expoSeleccionada = dgv_Exposiciones.CurrentRow.DataBoundItem as Exposicion;
                     exposicionesSeleccionadas.Add(expoSeleccionada);
 
-                    int index = dgv_ExposicionesSeleccionadas.Rows.Add(dgv_Exposiciones.CurrentRow.Clone() as DataGridViewRow);
-                    foreach (DataGridViewCell o in dgv_Exposiciones.CurrentRow.Cells)
-                    {
-                        dgv_ExposicionesSeleccionadas.Rows[index].Cells[o.ColumnIndex].Value = o.Value;
-                    }
+                    //expoSeleccionada = new Exposicion();
+                    //expoSeleccionada = (Exposicion)dgv_Exposiciones.CurrentRow
+                    //expoSeleccionada.nombre = dgv_Exposiciones.CurrentRow.Cells[0].Value.ToString();
+                    //expoSeleccionada.idPublico = dgv_Exposiciones.CurrentRow.Cells[1].Value.ToString();
+                    //expoSeleccionada.horaInicio = DateTime.Parse(dgv_Exposiciones.CurrentRow.Cells[2].Value.ToString());
+                    //expoSeleccionada.horaFin = DateTime.Parse(dgv_Exposiciones.CurrentRow.Cells[3].Value.ToString());
+                    //exposicionesSeleccionadas.Add(expoSeleccionada);
+
+
+                    //int index = dgv_ExposicionesSeleccionadas.Rows.Add(dgv_Exposiciones.CurrentRow.Clone() as DataGridViewRow);
+                    //foreach (DataGridViewCell o in dgv_Exposiciones.CurrentRow.Cells)
+                    //{
+                    //    dgv_ExposicionesSeleccionadas.Rows[index].Cells[o.ColumnIndex].Value = o.Value;
+                    //}
+
+
+
+                    dgv_ExposicionesSeleccionadas.DataSource = exposicionesSeleccionadas.Select(expo => new { expo.nombre , expo.idPublico, expo.horaInicio, expo.horaFin }).ToList();
+
+
 
                 }
                 else
