@@ -19,6 +19,7 @@ namespace MuseoDSI.Formularios
         List<Exposicion> exposicionesSeleccionadas = new List<Exposicion>();
         Empleado guiaSeleccionado;
         List<Empleado> guiasSeleccionados = new List<Empleado>();
+        BindingSource datos = new BindingSource();
         
         public Frm_RegistrarVisita()
         {
@@ -85,14 +86,14 @@ namespace MuseoDSI.Formularios
             //    dgv_Exposiciones.Rows[i].Cells[3].Value = lista[i].horaFin.ToString("t");
             //}
 
-            //var datos = new BindingSource();
+            var source = new BindingSource();
             ////////datos.DataSource = gestorReserva.buscarExposicionesTemporales();
 
-            //datos.DataSource = lista;
+            source.DataSource = lista;
             //dgv_Exposiciones.DataSource = datos;
 
             //datos.DataSource = lista;
-            dgv_Exposiciones.DataSource = lista;
+            dgv_Exposiciones.DataSource = source;
 
             dgv_Exposiciones.Columns["idExposicion"].Visible = false;
             dgv_Exposiciones.Columns["nroSede"].Visible = false;
@@ -159,9 +160,19 @@ namespace MuseoDSI.Formularios
                     //    dgv_ExposicionesSeleccionadas.Rows[index].Cells[o.ColumnIndex].Value = o.Value;
                     //}
 
+                    datos.DataSource = exposicionesSeleccionadas.ToList();
+                    dgv_ExposicionesSeleccionadas.DataSource = datos;
+                    dgv_ExposicionesSeleccionadas.Columns["idExposicion"].Visible = false;
+                    dgv_ExposicionesSeleccionadas.Columns["nroSede"].Visible = false;
+                    dgv_ExposicionesSeleccionadas.Columns["fechaInicio"].Visible = false;
+                    dgv_ExposicionesSeleccionadas.Columns["fechaFin"].Visible = false;
+                    dgv_ExposicionesSeleccionadas.Columns["Empleado"].Visible = false;
+                    dgv_ExposicionesSeleccionadas.Columns["TipoExposicion"].Visible = false;
+                    dgv_ExposicionesSeleccionadas.Columns["Publico"].Visible = false;
 
-                   
-                 dgv_ExposicionesSeleccionadas.Rows.Add(expoSeleccionada.nombre, expoSeleccionada.idPublico, expoSeleccionada.horaInicio, expoSeleccionada.horaFin);
+                    //dgv_ExposicionesSeleccionadas.DataSource = exposicionesSeleccionadas.ToList();
+                    //dgv_ExposicionesSeleccionadas.Rows.Add(expoSeleccionada.nombre, expoSeleccionada.idPublico, expoSeleccionada.horaInicio, expoSeleccionada.horaFin);
+
 
 
 
@@ -215,6 +226,7 @@ namespace MuseoDSI.Formularios
 
         private void tomarSeleccionTipoVisita(object sender, EventArgs e) 
         {
+
             exposicionesSeleccionadas.Clear();
             if (cmb_TipoVisita.Enabled.Equals(true))
             {
@@ -228,9 +240,9 @@ namespace MuseoDSI.Formularios
 
                         btn_agregar.Enabled = true;
                         btn_quitar.Enabled = true;
-                        dgv_ExposicionesSeleccionadas.DataSource = null;
-                        //dgv_ExposicionesSeleccionadas.Rows.Clear();
-                      
+                        //dgv_ExposicionesSeleccionadas.DataSource = null;
+                        datos.DataSource = new List<Exposicion>();
+
 
                         break;
 
@@ -242,8 +254,18 @@ namespace MuseoDSI.Formularios
                         // exposicionesSeleccionadas = listaExpos;
 
 
-                        dgv_ExposicionesSeleccionadas.DataSource = listaExpos.Select(expo => new { expo.nombre, expo.idPublico, expo.horaInicio, expo.horaFin }).ToList();
-                        
+                        datos.DataSource = listaExpos.ToList();
+                        dgv_ExposicionesSeleccionadas.DataSource = datos;
+                        dgv_ExposicionesSeleccionadas.Columns["idExposicion"].Visible = false;
+                        dgv_ExposicionesSeleccionadas.Columns["nroSede"].Visible = false;
+                        dgv_ExposicionesSeleccionadas.Columns["fechaInicio"].Visible = false;
+                        dgv_ExposicionesSeleccionadas.Columns["fechaFin"].Visible = false;
+                        dgv_ExposicionesSeleccionadas.Columns["Empleado"].Visible = false;
+                        dgv_ExposicionesSeleccionadas.Columns["TipoExposicion"].Visible = false;
+                        dgv_ExposicionesSeleccionadas.Columns["Publico"].Visible = false;
+
+                        //  dgv_ExposicionesSeleccionadas.DataSource = listaExpos.Select(expo => new { expo.nombre, expo.idPublico, expo.horaInicio, expo.horaFin }).ToList();
+
                         //foreach (DataGridViewRow r in dgv_Exposiciones.Rows)
                         //{
                         //    //int index = dgv_ExposicionesSeleccionadas.Rows.Add(r.Clone() as DataGridViewRow);

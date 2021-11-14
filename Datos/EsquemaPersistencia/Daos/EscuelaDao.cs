@@ -23,6 +23,8 @@ namespace MuseoDSI.Datos.EsquemaPersistencia.Daos
                 Escuela escuela = new Escuela();
                 escuela.idEscuela = int.Parse(tabla.Rows[i]["idEscuela"].ToString());
                 escuela.nombre = tabla.Rows[i]["nombre"].ToString();
+                escuela.calle = tabla.Rows[i]["calle"].ToString();
+                escuela.nroCalle = int.Parse(tabla.Rows[i]["nroCalle"].ToString());
                 ListaEscuela.Add(escuela);
             }
 

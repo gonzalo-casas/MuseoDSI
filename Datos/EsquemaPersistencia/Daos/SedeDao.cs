@@ -63,8 +63,7 @@ namespace MuseoDSI.Datos.EsquemaPersistencia.Daos
                 exposicion.horaFin = DateTime.Parse(tabla.Rows[i]["horaCierre"].ToString());
                 exposicion.fechaInicio = DateTime.Parse(tabla.Rows[i]["fechaInicio"].ToString());
                 exposicion.fechaFin = DateTime.Parse(tabla.Rows[i]["fechaCierre"].ToString());
-                var idTipoExposicion = int.Parse(tabla.Rows[i]["idTipoExposicion"].ToString());
-                exposicion.TipoExposicion = traerTipoExposicionPorExpo(idTipoExposicion);
+                exposicion.TipoExposicion = traerTipoExposicionPorExpo(int.Parse(tabla.Rows[i]["idTipoExposicion"].ToString()));
                 traerDetalleExposicionPorExpo(exposicion);
           
 
