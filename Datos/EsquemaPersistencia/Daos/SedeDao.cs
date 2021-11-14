@@ -58,12 +58,12 @@ namespace MuseoDSI.Datos.EsquemaPersistencia.Daos
                 exposicion.idExposicion = int.Parse(tabla.Rows[i]["idExposicion"].ToString());
                 exposicion.nroSede = int.Parse(tabla.Rows[i]["nroSede"].ToString());
                 exposicion.nombre = tabla.Rows[i]["nombreExposicion"].ToString();
-                exposicion.idPublico = tabla.Rows[i]["idPublico"].ToString();
                 exposicion.horaInicio = DateTime.Parse(tabla.Rows[i]["horaInicio"].ToString());
                 exposicion.horaFin = DateTime.Parse(tabla.Rows[i]["horaCierre"].ToString());
                 exposicion.fechaInicio = DateTime.Parse(tabla.Rows[i]["fechaInicio"].ToString());
                 exposicion.fechaFin = DateTime.Parse(tabla.Rows[i]["fechaCierre"].ToString());
                 exposicion.TipoExposicion = traerTipoExposicionPorExpo(int.Parse(tabla.Rows[i]["idTipoExposicion"].ToString()));
+                exposicion.Publico = traerPublicoPorExpo(int.Parse(tabla.Rows[i]["idPublico"].ToString()));
                 traerDetalleExposicionPorExpo(exposicion);
           
 
@@ -122,6 +122,28 @@ namespace MuseoDSI.Datos.EsquemaPersistencia.Daos
 
         }
 
+        public Publico traerPublicoPorExpo(int idPublico)
+        {
+
+
+            DataTable tabla = new DataTable();
+            string sql = " SELECT * FROM Publico WHERE idPublico = " + idPublico;
+
+            tabla = Backend.obtenerInstancia().Consulta(sql);
+
+            Publico publico = new Publico();
+
+            publico.idPublico = int.Parse(tabla.Rows[0]["idPublico"].ToString());
+            publico.descripcion = tabla.Rows[0]["descripcion"].ToString();
+
+
+
+            return publico;
+
+
+        }
+
+
 
         public Obras traerObraPorDE(int idObra)
         {
@@ -146,32 +168,31 @@ namespace MuseoDSI.Datos.EsquemaPersistencia.Daos
 
 
 
-        public List<Exposicion> BuscarExposiciones(string nombreSede, string tipoExposicion)
-        {
-            ListaExposicion.Clear();
+        //public List<Exposicion> BuscarExposiciones(string nombreSede, string tipoExposicion)
+        //{
+        //    ListaExposicion.Clear();
             
-            DataTable tabla = new DataTable();
-            string sql = "SELECT * FROM Exposicion e JOIN  Sede s ON (s.nroSede = e.nroSede) WHERE s.nombreSede = '" + nombreSede + "' AND idTipoExposicion in " + tipoExposicion;
+        //    DataTable tabla = new DataTable();
+        //    string sql = "SELECT * FROM Exposicion e JOIN  Sede s ON (s.nroSede = e.nroSede) WHERE s.nombreSede = '" + nombreSede + "' AND idTipoExposicion in " + tipoExposicion;
 
-            tabla = Backend.obtenerInstancia().Consulta(sql);
-            for (int i = 0; i < tabla.Rows.Count; i++)
-            {
-                Exposicion exposicion = new Exposicion();
+        //    tabla = Backend.obtenerInstancia().Consulta(sql);
+        //    for (int i = 0; i < tabla.Rows.Count; i++)
+        //    {
+        //        Exposicion exposicion = new Exposicion();
 
-                exposicion.idExposicion = int.Parse(tabla.Rows[i]["idExposicion"].ToString());
-                exposicion.nroSede = int.Parse(tabla.Rows[i]["nroSede"].ToString());
-                exposicion.nombre = tabla.Rows[i]["nombreExposicion"].ToString();
-                exposicion.idPublico = tabla.Rows[i]["idPublico"].ToString();
-                exposicion.horaInicio = DateTime.Parse(tabla.Rows[i]["horaInicio"].ToString());
-                exposicion.horaFin = DateTime.Parse(tabla.Rows[i]["horaCierre"].ToString());
-                exposicion.fechaInicio = DateTime.Parse(tabla.Rows[i]["fechaInicio"].ToString());
-                exposicion.fechaFin = DateTime.Parse(tabla.Rows[i]["fechaCierre"].ToString());
-                ListaExposicion.Add(exposicion);
-            }
-           // getExpovigente 
-            return ListaExposicion;
+        //        exposicion.idExposicion = int.Parse(tabla.Rows[i]["idExposicion"].ToString());
+        //        exposicion.nroSede = int.Parse(tabla.Rows[i]["nroSede"].ToString());
+        //        exposicion.nombre = tabla.Rows[i]["nombreExposicion"].ToString();
+        //        exposicion.horaInicio = DateTime.Parse(tabla.Rows[i]["horaInicio"].ToString());
+        //        exposicion.horaFin = DateTime.Parse(tabla.Rows[i]["horaCierre"].ToString());
+        //        exposicion.fechaInicio = DateTime.Parse(tabla.Rows[i]["fechaInicio"].ToString());
+        //        exposicion.fechaFin = DateTime.Parse(tabla.Rows[i]["fechaCierre"].ToString());
+        //        ListaExposicion.Add(exposicion);
+        //    }
+        //   // getExpovigente 
+        //    return ListaExposicion;
 
 
-        }
+        //}
     }
 }

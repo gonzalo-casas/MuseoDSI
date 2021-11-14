@@ -19,7 +19,6 @@ namespace MuseoDSI.Clases
         public DateTime horaInicio { get; set; }
         public DateTime horaFin { get; set; }
         public string nombre { get; set; }
-        public string idPublico { get; set; }
 
         public TipoExposicion TipoExposicion { get; set; }
         public Empleado Empleado { get; set; }
@@ -28,7 +27,7 @@ namespace MuseoDSI.Clases
 
 
         public List<DetalleExposicion> DetalleExposiciones { get; set; }
- 
+
 
         private IExposicion dao;
 
@@ -57,14 +56,14 @@ namespace MuseoDSI.Clases
         {
             DateTime fechaHoy = ObtenerFechaActual();
 
-            if(this.fechaFin > fechaHoy){   // si es vigente ...
-               return  this.TipoExposicion.esTemporal(); // le pide a TipoExposicion si es temporal, return true si es temporal
+            if (this.fechaFin > fechaHoy) {   // si es vigente ...
+                return this.TipoExposicion.esTemporal(); // le pide a TipoExposicion si es temporal, return true si es temporal
             }
             return false;
-          
-                       
 
-           
+
+
+
         }
 
         public bool getExpoVigentesCompleta()
@@ -72,7 +71,7 @@ namespace MuseoDSI.Clases
             DateTime fechaHoy = ObtenerFechaActual();
 
             return this.fechaFin > fechaHoy; // si es vigente devuelve true
-          
+
 
 
 
@@ -84,7 +83,7 @@ namespace MuseoDSI.Clases
             int duracion = 0;
             foreach (DetalleExposicion dt in this.DetalleExposiciones) // mientras haya detalles
             {
-                 duracion +=  dt.BuscarDuracionExtendidaObras();
+                duracion += dt.BuscarDuracionExtendidaObras();
             }
 
             return duracion;
@@ -105,8 +104,35 @@ namespace MuseoDSI.Clases
 
         }
 
+        public string getPublico
+        {
+            get
+            {
 
-        
+                return Publico.descripcion;
+            }
+        }
+
+        public string getHorarioHabilitadoApertura
+        {
+            get
+            {
+                return horaInicio.ToString("HH:mm");
+            }
+
+        }
+
+        public string getHorarioHabilitadoCierre
+        {
+            get
+            {
+                return horaFin.ToString("HH:mm");
+            }
+
+        }
+
+
+
 
 
 
@@ -118,9 +144,6 @@ namespace MuseoDSI.Clases
         //    int duracion = de.BuscarDuracionExtendidaObras(lista, tipoVisita); // exposicion le pide a detalle que busque la duracion extendida de las obras
         //    return duracion;
         //}
-
-
-
 
     }
 }
