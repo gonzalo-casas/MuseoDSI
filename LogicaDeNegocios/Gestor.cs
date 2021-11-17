@@ -16,9 +16,11 @@ namespace MuseoDSI.Clases
         public string usuarioActual { get; set; }
         Backend _BD = new Backend();
         Escuela escuela = new Escuela();
-        Sede sede = new Sede();
+        Sede sedeSeleccionada = new Sede();
         TipoReserva tipoVisita = new TipoReserva();
         IEstrategiaTipoVisita estrategia;
+        DateTime horaReservada;
+        List<Exposicion> ListaexposicionesSeleccionadas;
 
         public List<Escuela> RecuperarListaEscuelas()
         {
@@ -34,13 +36,13 @@ namespace MuseoDSI.Clases
 
         public List<Sede> RecuperarListaSedes()
         {
-            List<Sede> ListaDeSedes = sede.BuscarlistaSedes();
+            List<Sede> ListaDeSedes = sedeSeleccionada.BuscarlistaSedes();
             return ListaDeSedes;
         }
 
-        public void TomarSeleccionSede(Sede sedeSeleccionada)
+        public void TomarSeleccionSede(Sede sedeSeleccionada1)
         {
-            sede = sedeSeleccionada;
+            sedeSeleccionada = sedeSeleccionada1;
         }
 
 
@@ -65,7 +67,7 @@ namespace MuseoDSI.Clases
 
         public List<Exposicion> TomarExposiciones()
         {
-           return estrategia.TomarExposiciones(sede);    
+           return estrategia.TomarExposiciones(sedeSeleccionada);    
         }
        
 
@@ -75,14 +77,15 @@ namespace MuseoDSI.Clases
         Obras obra = new Obras();
 
        
-        public int calcularDuracion(List<Exposicion> exposiciones) // este deberia ser el tomarFechaHoraReserva()
+        public int tomarFechaHoraReserva(DateTime horaReservaSeleccionada) // este deberia ser el tomarFechaHoraReserva()
         {
-            ExposicionesSeleccionadas = exposiciones;
-            return CalcularDuracionEstimadaResv(exposiciones); // metodo self
+            horaReservada = horaReservaSeleccionada;
+            
+            return CalcularDuracionEstimadaResv(); // metodo self
         }
 
 
-        public int CalcularDuracionEstimadaResv(List<Exposicion> exposiciones) 
+        public int CalcularDuracionEstimadaResv() 
         {
 
             return estrategia.CalcularDuracionEstimadaResv(ExposicionesSeleccionadas); // le delega el calculo de la duracion a la estrategia
@@ -96,33 +99,39 @@ namespace MuseoDSI.Clases
         
         private int CantAlumnos(string nombreSede)
         {
-            int CantidadDeAlumnos = sede.MisReservasParaEstaFecha(nombreSede,DateTime.Today);
+            int CantidadDeAlumnos = sedeSeleccionada.MisReservasParaEstaFecha(nombreSede,DateTime.Today);
             return CantidadDeAlumnos;
         }
-        public string CalcularSobrepaso(string numvisitantes,string nombreSede)
+        public string CalcularSobrepaso(string numvisitantes)
         {
             string estado = "";
-            int AlumnosReservados = this.CantAlumnos(nombreSede);
+            int AlumnosReservados = this.CantAlumnos(sedeSeleccionada.nombreSede);
             int AlumnosTotales = int.Parse(numvisitantes) + AlumnosReservados;
-            List<Sede> LS = new List<Sede>();
-            LS = sede.BuscarlistaSedes();
-            for(int i = 0; i < LS.Count; i++)
+           
+            
+
+            if(AlumnosTotales > sedeSeleccionada.CantidadMaximaVisitantes)
             {
-                if (LS[i].nombreSede == nombreSede)
-                {
-                    if (AlumnosTotales > LS[i].CantidadMaximaVisitantes)
-                    {
-                        estado = "sobrepasado";
-                    }
-                }  
+                estado = "sobrepasado";
             }
+
+            //for(int i = 0; i < LS.Count; i++)
+            //{
+            //    if (LS[i].nombreSede == nombreSede)
+            //    {
+            //        if (AlumnosTotales > LS[i].CantidadMaximaVisitantes)
+            //        {
+            //            estado = "sobrepasado";
+            //        }
+            //    }  
+            //}
             return estado;
         }
        
 
         public int CalcularGuias(string nombreSede,string visitantes)
         {
-           int Guias = sede.GetCantidadMaximaPorGuia(nombreSede,int.Parse(visitantes));
+           int Guias = sedeSeleccionada.GetCantidadMaximaPorGuia(nombreSede,int.Parse(visitantes));
            return Guias;
         }
 
@@ -173,7 +182,6 @@ namespace MuseoDSI.Clases
             }else
                 estrategia = new EstrategiaCompleta();
 
-
         }
 
         public int ObtenerCantidadReservas()
@@ -184,6 +192,12 @@ namespace MuseoDSI.Clases
 
             return num;
         }
+
+        public void TomarExposicionesSeleccionadas(List<Exposicion> exposicionesSeleccionadas)
+        {
+            ListaexposicionesSeleccionadas = exposicionesSeleccionadas;
+        }
+
 
     }
 }

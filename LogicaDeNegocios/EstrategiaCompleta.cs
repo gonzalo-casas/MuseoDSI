@@ -24,15 +24,15 @@ namespace MuseoDSI.LogicaDeNegocios
 
         public List<Exposicion> TomarExposiciones(Sede sedeSeleccionada)
         {
-            return TomarExposicionesCompleta(sedeSeleccionada);
-        }
-
-
-        public List<Exposicion> TomarExposicionesCompleta(Sede sedeSeleccionada)
-        {
             List<Exposicion> ListaExpos = sedeSeleccionada.BuscarExposicionesCompleta();
             return ListaExpos;
         }
+
+
+        //public List<Exposicion> TomarExposicionesCompleta(Sede sedeSeleccionada)
+        //{
+           
+        //}
 
 
     }

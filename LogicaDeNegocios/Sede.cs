@@ -96,35 +96,45 @@ namespace MuseoDSI.Clases
         public int MisReservasParaEstaFecha(string nombre, DateTime fecha)
         {
             Reserva reserva = new Reserva();
-            List<Sede> listaSedes = this.BuscarlistaSedes();
+            //List<Sede> listaSedes = this.BuscarlistaSedes();
             List<Reserva> reservasDeEstaSede = new List<Reserva>();
             List<Reserva> reservas = reserva.ListaReservas();
             List<Reserva> reservasParaXFecha = new List<Reserva>();
-            for (int i = 0; i < listaSedes.Count; i++)
-            {
-                if (listaSedes[i].nombreSede == nombre)
-                {
-                    for (int j = 0; j < reservas.Count; j++)
-                    {
-                        if (reservas[j].nroSede == listaSedes[i].nroSede)
-                        {
-                            reservasDeEstaSede.Add(reservas[j]);
-                        }
-                    }
-                }
-            }
-            for(int i = 0;i < reservasDeEstaSede.Count; i++)
-            {
-                if(reservasDeEstaSede[i].fechaReserva == fecha)
-                {
-                    reservasParaXFecha.Add(reservasDeEstaSede[i]);
-                }
-            }
+            //for (int i = 0; i < listaSedes.Count; i++)
+            //{
+            //    if (listaSedes[i].nombreSede == nombre)
+            //    {
+            //        for (int j = 0; j < reservas.Count; j++)
+            //        {
+            //            if (reservas[j].nroSede == listaSedes[i].nroSede)
+            //            {
+            //                reservasDeEstaSede.Add(reservas[j]);
+            //            }
+            //        }
+            //    }
+            //}
             int CantAlumnos = 0;
-            for(int i = 0; i < reservasParaXFecha.Count; i++)
+            for (int j = 0; j < reservas.Count; j++)  // mientras haya reservas ...
             {
-                CantAlumnos += reservasParaXFecha[i].cantidadAlumnos;
+                if (reservas[j].nroSede == this.nroSede && reservas[j].fechaReserva == fecha)
+                {
+                    CantAlumnos += reservas[j].cantidadAlumnos;
+                }
             }
+
+
+            //for (int i = 0;i < reservasDeEstaSede.Count; i++)
+            //{
+            //    if(reservasDeEstaSede[i].fechaReserva == fecha)
+            //    {
+            //        reservasParaXFecha.Add(reservasDeEstaSede[i]);
+            //    }
+            //}
+            ////int CantAlumnos = 0;
+            //for(int i = 0; i < reservasParaXFecha.Count; i++)
+            //{
+            //    CantAlumnos += reservasParaXFecha[i].cantidadAlumnos;
+            //}
             return CantAlumnos;
         }
 
@@ -148,6 +158,19 @@ namespace MuseoDSI.Clases
 
 
         }
+
+       public int BuscarDuracionExposiciones(List<Exposicion> ExposicionesSeleccionadas)
+        {
+            int duracionEstimada = 0;
+            foreach (Exposicion expo in ExposicionesSeleccionadas)  // mientras haya exposiciones
+            {
+                duracionEstimada += expo.BuscarDuracionExtendidaObra();
+            }
+
+            return duracionEstimada;
+
+        }
+
 
 
     }

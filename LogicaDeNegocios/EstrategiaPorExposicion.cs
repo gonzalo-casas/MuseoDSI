@@ -11,29 +11,32 @@ namespace MuseoDSI.LogicaDeNegocios
     {
         Sede sede = new Sede();
 
+        public EstrategiaPorExposicion()
+        {
+                
+        }
+
         public int CalcularDuracionEstimadaResv(List<Exposicion> ExposicionesSeleccionadas)
         {
             int duracionEstimada = 0;
-            foreach (Exposicion expo in ExposicionesSeleccionadas)  // mientras haya exposiciones
-            {
-                duracionEstimada += expo.BuscarDuracionExtendidaObra();
-            }
 
-            return duracionEstimada;
+            return duracionEstimada = sede.BuscarDuracionExposiciones(ExposicionesSeleccionadas);
+
+            //foreach (Exposicion expo in ExposicionesSeleccionadas)  // mientras haya exposiciones
+            //{
+            //    duracionEstimada += expo.BuscarDuracionExtendidaObra();
+            //}
+
+
         }
 
         public List<Exposicion> TomarExposiciones(Sede sedeSeleccionada)
         {
-            return TomarExposicionesTempVig(sedeSeleccionada);
-        }
-
-        public List<Exposicion> TomarExposicionesTempVig(Sede sedeSeleccionada) 
-        {
-
             List<Exposicion> ListaExposTemporalesVigentes = sedeSeleccionada.BuscarExposiciones();  // le pide a sede seleccionada  que busque las exposiciones
             return ListaExposTemporalesVigentes; // se lo devuelve a gestor la lista de exposiciones para que despues se lo pase a pantalla
         }
 
+    
        
 
 

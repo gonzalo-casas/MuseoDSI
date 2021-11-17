@@ -192,6 +192,9 @@ namespace MuseoDSI.Formularios
             {
                 MessageBox.Show("No existe ninguna exposicion disponible", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            gestor.TomarExposicionesSeleccionadas(exposicionesSeleccionadas);
+
         }
 
         private void btn_quitar_Click(object sender, EventArgs e) // Para borrar exposicion de la listaview
@@ -205,7 +208,7 @@ namespace MuseoDSI.Formularios
 
         private void MostrarVisitantes()
         {
-            string respuesta = gestor.CalcularSobrepaso(txt_visitantes.Text, cmb_Sede.Text);
+            string respuesta = gestor.CalcularSobrepaso(txt_visitantes.Text);
             if (respuesta == "sobrepasado")
             {
                 MessageBox.Show("Cupo máximo de visitantes superados!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -311,12 +314,12 @@ namespace MuseoDSI.Formularios
         }
 
 
-        private void MostrarDuracionEstimada()
+        private void MostrarDuracionEstimada(DateTime horaReservada)
         {
             lblDuracion.Enabled = true;
             //gestor.GuardarListaExposición(exposicionesSeleccionadas);
             //int tipoExposicion = cmb_TipoVisita.SelectedIndex;
-            int duracionMinutos = gestor.calcularDuracion(exposicionesSeleccionadas); // le paso como parametro lista de las exposiciones seleccionadas
+            int duracionMinutos = gestor.tomarFechaHoraReserva(horaReservada); // le paso como parametro lista de las exposiciones seleccionadas
             TimeSpan duracion = TimeSpan.FromMinutes(duracionMinutos);
             lblDuracion.Text = duracion.ToString(@"hh\:mm") + " horas";
             panelDuracion.Visible = true;
@@ -355,13 +358,13 @@ namespace MuseoDSI.Formularios
             }
         }
 
-        private void btn_Verificar_Click(object sender, EventArgs e)
-        {
-            MostrarDuracionEstimada();
-            MostrarVisitantes();
-            btn_agregarGuia.Enabled = true;
-            btn_QuitarGuia.Enabled = true;
-        }
+        //private void btn_Verificar_Click(object sender, EventArgs e)
+        //{
+        //    MostrarDuracionEstimada();
+        //    MostrarVisitantes();
+        //    btn_agregarGuia.Enabled = true;
+        //    btn_QuitarGuia.Enabled = true;
+        //}
 
         private void btn_agregarGuia_Click_1(object sender, EventArgs e)
         {
@@ -479,6 +482,14 @@ namespace MuseoDSI.Formularios
             btn_Verificar.Enabled = true;
         }
 
-       
+      
+        private void tomarFechaHoraReserva(object sender, EventArgs e)
+        {
+            DateTime horaReservada = DateTime.Parse(dtpHoraReserva.Text.ToString());
+            MostrarDuracionEstimada(horaReservada);
+            MostrarVisitantes();
+            btn_agregarGuia.Enabled = true;
+            btn_QuitarGuia.Enabled = true;
+        }
     }
 }

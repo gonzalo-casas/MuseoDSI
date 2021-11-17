@@ -46,6 +46,10 @@
             this.cmb_Escuela = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgv_ExposicionesSeleccionadas = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelDuracion = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
@@ -81,6 +85,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgv_Exposiciones = new System.Windows.Forms.DataGridView();
+            this.colExposicion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPublico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colApertura = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCierre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panelGuiasSeleccionados = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
@@ -92,14 +100,6 @@
             this.btn_Verificar = new MuseoDSI.Formularios.BotonRedondeado();
             this.btn_quitar = new MuseoDSI.Formularios.BotonRedondeado();
             this.btn_agregar = new MuseoDSI.Formularios.BotonRedondeado();
-            this.colExposicion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPublico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colApertura = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCierre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ExposicionesSeleccionadas)).BeginInit();
             this.panel2.SuspendLayout();
@@ -223,6 +223,34 @@
             this.dgv_ExposicionesSeleccionadas.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgv_ExposicionesSeleccionadas_RowsAdded);
             this.dgv_ExposicionesSeleccionadas.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dgv_ExposicionesSeleccionadas_RowsRemoved);
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "nombre";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Exposicion";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "getPublico";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Publico";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "getHorarioHabilitadoApertura";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Hora apertura";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "getHorarioHabilitadoCierre";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Hora cierre";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
@@ -282,6 +310,8 @@
             this.dtpHoraReserva.ShowUpDown = true;
             this.dtpHoraReserva.Size = new System.Drawing.Size(89, 26);
             this.dtpHoraReserva.TabIndex = 36;
+            
+            this.dtpHoraReserva.Leave += new System.EventHandler(this.tomarFechaHoraReserva);
             // 
             // dtpFechaReserva
             // 
@@ -667,6 +697,34 @@
             this.dgv_Exposiciones.Size = new System.Drawing.Size(664, 251);
             this.dgv_Exposiciones.TabIndex = 0;
             // 
+            // colExposicion
+            // 
+            this.colExposicion.DataPropertyName = "nombre";
+            this.colExposicion.HeaderText = "Exposicion";
+            this.colExposicion.Name = "colExposicion";
+            this.colExposicion.ReadOnly = true;
+            // 
+            // colPublico
+            // 
+            this.colPublico.DataPropertyName = "getPublico";
+            this.colPublico.HeaderText = "Publico";
+            this.colPublico.Name = "colPublico";
+            this.colPublico.ReadOnly = true;
+            // 
+            // colApertura
+            // 
+            this.colApertura.DataPropertyName = "getHorarioHabilitadoApertura";
+            this.colApertura.HeaderText = "Hora apertura";
+            this.colApertura.Name = "colApertura";
+            this.colApertura.ReadOnly = true;
+            // 
+            // colCierre
+            // 
+            this.colCierre.DataPropertyName = "getHorarioHabilitadoCierre";
+            this.colCierre.HeaderText = "Hora cierre";
+            this.colCierre.Name = "colCierre";
+            this.colCierre.ReadOnly = true;
+            // 
             // panel8
             // 
             this.panel8.Controls.Add(this.btn_Cancelar);
@@ -816,7 +874,7 @@
             this.btn_Verificar.Text = "Verificar";
             this.btn_Verificar.TextColor = System.Drawing.Color.White;
             this.btn_Verificar.UseVisualStyleBackColor = false;
-            this.btn_Verificar.Click += new System.EventHandler(this.btn_Verificar_Click);
+            //this.btn_Verificar.Click += new System.EventHandler(this.btn_Verificar_Click);
             // 
             // btn_quitar
             // 
@@ -861,62 +919,6 @@
             this.btn_agregar.TextColor = System.Drawing.Color.White;
             this.btn_agregar.UseVisualStyleBackColor = false;
             this.btn_agregar.Click += new System.EventHandler(this.btn_agregar_Click);
-            // 
-            // colExposicion
-            // 
-            this.colExposicion.DataPropertyName = "nombre";
-            this.colExposicion.HeaderText = "Exposicion";
-            this.colExposicion.Name = "colExposicion";
-            this.colExposicion.ReadOnly = true;
-            // 
-            // colPublico
-            // 
-            this.colPublico.DataPropertyName = "getPublico";
-            this.colPublico.HeaderText = "Publico";
-            this.colPublico.Name = "colPublico";
-            this.colPublico.ReadOnly = true;
-            // 
-            // colApertura
-            // 
-            this.colApertura.DataPropertyName = "getHorarioHabilitadoApertura";
-            this.colApertura.HeaderText = "Hora apertura";
-            this.colApertura.Name = "colApertura";
-            this.colApertura.ReadOnly = true;
-            // 
-            // colCierre
-            // 
-            this.colCierre.DataPropertyName = "getHorarioHabilitadoCierre";
-            this.colCierre.HeaderText = "Hora cierre";
-            this.colCierre.Name = "colCierre";
-            this.colCierre.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "nombre";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Exposicion";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "getPublico";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Publico";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "getHorarioHabilitadoApertura";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Hora apertura";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "getHorarioHabilitadoCierre";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Hora cierre";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // Frm_RegistrarVisita
             // 
