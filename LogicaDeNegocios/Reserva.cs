@@ -37,10 +37,11 @@ namespace MuseoDSI.Clases
             ListaDeReservas.Add(reserva);
         }
         HistorialEstado HE = new HistorialEstado();
+        AsignacionVisita AV = new AsignacionVisita();
 
 
 
-        public Reserva nuevaReserva(int idReserva, int nroSede, int idEscuela, DateTime horaInicio, DateTime fechaReserva, int CantidadAlumnos, int idTipoReserva, int idEstado)
+        public Reserva nuevaReserva(int idReserva, int nroSede, int idEscuela, DateTime horaInicio, DateTime fechaReserva, int CantidadAlumnos, int idTipoReserva, int idEstado, List<Empleado> empleados, TimeSpan duracion)
         {
             Reserva reserva = new Reserva();
             reserva.idReserva = idReserva;
@@ -53,6 +54,12 @@ namespace MuseoDSI.Clases
             reserva.idEstado = idEstado;
 
             HE.newHistorialEstado(1, 1, 0, idReserva, DateTime.Now, DateTime.Now);
+            
+            DateTime desde = fechaReserva.Date.Add(horaInicio.TimeOfDay);
+            DateTime horaFin = horaInicio.Add(duracion);
+            DateTime hasta = fechaReserva.Date.Add(horaFin.TimeOfDay);
+            AV.AsignarVisita(desde, hasta, empleados, idReserva);
+
 
             dao.CrearReserva(idReserva, nroSede, idEscuela, horaInicio, fechaReserva, CantidadAlumnos, idTipoReserva, idEstado);
 

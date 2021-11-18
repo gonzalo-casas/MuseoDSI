@@ -323,6 +323,7 @@ namespace MuseoDSI.Formularios
             //int tipoExposicion = cmb_TipoVisita.SelectedIndex;
             int duracionMinutos = gestor.tomarFechaHoraReserva(horaReservada, fechaHoraReservada); // le paso como parametro lista de las exposiciones seleccionadas
             TimeSpan duracion = TimeSpan.FromMinutes(duracionMinutos);
+            gestor.TomarDuracionVisita(duracion);
             lblDuracion.Text = duracion.ToString(@"hh\:mm") + " horas";
             panelDuracion.Visible = true;
         }
@@ -384,16 +385,18 @@ namespace MuseoDSI.Formularios
                 {
                     if (dgv_GuiasSeleccionados.Rows.Count < Int32.Parse(lbl_GuiasNecesarios.Text))
                     {
-                    int index = dgv_GuiasSeleccionados.Rows.Add(dgv_Guias.CurrentRow.Clone() as DataGridViewRow);
-                    foreach (DataGridViewCell o in dgv_Guias.CurrentRow.Cells)
-                    {
-                        dgv_GuiasSeleccionados.Rows[index].Cells[o.ColumnIndex].Value = o.Value;
-                    }
-                    guiaSeleccionado = new Empleado();
-                    guiaSeleccionado.dni = Int32.Parse(dgv_Guias.CurrentRow.Cells[0].Value.ToString());
-                    guiaSeleccionado.nombre = dgv_Guias.CurrentRow.Cells[1].Value.ToString();
-                    guiaSeleccionado.apellido = dgv_Guias.CurrentRow.Cells[2].Value.ToString();
-                    guiasSeleccionados.Add(guiaSeleccionado);
+                        int index = dgv_GuiasSeleccionados.Rows.Add(dgv_Guias.CurrentRow.Clone() as DataGridViewRow);
+                        foreach (DataGridViewCell o in dgv_Guias.CurrentRow.Cells)
+                        {
+                            dgv_GuiasSeleccionados.Rows[index].Cells[o.ColumnIndex].Value = o.Value;
+                        }
+                        guiaSeleccionado = new Empleado();
+                        guiaSeleccionado.dni = Int32.Parse(dgv_Guias.CurrentRow.Cells[0].Value.ToString());
+                        guiaSeleccionado.nombre = dgv_Guias.CurrentRow.Cells[1].Value.ToString();
+                        guiaSeleccionado.apellido = dgv_Guias.CurrentRow.Cells[2].Value.ToString();
+                        guiasSeleccionados.Add(guiaSeleccionado);
+
+                        gestor.TomarGuiasSeleccionados(guiasSeleccionados);
                     }
                     else
                     {

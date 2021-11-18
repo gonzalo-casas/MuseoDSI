@@ -9,6 +9,6 @@ namespace MuseoDSI.Datos.EsquemaPersistencia.Interfaz
 {
     interface IAsignacionVisita
     {
-        void AsignarVisita(DateTime desde, DateTime hasta, int idEmpleado, int idReserva);
+        void AsignarVisita(DateTime desde, DateTime hasta, List<Empleado> empleados, int idReserva);
     }
 }

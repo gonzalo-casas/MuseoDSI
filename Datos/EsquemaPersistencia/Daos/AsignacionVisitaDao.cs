@@ -11,11 +11,15 @@ namespace MuseoDSI.Datos.EsquemaPersistencia.Daos
 {
     class AsignacionVisitaDao : IAsignacionVisita
     {
-        public void AsignarVisita(DateTime desde, DateTime hasta, int idEmpleado, int idReserva)
+        public void AsignarVisita(DateTime desde, DateTime hasta, List<Empleado> empleados, int idReserva)
         {
-            string insert = @"INSERT INTO AsignacionVisita 
-                           VALUES (" + desde.ToString("yyyy-MM-dd HH:mm:ss") + "," + hasta.ToString("yyyy-MM-dd HH:mm:ss") + "," + idEmpleado.ToString() + ", '" + idReserva.ToString() + ")";
-            Backend.obtenerInstancia().EjecutarSQL(insert);
+            foreach (Empleado empleado in empleados)
+            {
+                string insert = @"INSERT INTO AsignacionVisita 
+                           VALUES (" + desde.ToString("yyyy-MM-dd HH:mm:ss") + "," + hasta.ToString("yyyy-MM-dd HH:mm:ss") + "," + empleado.dni.ToString() + ", '" + idReserva.ToString() + ")";
+                Backend.obtenerInstancia().EjecutarSQL(insert);
+            }
+            
         }
     }
 }

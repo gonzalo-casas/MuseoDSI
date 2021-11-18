@@ -21,9 +21,9 @@ namespace MuseoDSI.Clases
         public int idEmpleado { get; set; }
         public int idReserva { get; set; }
         
-        public void AsignarVisita(DateTime desde, DateTime hasta, int idEmpleado, int idReserva)
+        public void AsignarVisita(DateTime desde, DateTime hasta, List<Empleado> empleados, int idReserva)
         {
-            dao.AsignarVisita(desde, hasta, idEmpleado, idReserva);
+            dao.AsignarVisita(desde, hasta, empleados, idReserva);
         }
     }
 }

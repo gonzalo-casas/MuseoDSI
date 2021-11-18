@@ -23,6 +23,8 @@ namespace MuseoDSI.Clases
         DateTime fechaReservada;
         int cantVisitantes;
         List<Exposicion> ListaexposicionesSeleccionadas;
+        List<Empleado> ListaGuiasSeleccionados;
+        TimeSpan duracionVisita;
 
         public List<Escuela> RecuperarListaEscuelas()
         {
@@ -174,7 +176,7 @@ namespace MuseoDSI.Clases
         public void RegistrarReserva ()
         {
             int idReserva = ObtenerCantidadReservas();
-            reserva.nuevaReserva(idReserva, sedeSeleccionada.nroSede, escuela.idEscuela, horaReservada, fechaReservada, cantVisitantes, tipoVisita.idTipoReserva, 1);
+            reserva.nuevaReserva(idReserva, sedeSeleccionada.nroSede, escuela.idEscuela, horaReservada, fechaReservada, cantVisitantes, tipoVisita.idTipoReserva, 1, ListaGuiasSeleccionados, duracionVisita);
         }
 
        public void crearEstrategia()
@@ -201,6 +203,16 @@ namespace MuseoDSI.Clases
         {
             ListaexposicionesSeleccionadas = exposicionesSeleccionadas;
         }
+
+        public void TomarGuiasSeleccionados(List<Empleado> guiasSeleccionados)
+        {
+            ListaGuiasSeleccionados = guiasSeleccionados;
+        }
+        public void TomarDuracionVisita(TimeSpan duracion)
+        {
+            duracionVisita = duracion;
+        }
+
 
         public void TomarCantVisitantes(int cantVisitantesIngresado)
         {
