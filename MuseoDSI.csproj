@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Datos\EsquemaPersistencia\Daos\AsignacionVisitaDao.cs" />
     <Compile Include="Datos\EsquemaPersistencia\Daos\TipoReservaDao.cs" />
     <Compile Include="Datos\EsquemaPersistencia\Daos\SedeDao.cs" />
     <Compile Include="Datos\EsquemaPersistencia\Daos\ReservaDao.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="Datos\EsquemaPersistencia\Daos\EscuelaDao.cs" />
     <Compile Include="Datos\EsquemaPersistencia\Daos\EmpleadoDao.cs" />
     <Compile Include="Datos\EsquemaPersistencia\Daos\UsuarioDao.cs" />
+    <Compile Include="Datos\EsquemaPersistencia\Interfaz\IAsignacionVisita.cs" />
     <Compile Include="Datos\EsquemaPersistencia\Interfaz\ITipoReserva.cs" />
     <Compile Include="Datos\EsquemaPersistencia\Interfaz\ISede.cs" />
     <Compile Include="Datos\EsquemaPersistencia\Interfaz\IReserva.cs" />
