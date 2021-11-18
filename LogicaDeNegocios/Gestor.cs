@@ -20,6 +20,8 @@ namespace MuseoDSI.Clases
         TipoReserva tipoVisita = new TipoReserva();
         IEstrategiaTipoVisita estrategia;
         DateTime horaReservada;
+        DateTime fechaReservada;
+        int cantVisitantes;
         List<Exposicion> ListaexposicionesSeleccionadas;
 
         public List<Escuela> RecuperarListaEscuelas()
@@ -77,10 +79,12 @@ namespace MuseoDSI.Clases
         Obras obra = new Obras();
 
        
-        public int tomarFechaHoraReserva(DateTime horaReservaSeleccionada) // este deberia ser el tomarFechaHoraReserva()
+        public int tomarFechaHoraReserva(DateTime horaReservaSeleccionada, DateTime fechaReservaSeleccionada) // este deberia ser el tomarFechaHoraReserva()
         {
             horaReservada = horaReservaSeleccionada;
-            
+            fechaReservada  =  fechaReservaSeleccionada;
+
+
             return CalcularDuracionEstimadaResv(); // metodo self
         }
 
@@ -88,7 +92,7 @@ namespace MuseoDSI.Clases
         public int CalcularDuracionEstimadaResv() 
         {
 
-            return estrategia.CalcularDuracionEstimadaResv(ExposicionesSeleccionadas); // le delega el calculo de la duracion a la estrategia
+            return estrategia.CalcularDuracionEstimadaResv(ListaexposicionesSeleccionadas); // le delega el calculo de la duracion a la estrategia
 
         }
 
@@ -167,10 +171,10 @@ namespace MuseoDSI.Clases
                 
         }
 
-        public void RegistrarReserva (int nroSede, int idEscuela, DateTime horaInicio, DateTime fechaReserva, int CantidadAlumnos, int idTipoReserva, int idEstado)
+        public void RegistrarReserva ()
         {
             int idReserva = ObtenerCantidadReservas();
-            reserva.nuevaReserva(idReserva, nroSede, idEscuela, horaInicio, fechaReserva, CantidadAlumnos, idTipoReserva, idEstado);
+            reserva.nuevaReserva(idReserva, sedeSeleccionada.nroSede, escuela.idEscuela, horaReservada, fechaReservada, cantVisitantes, tipoVisita.idTipoReserva, 1);
         }
 
        public void crearEstrategia()
@@ -198,6 +202,10 @@ namespace MuseoDSI.Clases
             ListaexposicionesSeleccionadas = exposicionesSeleccionadas;
         }
 
+        public void TomarCantVisitantes(int cantVisitantesIngresado)
+        {
+            cantVisitantes = cantVisitantesIngresado;
+        }
 
     }
 }

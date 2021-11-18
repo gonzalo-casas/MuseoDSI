@@ -159,7 +159,7 @@ namespace MuseoDSI.Clases
 
         }
 
-       public int BuscarDuracionExposiciones(List<Exposicion> ExposicionesSeleccionadas)
+       public int BuscarDuracionExposicionesExtendida(List<Exposicion> ExposicionesSeleccionadas)
         {
             int duracionEstimada = 0;
             foreach (Exposicion expo in ExposicionesSeleccionadas)  // mientras haya exposiciones
@@ -171,6 +171,9 @@ namespace MuseoDSI.Clases
 
         }
 
+
+        
+        
 
 
     }

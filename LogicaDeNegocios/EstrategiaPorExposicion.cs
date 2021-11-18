@@ -18,16 +18,16 @@ namespace MuseoDSI.LogicaDeNegocios
 
         public int CalcularDuracionEstimadaResv(List<Exposicion> ExposicionesSeleccionadas)
         {
+           
+
             int duracionEstimada = 0;
 
-            return duracionEstimada = sede.BuscarDuracionExposiciones(ExposicionesSeleccionadas);
+            foreach (Exposicion expo in ExposicionesSeleccionadas)  // mientras haya exposiciones
+            {
+                duracionEstimada += expo.BuscarDuracionExtendidaObra();
+            }
 
-            //foreach (Exposicion expo in ExposicionesSeleccionadas)  // mientras haya exposiciones
-            //{
-            //    duracionEstimada += expo.BuscarDuracionExtendidaObra();
-            //}
-
-
+            return duracionEstimada;
         }
 
         public List<Exposicion> TomarExposiciones(Sede sedeSeleccionada)

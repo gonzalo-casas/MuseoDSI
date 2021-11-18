@@ -243,9 +243,9 @@ namespace MuseoDSI.Formularios
                 List<Exposicion> listaExpos = gestor.tomarSeleccionTipoVisita(tipoVisitaSeleccionada);  // paso como parametro el tipo de visita seleccionada
                 
                 CargarGrilla(listaExpos);
-                switch (cmb_TipoVisita.SelectedIndex)
+                switch (tipoVisitaSeleccionada.idTipoReserva)
                 {
-                    case 1:
+                    case 2:
 
                         btn_agregar.Enabled = true;
                         btn_quitar.Enabled = true;
@@ -255,7 +255,7 @@ namespace MuseoDSI.Formularios
 
                         break;
 
-                    case 0:
+                    case 1:
 
                         btn_agregar.Enabled = false;
                         btn_quitar.Enabled = false;
@@ -291,6 +291,8 @@ namespace MuseoDSI.Formularios
                             exposicionesSeleccionadas.Add((Exposicion)dgv_Exposiciones.Rows[r].DataBoundItem);
                         }
 
+
+                        gestor.TomarExposicionesSeleccionadas(exposicionesSeleccionadas);
                        
 
                             
@@ -314,12 +316,12 @@ namespace MuseoDSI.Formularios
         }
 
 
-        private void MostrarDuracionEstimada(DateTime horaReservada)
+        private void MostrarDuracionEstimada(DateTime horaReservada, DateTime fechaHoraReservada)
         {
             lblDuracion.Enabled = true;
             //gestor.GuardarListaExposición(exposicionesSeleccionadas);
             //int tipoExposicion = cmb_TipoVisita.SelectedIndex;
-            int duracionMinutos = gestor.tomarFechaHoraReserva(horaReservada); // le paso como parametro lista de las exposiciones seleccionadas
+            int duracionMinutos = gestor.tomarFechaHoraReserva(horaReservada, fechaHoraReservada); // le paso como parametro lista de las exposiciones seleccionadas
             TimeSpan duracion = TimeSpan.FromMinutes(duracionMinutos);
             lblDuracion.Text = duracion.ToString(@"hh\:mm") + " horas";
             panelDuracion.Visible = true;
@@ -454,7 +456,7 @@ namespace MuseoDSI.Formularios
 
         private void btn_Registrar_Click(object sender, EventArgs e)
         {
-            gestor.RegistrarReserva(Int32.Parse(cmb_Sede.SelectedValue.ToString()), Int32.Parse(cmb_Escuela.SelectedValue.ToString()), DateTime.Parse(dtpHoraReserva.Text.ToString()), DateTime.Parse(dtpFechaReserva.Text.ToString()), int.Parse(txt_visitantes.Text), Int32.Parse(cmb_TipoVisita.SelectedValue.ToString()), 1);
+            gestor.RegistrarReserva();
             MessageBox.Show("Reserva Creada Correctamente", "Reserva creada", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
@@ -485,11 +487,21 @@ namespace MuseoDSI.Formularios
       
         private void tomarFechaHoraReserva(object sender, EventArgs e)
         {
+           // string dateString = "15/12/2021";
             DateTime horaReservada = DateTime.Parse(dtpHoraReserva.Text.ToString());
-            MostrarDuracionEstimada(horaReservada);
+            DateTime fechaReserva = dtpFechaReserva.Value;
+            
+            MostrarDuracionEstimada(horaReservada, fechaReserva);
             MostrarVisitantes();
             btn_agregarGuia.Enabled = true;
             btn_QuitarGuia.Enabled = true;
+        }
+
+        private void txt_visitantes_TextChanged(object sender, EventArgs e)
+        {
+            int cantVisitantes = 0;
+            int.TryParse( txt_visitantes.Text.ToString(),  out cantVisitantes  );
+            gestor.TomarCantVisitantes(cantVisitantes);
         }
     }
 }

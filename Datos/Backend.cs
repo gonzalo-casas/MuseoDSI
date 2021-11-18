@@ -13,7 +13,7 @@ namespace MuseoDSI.Clases
         private static Backend instancia;
         SqlConnection Coneccion = new SqlConnection();
         SqlCommand cmd = new SqlCommand();
-        string Cadena_Coneccion = "Data Source=SQL5063.site4now.net;Initial Catalog=db_a7b308_museodsi;User Id=db_a7b308_museodsi_admin;Password=museodsi1";
+        string Cadena_Coneccion = @"Data Source=LAPTOP-HMIEF28D\SQLEXPRESS;Initial Catalog=db_a7b308_museodsi;Integrated Security=True";
 
         private void Conectar()
         {

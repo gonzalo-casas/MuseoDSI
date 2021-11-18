@@ -9,17 +9,22 @@ namespace MuseoDSI.LogicaDeNegocios
 {
     class EstrategiaCompleta : IEstrategiaTipoVisita
     {
-  
+
+        Sede sede = new Sede();
 
         public int CalcularDuracionEstimadaResv(List<Exposicion> ExposicionesSeleccionadas)
         {
+
             int duracionEstimada = 0;
+
             foreach (Exposicion expo in ExposicionesSeleccionadas)  // mientras haya exposiciones
             {
                 duracionEstimada += expo.BuscarDuracionResumidaObra();
             }
 
             return duracionEstimada;
+
+
         }
 
         public List<Exposicion> TomarExposiciones(Sede sedeSeleccionada)
